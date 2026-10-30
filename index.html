@@ -74,7 +74,15 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .sec-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .sec-head h3{display:flex;align-items:center;gap:8px;font-size:17px}
 .sec-head .cnt{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 7px;border-radius:999px;background:var(--navy);color:#fff;font-family:var(--f-mono);font-size:12.5px}
-.flow{list-style:none;margin:0;padding:18px 18px 6px;border:1px solid var(--line);border-radius:14px;background:var(--surface);position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px)}
+.side{display:grid;gap:14px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);min-width:0}
+.flow{list-style:none;margin:0;padding:18px 18px 6px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.lookup{display:grid;gap:10px;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.lookup h3{font-size:15px}.lookup .d{margin:-6px 0 0;color:var(--mute);font-size:12.5px}
+.lookup .f input{height:38px;font-size:14px}
+.lk-res{border-radius:10px;background:var(--navy-soft);padding:12px}
+.lk-st{font-weight:700;color:var(--navy);white-space:pre-wrap;margin-bottom:8px}
+.lk-res dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;margin:0;font-size:12.5px}.lk-res dt{color:var(--mute)}.lk-res dd{margin:0;overflow-wrap:anywhere}
+.refno{margin:14px 0 4px;font-size:16px}.refno b{font-family:var(--f-mono);color:var(--navy);font-size:18px}.refno-d{margin:0;color:var(--mute);font-size:13px}
 .flow li{position:relative;padding:0 0 22px 40px;min-width:0}
 .flow li::before{content:"";position:absolute;left:13px;top:28px;bottom:2px;width:2px;background:var(--line)}
 .flow li:last-child::before{display:none}
@@ -143,7 +151,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 @media (max-width:1180px){.formgrid{grid-template-columns:minmax(0,1fr)}.col-side{margin-top:14px}}
 @media (max-width:760px){
   .cards{grid-template-columns:1fr;gap:16px}.card3{min-height:200px}
-  .layout{grid-template-columns:1fr;gap:16px}.flow{position:static;display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;padding:14px 14px 0}.flow li::before{display:none}.flow li{padding-bottom:14px}
+  .layout{grid-template-columns:1fr;gap:16px}.side{position:static}.flow{position:static;display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;padding:14px 14px 0}.flow li::before{display:none}.flow li{padding-bottom:14px}
   .grid{grid-template-columns:1fr}
   .up{grid-template-columns:1fr}
   .card{padding:18px 16px}
@@ -184,7 +192,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     agree_t:'개인정보 수집 · 이용 동의', agree_body:'수집 항목: 담당자 이름, 부서 · 직책, 이메일, 전화번호\n이용 목적: 공급 제안 접수 · 검토 및 결과 회신\n보유 기간: 접수일부터 3년(또는 회사 정책에 따름) — 기간이 지나면 지체 없이 파기합니다.\n동의를 거부하실 수 있으나, 거부 시 제안을 접수할 수 없습니다.',
     agree:'개인정보 수집 · 이용에 동의합니다. (필수)', agree_req:'개인정보 수집 · 이용에 동의해야 제출할 수 있습니다.',
     prev:'이전', next:'다음', submit:'제출', sending:'제출 중…', miss:'「{step}」의 {fields} 항목을 입력하세요.', miss_att:'「{step}」의 {fields} 파일을 첨부하세요.', miss_go:'바로가기', item_n:'품목 {n}', email_fmt:'이메일 형식', required:'필수 항목을 입력해 주십시오.', email_bad:'이메일 형식을 확인해 주십시오.',
-    done:'제출이 완료되었습니다.', fail:'제출하지 못했습니다. 잠시 후 다시 「제출」 을 눌러 주십시오.', not_ready:'접수 주소가 아직 설정되지 않았습니다.',
+    done:'제출이 완료되었습니다.', refno:'접수번호', refno_d:'진행현황을 확인할 때 접수번호와 제출하신 이메일이 필요합니다. 메모해 두십시오.', lk_t:'진행현황 확인', lk_d:'접수번호와 제출하신 이메일을 입력하십시오.', lk_no:'접수번호', lk_email:'이메일', lk_btn:'조회', lk_busy:'조회 중…', lk_nf:'접수번호 또는 이메일이 맞지 않습니다.', lk_wait:'잠시 후 다시 조회해 주십시오.', lk_fail:'조회하지 못했습니다. 잠시 후 다시 시도해 주십시오.', lk_none:'접수되었습니다. 구매팀이 검토를 준비하고 있습니다.', lk_at:'접수', lk_upd:'갱신', lk_items:'제안 품목', fail:'제출하지 못했습니다. 잠시 후 다시 「제출」 을 눌러 주십시오.', not_ready:'접수 주소가 아직 설정되지 않았습니다.',
     foot:'천보 구매팀 · 원부자재 공급 제안' },
   en:{ inq:'1:1 Inquiry', inq_title:'Contact', inq_desc:'Please select the type of inquiry.', go:'Go', soon:'Coming soon',
     c1:'Product Purchase', c1s:'Products of Chunbo · Chunbo Advanced Materials · Chunbo BLS', c2:'Supply Proposal', c2s:'Submit a raw material supply proposal', c3:'Business Partnership', c3s:'Joint development · alliances',
@@ -203,7 +211,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     agree_t:'Consent to Collection and Use of Personal Information', agree_body:'Items: name, department · title, e-mail, phone\nPurpose: receiving, reviewing and replying to supply proposals\nRetention: 3 years from receipt (or per company policy), then destroyed without delay.\nYou may refuse consent, but the proposal cannot be submitted without it.',
     agree:'I agree to the collection and use of personal information. (Required)', agree_req:'You must agree to the personal information terms to submit.',
     prev:'Back', next:'Next', submit:'Submit', sending:'Submitting…', miss:'Please fill in {fields} in “{step}”.', miss_att:'Please attach {fields} in “{step}”.', miss_go:'Go', item_n:'Item {n}', email_fmt:'e-mail format', required:'Please fill in the required fields.', email_bad:'Please check the e-mail format.',
-    done:'Your proposal has been submitted.', fail:'Submission failed. Please press “Submit” again in a moment.', not_ready:'The submission address is not set yet.',
+    done:'Your proposal has been submitted.', refno:'Reference No.', refno_d:'You will need this reference number and your e-mail to check the progress. Please keep it.', lk_t:'Check progress', lk_d:'Enter your reference number and the e-mail you submitted.', lk_no:'Reference No.', lk_email:'E-mail', lk_btn:'Check', lk_busy:'Checking…', lk_nf:'The reference number or e-mail does not match.', lk_wait:'Please try again in a moment.', lk_fail:'Could not check the progress. Please try again later.', lk_none:'Received. Our purchasing team is preparing the review.', lk_at:'Submitted', lk_upd:'Updated', lk_items:'Items', fail:'Submission failed. Please press “Submit” again in a moment.', not_ready:'The submission address is not set yet.',
     foot:'Chunbo Purchasing Team · Raw Material Supply Proposal' },
   zh:{ inq:'一对一咨询', inq_title:'联系我们', inq_desc:'请选择咨询类型。', go:'前往', soon:'准备中',
     c1:'产品采购咨询', c1s:'Chunbo · Chunbo Advanced Materials · Chunbo BLS 产品采购', c2:'供应提案', c2s:'提交原辅材料供应提案', c3:'业务合作咨询', c3s:'共同开发 · 业务合作',
@@ -222,7 +230,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     agree_t:'个人信息收集及使用同意', agree_body:'收集项目：姓名、部门 · 职位、邮箱、电话\n使用目的：供应提案的受理、审核及结果回复\n保存期限：自受理之日起3年（或按公司政策），期满后立即销毁。\n您可以拒绝同意，但拒绝后将无法提交提案。',
     agree:'同意收集及使用个人信息。（必选）', agree_req:'须同意个人信息条款后方可提交。',
     prev:'上一步', next:'下一步', submit:'提交', sending:'提交中…', miss:'请填写「{step}」中的{fields}。', miss_att:'请在「{step}」中上传{fields}。', miss_go:'前往', item_n:'品目 {n}', email_fmt:'邮箱格式', required:'请填写必填项。', email_bad:'请确认邮箱格式。',
-    done:'提交已完成。', fail:'提交失败，请稍后再点击“提交”。', not_ready:'尚未设置受理地址。',
+    done:'提交已完成。', refno:'受理编号', refno_d:'查询进度时需要受理编号和提交时的邮箱，请妥善保存。', lk_t:'进度查询', lk_d:'请输入受理编号和提交时的邮箱。', lk_no:'受理编号', lk_email:'邮箱', lk_btn:'查询', lk_busy:'查询中…', lk_nf:'受理编号或邮箱不正确。', lk_wait:'请稍后再试。', lk_fail:'查询失败，请稍后再试。', lk_none:'已受理，采购部正在准备审核。', lk_at:'受理', lk_upd:'更新', lk_items:'提案品目', fail:'提交失败，请稍后再点击“提交”。', not_ready:'尚未设置受理地址。',
     foot:'Chunbo 采购部 · 原辅材料供应提案' }
   };
   const $ = (s, el = document) => el.querySelector(s);
@@ -266,7 +274,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   const totalSize = () => ATT.reduce((s, k) => s + (S.d.files[k] || []).reduce((a, f) => a + f.size, 0), 0);
   function viewForm(){
     const d = S.d;
-    if (S.step === 4) return `<div class="card done"><div class="mark">✓</div><h2>${esc(t('done'))}</h2></div>`;
+    if (S.step === 4) return `<div class="card done"><div class="mark">✓</div><h2>${esc(t('done'))}</h2>${S.lastNo ? `<p class="refno">${esc(t('refno'))} <b>${esc(S.lastNo)}</b></p><p class="refno-d">${esc(t('refno_d'))}</p>` : ''}</div>`;
     if (S.showErrs) { S.miss = missingAll(); validateAll(); }
     const sec = (id, title, desc, inner, head) => `<section class="card" id="sec-${id}">${head || `<h3>${esc(title)}</h3>`}<p class="d">${esc(desc || '')}</p>${inner}</section>`;
     const contact = sec('contact', t('s_contact'), t('s_contact_d'), `<div class="grid">
@@ -300,6 +308,28 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
       <div class="col-side">${att}${missBox}${S.failMsg ? `<div class="alert" role="alert">${esc(S.failMsg)}</div>` : ''}
       <div class="foot"><span class="spacer"></span><button type="button" class="btn pri" data-submit ${S.busy ? 'disabled' : ''}>${esc(S.busy ? t('sending') : t('submit'))}</button></div></div>`;
   }
+  function viewLookup(){
+    const L = S.lk || (S.lk = { no:'', email:'' }); const r = L.res;
+    return `<form class="lookup" id="lkForm" novalidate><h3>${esc(t('lk_t'))}</h3><p class="d">${esc(t('lk_d'))}</p>
+      <label class="f" for="lkNo"><span class="lab"><span>${esc(t('lk_no'))}</span></span><input id="lkNo" data-lk="no" value="${esc(L.no)}" placeholder="CBP-000000-000" autocomplete="off" spellcheck="false"></label>
+      <label class="f" for="lkEmail"><span class="lab"><span>${esc(t('lk_email'))}</span></span><input id="lkEmail" data-lk="email" type="email" value="${esc(L.email)}" placeholder="name@company.com" autocomplete="email"></label>
+      <button type="submit" class="btn sm pri" ${L.busy ? 'disabled' : ''}>${esc(L.busy ? t('lk_busy') : t('lk_btn'))}</button>
+      ${L.err ? `<p class="msg" role="alert">${esc(L.err)}</p>` : ''}
+      ${r ? `<div class="lk-res" role="status"><div class="lk-st">${esc(r.status || t('lk_none'))}</div>
+        <dl><dt>${esc(t('lk_no'))}</dt><dd>${esc(r.no)}</dd><dt>${esc(t('lk_items'))}</dt><dd>${esc(r.items)}</dd><dt>${esc(t('lk_at'))}</dt><dd>${esc(r.at)}</dd>${r.statusAt ? `<dt>${esc(t('lk_upd'))}</dt><dd>${esc(r.statusAt)}</dd>` : ''}</dl></div>` : ''}
+    </form>`;
+  }
+  async function lookup(){
+    const L = S.lk; if (!L || L.busy) return;
+    L.err = ''; L.res = null;
+    if (!L.no.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(L.email.trim())) { L.err = t('lk_nf'); render(); return; }
+    if (!/^https:\/\/script\.google(usercontent)?\.com\//.test(ENDPOINT)) { L.err = t('not_ready'); render(); return; }
+    L.busy = true; render();
+    try { const r = await fetch(ENDPOINT, { method:'POST', body: JSON.stringify({ action:'status', no:L.no.trim(), email:L.email.trim() }) }); const j = await r.json();
+      if (j && j.ok) L.res = j; else L.err = j && j.error === 'busy' ? t('lk_wait') : (j && j.error === 'action' ? t('lk_fail') : t('lk_nf'));
+    } catch { L.err = t('lk_fail'); }
+    L.busy = false; render();
+  }
   function viewSupply(){
     const cur = S.step === 4 ? 3 : (ATT.some((k) => (S.d.files[k] || []).length) ? 2 : 1);
     return `<section class="wrap wide intro" aria-labelledby="pTitle">
@@ -307,7 +337,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
       <h1 id="pTitle">${esc(t('title'))}</h1><p>${esc(t('lead'))}</p>
     </section>
     <main class="wrap wide main"><div class="layout">
-      <ol class="flow" aria-label="${esc(t('crumb'))}">${t('flow').map(([h, p], i) => `<li class="${i + 1 === cur ? 'on' : (i + 1 < cur ? 'past' : '')}"><span class="dot">${i + 1 < cur ? '✓' : i + 1}</span><span class="n">STEP ${i + 1}</span><b>${esc(h)}</b><small>${esc(p)}</small></li>`).join('')}</ol>
+      <aside class="side"><ol class="flow" aria-label="${esc(t('crumb'))}">${t('flow').map(([h, p], i) => `<li class="${i + 1 === cur ? 'on' : (i + 1 < cur ? 'past' : '')}"><span class="dot">${i + 1 < cur ? '✓' : i + 1}</span><span class="n">STEP ${i + 1}</span><b>${esc(h)}</b><small>${esc(p)}</small></li>`).join('')}</ol>${viewLookup()}</aside>
       <div id="form" class="formgrid">${viewForm()}</div>
     </div></main>`;
   }
@@ -356,6 +386,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
       const r = await fetch(ENDPOINT, { method:'POST', body: JSON.stringify(payload) });
       const j = await r.json();
       if (!j || !j.ok) throw new Error((j && j.error) || 'fail');
+      S.lastNo = j.no || ''; S.lk = { no:S.lastNo, email:S.d.email.trim() };
       S.step = 4; S.d = fresh(); S.miss = null; S.showErrs = false; S.errs = null;
     } catch (err) { S.failMsg = t('fail'); }
     S.busy = false; render(); $('#form') && $('#form').scrollIntoView({ block:'start' });
@@ -380,7 +411,8 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     const rm = e.target.closest('[data-rm]'); if (rm) { S.d.items.splice(+rm.dataset.rm, 1); render(); return; }
     const rf = e.target.closest('[data-rmf]'); if (rf) { const [k, j] = rf.dataset.rmf.split('|'); S.d.files[k].splice(+j, 1); render(); }
   });
-  document.addEventListener('input', (e) => { const el = e.target; if (!el.dataset || !el.dataset.k) return; if (el.dataset.i !== undefined) S.d.items[+el.dataset.i][el.dataset.k] = el.value; else S.d[el.dataset.k] = el.value; });
+  document.addEventListener('submit', (e) => { if (e.target.id === 'lkForm') { e.preventDefault(); lookup(); } });
+  document.addEventListener('input', (e) => { const el = e.target; if (el.dataset && el.dataset.lk) { S.lk[el.dataset.lk] = el.value; return; } if (!el.dataset || !el.dataset.k) return; if (el.dataset.i !== undefined) S.d.items[+el.dataset.i][el.dataset.k] = el.value; else S.d[el.dataset.k] = el.value; });
   document.addEventListener('change', (e) => {
     const el = e.target;
     if (el.dataset.k && el.tagName === 'SELECT') { if (el.dataset.i !== undefined) S.d.items[+el.dataset.i][el.dataset.k] = el.value; else S.d[el.dataset.k] = el.value; return; }
