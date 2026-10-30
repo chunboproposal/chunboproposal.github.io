@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CHUNBO Proposal</title>
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&family=Roboto+Condensed:wght@700&display=swap">
+<style>
+/* Layout: 로고 머리줄 → 문의 종류 3가지(카드) → 공급 제안: 안내(절차 · 제출 자료) + 4단계 양식 → 제출 완료 */
+:root{
+  color-scheme:light;
+  --bg:#f6f7fa; --surface:#ffffff; --surface2:#eef1f7; --line:#dde2ec; --line2:#c9d0dd;
+  --ink:#0d1b3d; --ink2:#3a4762; --mute:#6d7891; --faint:#98a1b5;
+  --navy:#14266e; --blue:#1b8fd6; --navy-soft:#e9ecf8;
+  --ok:#1d8a5a; --ok-soft:#e5f5ed; --bad:#c2303b; --bad-soft:#fbeaec; --warn:#b26b00; --warn-soft:#fff3df;
+  --grad:linear-gradient(135deg,#a3238e 0%,#6a2c91 45%,#13a3b5 100%);
+  --f-disp:"IBM Plex Sans KR","Noto Sans KR","Noto Sans SC","Malgun Gothic","Microsoft YaHei",sans-serif;
+  --f-body:"Noto Sans KR","Noto Sans SC","Malgun Gothic","Apple SD Gothic Neo","Microsoft YaHei",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6}
+body{word-break:keep-all;overflow-wrap:anywhere;min-height:100vh;display:flex;flex-direction:column}#view{flex:1 0 auto}
+#view:has(.home){background:var(--surface)}
+img{max-width:100%}
+[hidden]{display:none!important}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-disp);text-wrap:balance;color:var(--ink);margin:0}
+.top{background:var(--surface);border-bottom:1px solid var(--line)}
+.top .bar{display:flex;align-items:center;gap:28px;padding-block:0;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));min-height:68px;flex-wrap:nowrap}
+.logo{display:inline-flex;align-items:center;border:0;background:none;padding:0;cursor:pointer}
+.logo-svg{height:46px;width:auto;display:block}
+@media (max-width:480px){.logo-svg{height:36px}.top .bar{gap:10px}.lang button{padding:5px 8px;font-size:12px}}
+.spacer{flex:1}
+.lang{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface2)}
+.lang button{border:0;background:transparent;padding:5px 12px;border-radius:999px;font-size:13px;font-weight:600;color:var(--ink2);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--navy);color:#fff}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+/* 문의 종류 */
+.home{padding-block:10px 70px;background:var(--surface)}
+.sec-title{margin:40px 0 0;padding-bottom:18px;border-bottom:1px solid var(--ink);font-size:27px;font-weight:800}
+.sec-desc{margin:22px 0 24px;color:var(--ink2);font-size:16px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.card3{position:relative;min-height:250px;border:1px solid var(--line2);border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:26px;background:var(--surface);color:var(--ink)}
+button.card3{cursor:pointer;font:inherit}
+button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bccb}
+.card3 h3{margin:6px 0 0;font-size:22px;font-weight:800;letter-spacing:.04em}
+.card3 p{margin:0;font-size:14px;color:var(--mute)}
+.card3 .go{position:absolute;right:30px;bottom:24px;font-size:13px;color:var(--ink2);display:flex;align-items:center;gap:8px}
+.card3 .go i{display:inline-block;width:22px;height:1px;background:#888;position:relative}
+.card3 .go i::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:1px;background:#888;transform:rotate(30deg);transform-origin:right}
+.card3 .soon{position:absolute;top:18px;right:20px;padding:2px 10px;border-radius:999px;background:var(--surface2);color:var(--mute);font-size:12px;font-weight:700}
+.card3.dim{opacity:.75}
+.ico{width:64px;height:64px}
+/* 공급 제안 */
+.intro{padding-block:32px 8px}
+.crumb{font-size:13px;color:var(--mute)}
+.crumb button{border:0;background:none;padding:0;color:var(--blue);cursor:pointer;font-weight:600}
+.intro h1{font-size:clamp(26px,4vw,34px);font-weight:700;margin:8px 0 10px}
+.intro p{max-width:66ch;color:var(--ink2);margin:0}
+.layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:28px;align-items:start}
+.flow{list-style:none;margin:0;padding:18px 18px 6px;border:1px solid var(--line);border-radius:14px;background:var(--surface);position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px)}
+.flow li{position:relative;padding:0 0 22px 40px;min-width:0}
+.flow li::before{content:"";position:absolute;left:13px;top:28px;bottom:2px;width:2px;background:var(--line)}
+.flow li:last-child::before{display:none}
+.flow li .dot{position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--surface2);color:var(--mute);font-family:var(--f-mono);font-size:12px;font-weight:600}
+.flow li.on .dot{background:var(--navy);color:#fff}
+.flow li.past .dot{background:var(--ok);color:#fff}
+.flow li.past::before{background:var(--ok)}
+.flow .n{display:block;font-family:var(--f-mono);font-size:11.5px;color:var(--blue);letter-spacing:.06em}
+.flow b{display:block;font-family:var(--f-disp);font-size:15px;margin:2px 0 2px}
+.flow small{display:block;color:var(--mute);font-size:13px;line-height:1.5}
+.flow li.on b{color:var(--navy)}
+.main{padding-block:24px 60px}
+.formhead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:16px}
+.formhead h2{font-size:24px}
+.steps{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.steps li{display:flex;align-items:center;gap:7px;padding:6px 13px 6px 7px;border-radius:999px;background:var(--surface2);color:var(--mute);font-size:13px;font-weight:600}
+.steps li i{display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;border-radius:50%;background:var(--line2);color:#fff;font-style:normal;font-size:11.5px;font-family:var(--f-mono)}
+.steps li.on{background:var(--navy);color:#fff}.steps li.on i{background:#fff;color:var(--navy)}
+.steps li.done{color:var(--ink)}.steps li.done i{background:var(--ok)}
+.steps li.done.go{cursor:pointer}.steps li.done.go:hover{background:var(--navy-soft)}
+.card{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:22px 22px 24px}
+.card + .card{margin-top:14px}
+.card > h3{font-size:17px}
+.card > p.d{margin:4px 0 16px;color:var(--mute);font-size:13.5px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px}
+.grid .full{grid-column:1/-1}
+.f{display:flex;flex-direction:column;gap:6px;font-size:13.5px;font-weight:600;color:var(--ink2);min-width:0}
+.f .lab{display:flex;align-items:baseline;flex-wrap:wrap;gap:0 8px}
+.f .req{color:var(--bad);margin-left:2px}
+.f .hint{font-weight:400;color:var(--faint);font-size:11.5px}
+.f input,.f select,.f textarea{height:44px;border:1px solid var(--line2);border-radius:9px;padding:0 12px;background:var(--surface);color:var(--ink);font-weight:400;font-size:15px;min-width:0;width:100%}
+.f textarea{height:auto;min-height:100px;padding:10px 12px;resize:vertical;line-height:1.55}
+.f.err input,.f.err select,.f.err textarea{border-color:var(--bad)}
+.msg{color:var(--bad);font-size:12px;font-weight:600}
+.item{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--surface2)}
+.item + .item{margin-top:12px}
+.item header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.item header b{font-family:var(--f-disp)}
+.link{border:0;background:none;color:var(--bad);cursor:pointer;font-weight:600;font-size:13px;padding:4px}
+.up{display:grid;grid-template-columns:180px 1fr auto;align-items:center;gap:12px;padding:12px 14px;border:1px dashed var(--line2);border-radius:10px;background:var(--surface)}
+.up + .up{margin-top:10px}
+.up.drag{border-color:var(--navy);background:var(--navy-soft)}
+.up.err{border-color:var(--bad);background:var(--bad-soft)}
+.up b{font-size:14px}.up b small{display:block;font-weight:400;color:var(--mute);font-size:12px}
+.up .files{display:flex;flex-wrap:wrap;gap:6px;font-size:13px;color:var(--ink2);min-width:0}
+.up .files span{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:var(--surface2);max-width:100%;overflow-wrap:anywhere}
+.up .files span button{border:0;background:none;cursor:pointer;color:var(--mute);padding:0;font-size:15px;line-height:1}
+.up input[type=file]{position:absolute;width:1px;height:1px;opacity:0}
+.tag{font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px;margin-left:6px;vertical-align:1px}
+.tag.req{background:var(--warn-soft);color:var(--warn)}.tag.opt{background:var(--surface2);color:var(--mute)}
+.agree{max-height:150px;overflow:auto;padding:12px 14px;border-radius:10px;background:var(--surface2);font-size:13px;color:var(--ink2);white-space:pre-line;margin:16px 0 12px}
+.ck{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line2);border-radius:10px;font-weight:600;font-size:14px;cursor:pointer;background:var(--surface)}
+.ck input{width:17px;height:17px;accent-color:var(--navy);margin:0}
+.ck.on{border-color:var(--navy);background:var(--navy-soft)}
+.alert{padding:12px 16px;border-radius:10px;background:var(--bad-soft);color:var(--bad);font-weight:600;font-size:14px;margin-bottom:14px}
+.foot{display:flex;align-items:center;gap:10px;margin-top:20px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:10px;border:1px solid var(--line2);background:var(--surface);color:var(--ink);font-weight:700;cursor:pointer;font-size:14.5px}
+.btn:hover{border-color:var(--navy)}
+.btn.pri{background:var(--navy);border-color:var(--navy);color:#fff}
+.btn.sm{min-height:34px;padding:0 13px;font-size:13px}
+.btn:disabled{opacity:.55;cursor:default}
+.done{text-align:center;padding:56px 22px}
+.done .mark{width:64px;height:64px;border-radius:50%;margin:0 auto 16px;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;font-weight:900}
+.done h2{font-size:24px}
+@media (max-width:760px){
+  .cards{grid-template-columns:1fr;gap:16px}.card3{min-height:200px}
+  .layout{grid-template-columns:1fr;gap:16px}.flow{position:static;display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;padding:14px 14px 0}.flow li::before{display:none}.flow li{padding-bottom:14px}
+  .grid{grid-template-columns:1fr}
+  .up{grid-template-columns:1fr}
+  .card{padding:18px 16px}
+}
+@media (prefers-reduced-motion:no-preference){.btn,.ck,.up,button.card3{transition:border-color .15s,background .15s,box-shadow .15s}}
+</style>
+</head>
+<body>
+<header class="top"><div class="bar">
+  <button type="button" class="logo" data-home aria-label="(주)천보"><svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="2 4 210 68" role="img" aria-label="(주)천보 Your True Partner"><defs><clipPath id="cbIn"><ellipse cx="45" cy="37" rx="38" ry="30"/></clipPath></defs><g clip-path="url(#cbIn)" fill="#2b2d8f"><rect x="0" y="25.6" width="34" height="3.4"/><rect x="0" y="33.6" width="34" height="3.4"/><rect x="0" y="41.6" width="34" height="3.4"/><rect x="56" y="25.6" width="34" height="3.4"/><rect x="56" y="33.6" width="34" height="3.4"/><rect x="56" y="41.6" width="34" height="3.4"/></g><path d="M15.5 56.5 L30.5 13 L44.5 56.5 Z M44.5 56.5 L58.5 13 L73.5 56.5 Z" fill="#1f6b2c" stroke="#fff" stroke-width="1.4" stroke-linejoin="round" paint-order="stroke"/><ellipse cx="45" cy="37" rx="40" ry="32" fill="none" stroke="#2b2d8f" stroke-width="4"/><g fill="#eef6ec" font-family="Arial, Helvetica, sans-serif" font-size="18.5" text-anchor="middle"><text x="30.5" y="53.2">C</text><text x="58.8" y="53.2">B</text></g><text x="96.5" y="23.4" font-family="'Roboto Condensed','Arial Narrow',Arial,sans-serif" font-weight="700" font-size="13.2" fill="#28297e" textLength="108" lengthAdjust="spacingAndGlyphs">Your True Partner</text><text x="95" y="62.5" font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-weight="700" font-size="35" fill="#454545" textLength="113" lengthAdjust="spacingAndGlyphs">(주)천보</text></svg></button>
+  <span class="spacer"></span>
+  <div class="lang" role="group" aria-label="Language" id="langBox"></div>
+</div></header>
+<div id="view"></div>
+
+<script>
+(() => {
+  /* ══ 접수 주소(구글 Apps Script 웹 앱) — 배포 후 받은 주소를 넣습니다 ══ */
+  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwJKuIVgxgkXNe2okmOT9sdRuw_PfJP8Wza1IxtwdO0aVuYeZnrltZglpGmSYXnxQJk/exec';
+  const MAX_TOTAL = 20 * 1024 * 1024; /* 첨부 합계 20MB */
+  const ATT = ['msds','coa','intro','catalog','etc'];
+  const ATT_REQ = { msds:true, coa:true };
+  const T = {
+  ko:{ inq:'1:1 문의', inq_title:'문의하기', inq_desc:'문의 종류를 선택해 주십시오.', go:'바로가기', soon:'준비 중',
+    c1:'제품 구매 문의', c1s:'천보 · 천보신소재 · 천보비엘에스 제품 구매', c2:'공급 제안 문의', c2s:'원부자재 공급 제안서 제출', c3:'사업 협력 문의', c3s:'공동 개발 · 사업 제휴',
+    crumb_home:'문의하기', crumb:'공급 제안 문의', title:'원부자재 공급 제안',
+    lead:'천보 계열사는 품질과 공급 안정성을 갖춘 원부자재 협력사를 찾고 있습니다.',
+    flow:[['제안서 작성','제안 품목 입력'],['자료 첨부 · 제출','MSDS · CoA · 기본정보 제출'],['구매팀 검토 · 회신','2주 내 결과 회신'],['샘플 평가 안내','적합 건에 한해 안내 예정']],
+    n1:'제출 자료', n1l:['필수 첨부: MSDS, CoA(시험성적서)','선택 첨부: 회사소개서, 제품 카탈로그, 기타 자료','첨부 파일은 합계 20MB 이하 · PDF, Word, Excel, 이미지, ZIP'],
+    f_title:'공급 제안서', steps:['담당자 · 회사','제안 품목','첨부 자료','확인'],
+    s_contact:'담당자', s_contact_d:'검토 결과는 이 이메일로 회신드립니다.', contact:'이름', title_:'부서 · 직책', email:'이메일', phone:'전화번호',
+    s_company:'회사 정보', company:'회사명', country:'국가', countries:['대한민국','중국','일본','미국','독일','인도','기타'], select:'선택',
+    s_items:'제안 품목', s_items_d:'품목이 여러 개면 「품목 추가」로 이어서 적어 주십시오.', item:'품목',
+    name:'품목명', cas:'CAS No.', grade:'규격 · Grade · 순도', maker:'제조사', origin:'생산지(국가 · 공장)', capacity:'월 공급 가능 물량', pack:'포장 단위', lead_t:'리드타임', price:'단가 · 가격 조건', price_h:'선택 · 예) USD 2.5/kg CIF Busan', sample:'샘플 제공', sample_y:'가능', sample_n:'불가', strength:'제안 내용 · 강점', strength_h:'공급 이력, 품질 관리, 가격 경쟁력, 공급 안정성 등', add:'＋ 품목 추가', remove:'삭제',
+    s_att:'첨부 자료', s_att_d:'MSDS · CoA 는 필수입니다(품목이 여러 개면 모두 첨부). 합계 20MB 이하.', req:'필수', opt:'선택', pick:'파일 선택', drop:'여기로 끌어 놓거나 「파일 선택」',
+    att:{ msds:['MSDS','물질안전보건자료'], coa:['CoA','시험성적서'], intro:['회사소개서',''], catalog:['제품 카탈로그',''], etc:['기타 자료','인증서 · 제조공정 등 · 여러 개 첨부 가능'] },
+    att_req:'{n} 파일을 첨부해 주십시오.', too_big:'첨부 파일 합계가 20MB 를 넘습니다. 파일을 줄여 주십시오.',
+    agree_t:'개인정보 수집 · 이용 동의', agree_body:'수집 항목: 담당자 이름, 부서 · 직책, 이메일, 전화번호\n이용 목적: 공급 제안 접수 · 검토 및 결과 회신\n보유 기간: 접수일부터 3년(또는 회사 정책에 따름) — 기간이 지나면 지체 없이 파기합니다.\n동의를 거부하실 수 있으나, 거부 시 제안을 접수할 수 없습니다.',
+    agree:'개인정보 수집 · 이용에 동의합니다. (필수)', agree_req:'개인정보 수집 · 이용에 동의해야 제출할 수 있습니다.',
+    prev:'이전', next:'다음', submit:'제출', sending:'제출 중…', required:'필수 항목을 입력해 주십시오.', email_bad:'이메일 형식을 확인해 주십시오.',
+    done:'제출이 완료되었습니다.', fail:'제출하지 못했습니다. 잠시 후 다시 「제출」 을 눌러 주십시오.', not_ready:'접수 주소가 아직 설정되지 않았습니다.',
+    foot:'천보 구매팀 · 원부자재 공급 제안' },
+  en:{ inq:'1:1 Inquiry', inq_title:'Contact', inq_desc:'Please select the type of inquiry.', go:'Go', soon:'Coming soon',
+    c1:'Product Purchase', c1s:'Products of Chunbo · Chunbo Advanced Materials · Chunbo BLS', c2:'Supply Proposal', c2s:'Submit a raw material supply proposal', c3:'Business Partnership', c3s:'Joint development · alliances',
+    crumb_home:'Contact', crumb:'Supply Proposal', title:'Raw Material Supply Proposal',
+    lead:'Chunbo Group companies are looking for raw material partners who offer reliable quality and stable supply.',
+    flow:[['Fill in','Enter the proposed items'],['Attach · submit','Submit MSDS · CoA · basic information'],['Review · reply','Result within 2 weeks'],['Sample evaluation','Guidance for accepted proposals only']],
+    n1:'Documents', n1l:['Required: MSDS, CoA (Certificate of Analysis)','Optional: company profile, product catalog, others','Attachments up to 20MB in total · PDF, Word, Excel, images, ZIP'],
+    f_title:'Supply Proposal', steps:['Contact · Company','Proposed Items','Attachments','Done'],
+    s_contact:'Contact Person', s_contact_d:'We will reply to this e-mail.', contact:'Name', title_:'Department · Title', email:'E-mail', phone:'Phone',
+    s_company:'Company', company:'Company name', country:'Country', countries:['Korea','China','Japan','USA','Germany','India','Other'], select:'Select',
+    s_items:'Proposed Items', s_items_d:'For several items, use “Add item”.', item:'Item',
+    name:'Item name', cas:'CAS No.', grade:'Specification · Grade · Purity', maker:'Manufacturer', origin:'Origin (country · plant)', capacity:'Monthly supply capacity', pack:'Packing', lead_t:'Lead time', price:'Price · terms', price_h:'Optional · e.g. USD 2.5/kg CIF Busan', sample:'Sample', sample_y:'Available', sample_n:'Not available', strength:'Proposal · strengths', strength_h:'Supply record, quality control, price, supply stability, etc.', add:'＋ Add item', remove:'Remove',
+    s_att:'Attachments', s_att_d:'MSDS and CoA are required (for every item). Up to 20MB in total.', req:'Required', opt:'Optional', pick:'Choose file', drop:'Drop files here or “Choose file”',
+    att:{ msds:['MSDS','Material Safety Data Sheet'], coa:['CoA','Certificate of Analysis'], intro:['Company profile',''], catalog:['Product catalog',''], etc:['Others','Certificates · process, etc. · multiple files allowed'] },
+    att_req:'Please attach {n}.', too_big:'Attachments exceed 20MB in total. Please reduce the files.',
+    agree_t:'Consent to Collection and Use of Personal Information', agree_body:'Items: name, department · title, e-mail, phone\nPurpose: receiving, reviewing and replying to supply proposals\nRetention: 3 years from receipt (or per company policy), then destroyed without delay.\nYou may refuse consent, but the proposal cannot be submitted without it.',
+    agree:'I agree to the collection and use of personal information. (Required)', agree_req:'You must agree to the personal information terms to submit.',
+    prev:'Back', next:'Next', submit:'Submit', sending:'Submitting…', required:'Please fill in the required fields.', email_bad:'Please check the e-mail format.',
+    done:'Your proposal has been submitted.', fail:'Submission failed. Please press “Submit” again in a moment.', not_ready:'The submission address is not set yet.',
+    foot:'Chunbo Purchasing Team · Raw Material Supply Proposal' },
+  zh:{ inq:'一对一咨询', inq_title:'联系我们', inq_desc:'请选择咨询类型。', go:'前往', soon:'准备中',
+    c1:'产品采购咨询', c1s:'Chunbo · Chunbo Advanced Materials · Chunbo BLS 产品采购', c2:'供应提案', c2s:'提交原辅材料供应提案', c3:'业务合作咨询', c3s:'共同开发 · 业务合作',
+    crumb_home:'联系我们', crumb:'供应提案', title:'原辅材料供应提案',
+    lead:'Chunbo 集团各公司正在寻找品质可靠、供应稳定的原辅材料合作伙伴。',
+    flow:[['填写提案','填写提案品目'],['附件 · 提交','提交 MSDS · CoA · 基本信息'],['审核 · 回复','2周内回复结果'],['样品评估通知','仅限合格提案另行通知']],
+    n1:'提交资料', n1l:['必须：MSDS、CoA（检验报告）','可选：公司介绍、产品目录、其他资料','附件合计20MB以内 · PDF、Word、Excel、图片、ZIP'],
+    f_title:'供应提案', steps:['负责人 · 公司','提案品目','附件','完成'],
+    s_contact:'负责人', s_contact_d:'审核结果将回复至此邮箱。', contact:'姓名', title_:'部门 · 职位', email:'邮箱', phone:'电话',
+    s_company:'公司信息', company:'公司名称', country:'国家', countries:['韩国','中国','日本','美国','德国','印度','其他'], select:'请选择',
+    s_items:'提案品目', s_items_d:'品目较多时，请点击“添加品目”。', item:'品目',
+    name:'品名', cas:'CAS No.', grade:'规格 · 等级 · 纯度', maker:'生产商', origin:'产地（国家 · 工厂）', capacity:'月供应能力', pack:'包装', lead_t:'交货期', price:'价格 · 条件', price_h:'可选 · 例）USD 2.5/kg CIF Busan', sample:'样品', sample_y:'可提供', sample_n:'不可提供', strength:'提案内容 · 优势', strength_h:'供应业绩、质量管理、价格竞争力、供应稳定性等', add:'＋ 添加品目', remove:'删除',
+    s_att:'附件', s_att_d:'MSDS 和 CoA 为必须（多个品目请全部附上）。合计20MB以内。', req:'必须', opt:'可选', pick:'选择文件', drop:'拖放至此或点击“选择文件”',
+    att:{ msds:['MSDS','化学品安全技术说明书'], coa:['CoA','检验报告'], intro:['公司介绍',''], catalog:['产品目录',''], etc:['其他资料','证书 · 工艺等 · 可上传多个文件'] },
+    att_req:'请附上 {n} 文件。', too_big:'附件合计超过20MB，请减少文件。',
+    agree_t:'个人信息收集及使用同意', agree_body:'收集项目：姓名、部门 · 职位、邮箱、电话\n使用目的：供应提案的受理、审核及结果回复\n保存期限：自受理之日起3年（或按公司政策），期满后立即销毁。\n您可以拒绝同意，但拒绝后将无法提交提案。',
+    agree:'同意收集及使用个人信息。（必选）', agree_req:'须同意个人信息条款后方可提交。',
+    prev:'上一步', next:'下一步', submit:'提交', sending:'提交中…', required:'请填写必填项。', email_bad:'请确认邮箱格式。',
+    done:'提交已完成。', fail:'提交失败，请稍后再点击“提交”。', not_ready:'尚未设置受理地址。',
+    foot:'Chunbo 采购部 · 原辅材料供应提案' }
+  };
+  const $ = (s, el = document) => el.querySelector(s);
+  const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+  let lang = 'ko'; try { const l = localStorage.getItem('cbp-lang'); if (T[l]) lang = l; else if (/^zh/i.test(navigator.language)) lang = 'zh'; else if (!/^ko/i.test(navigator.language)) lang = 'en'; } catch { /* 기본 */ }
+  const t = (k) => T[lang][k] ?? T.ko[k] ?? k;
+  const blankItem = () => ({ name:'', cas:'', grade:'', maker:'', origin:'', capacity:'', pack:'', lead:'', price:'', sample:'y', strength:'' });
+  const fresh = () => ({ contact:'', title:'', email:'', phone:'', company:'', country:'', items:[blankItem()], files:{}, agree:false });
+  const S = { view: location.hash === '#supply' ? 'supply' : 'home', step:1, errs:null, busy:false, failMsg:'', d:fresh() };
+  const ICON = {
+    flask:'<svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1c2340" stroke-width="2" aria-hidden="true"><path d="M25 8h14M27 8v16L13 50a5 5 0 0 0 4 7h30a5 5 0 0 0 4-7L37 24V8"/><path d="M18 40c6-3 10 3 16 0s10 2 13 0" stroke="#6a2c91"/><circle cx="26" cy="47" r="3" stroke="#a3238e"/><circle cx="38" cy="49" r="3" stroke="#13a3b5"/></svg>',
+    supply:'<svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1c2340" stroke-width="2" aria-hidden="true"><path d="M10 26l22-12 22 12v22L32 60 10 48z"/><path d="M10 26l22 12 22-12M32 38v22" stroke="#6a2c91"/><path d="M40 8h14v14" stroke="#13a3b5"/><path d="M54 8L42 20" stroke="#13a3b5"/></svg>',
+    hand:'<svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1c2340" stroke-width="2" aria-hidden="true"><path d="M6 30l10-10 10 4 6-4 8 2 18 10"/><path d="M58 32l-8 8-12-10-8 6-6-4" stroke="#6a2c91"/><path d="M16 20l-6 16 14 12 6 4 6-2" /><path d="M30 46l6 4 4-2M36 42l6 4 4-2" stroke="#13a3b5"/></svg>'
+  };
+
+  /* ── 문의 종류 ── */
+  function viewHome(){
+    return `<section class="home"><div class="wrap">
+      <h2 class="sec-title">${esc(t('inq_title'))}</h2>
+      <p class="sec-desc">${esc(t('inq_desc'))}</p>
+      <div class="cards">
+        <div class="card3 dim"><span class="soon">${esc(t('soon'))}</span>${ICON.flask}<h3>${esc(t('c1'))}</h3><p>${esc(t('c1s'))}</p></div>
+        <button type="button" class="card3" data-go="supply">${ICON.supply}<h3>${esc(t('c2'))}</h3><p>${esc(t('c2s'))}</p><span class="go">${esc(t('go'))} <i></i></span></button>
+        <div class="card3 dim"><span class="soon">${esc(t('soon'))}</span>${ICON.hand}<h3>${esc(t('c3'))}</h3><p>${esc(t('c3s'))}</p></div>
+      </div></div></section>`;
+  }
+
+  /* ── 공급 제안 ── */
+  const fld = (key, label, o = {}) => {
+    const v = o.val !== undefined ? o.val : S.d[key]; const ek = o.ek || key; const err = S.errs && S.errs[ek];
+    const id = `f_${o.idx !== undefined ? `${o.dk}_${o.idx}` : key}`;
+    const attrs = `id="${id}" data-k="${o.dk || key}"${o.idx !== undefined ? ` data-i="${o.idx}"` : ''}`;
+    const head = `<span class="lab"><span>${esc(label)}${o.req ? '<span class="req">*</span>' : ''}</span>${o.hint ? `<span class="hint">${esc(o.hint)}</span>` : ''}</span>`;
+    let ctl;
+    if (o.type === 'area') ctl = `<textarea ${attrs} placeholder="${esc(o.ph || '')}">${esc(v)}</textarea>`;
+    else if (o.type === 'select') ctl = `<select ${attrs}>${o.options.map(([a, b]) => `<option value="${esc(a)}"${String(v) === String(a) ? ' selected' : ''}>${esc(b)}</option>`).join('')}</select>`;
+    else ctl = `<input ${attrs} type="${o.type || 'text'}" value="${esc(v)}" placeholder="${esc(o.ph || '')}"${o.ac ? ` autocomplete="${o.ac}"` : ''}>`;
+    return `<label class="f${err ? ' err' : ''}${o.full ? ' full' : ''}" for="${id}">${head}${ctl}${err ? `<span class="msg">${esc(err)}</span>` : ''}</label>`;
+  };
+  const sizeText = (b) => (b > 1048576 ? `${(b / 1048576).toFixed(1)}MB` : `${Math.max(1, Math.round(b / 1024))}KB`);
+  const totalSize = () => ATT.reduce((s, k) => s + (S.d.files[k] || []).reduce((a, f) => a + f.size, 0), 0);
+  function viewForm(){
+    const d = S.d, st = S.step;
+    const steps = `<ol class="steps">${t('steps').map((s, i) => { const back = i + 1 < st && st < 4 && !S.busy; return `<li class="${i + 1 === st ? 'on' : (i + 1 < st ? 'done' : '')}${back ? ' go' : ''}"${back ? ` data-goto="${i + 1}" role="button" tabindex="0"` : ''}><i>${i + 1 < st ? '✓' : i + 1}</i>${esc(s)}</li>`; }).join('')}</ol>`;
+    let body = '';
+    if (st === 1) body = `
+      <div class="card"><h3>${esc(t('s_contact'))}</h3><p class="d">${esc(t('s_contact_d'))}</p><div class="grid">
+        ${fld('contact', t('contact'), { req:1, ac:'name' })}${fld('title', t('title_'), { req:1, ac:'organization-title' })}
+        ${fld('email', t('email'), { req:1, type:'email', ph:'name@company.com', ac:'email' })}${fld('phone', t('phone'), { req:1, type:'tel', ph:'+82 10-0000-0000', ac:'tel' })}
+      </div></div>
+      <div class="card"><h3>${esc(t('s_company'))}</h3><p class="d"></p><div class="grid">
+        ${fld('company', t('company'), { req:1, ac:'organization' })}
+        ${fld('country', t('country'), { req:1, type:'select', options:[['', t('select')], ...t('countries').map((x) => [x, x])] })}
+      </div></div>`;
+    else if (st === 2) body = `<div class="card"><h3>${esc(t('s_items'))}</h3><p class="d">${esc(t('s_items_d'))}</p>
+      ${d.items.map((it, i) => `<div class="item"><header><b>${esc(t('item'))} ${i + 1}</b><span class="spacer"></span>${d.items.length > 1 ? `<button type="button" class="link" data-rm="${i}">${esc(t('remove'))}</button>` : ''}</header><div class="grid">
+        ${fld('', t('name'), { req:1, dk:'name', idx:i, ek:`name${i}`, val:it.name })}${fld('', t('cas'), { dk:'cas', idx:i, val:it.cas, ph:'616-38-6' })}
+        ${fld('', t('grade'), { req:1, dk:'grade', idx:i, ek:`grade${i}`, val:it.grade })}${fld('', t('maker'), { req:1, dk:'maker', idx:i, ek:`maker${i}`, val:it.maker })}
+        ${fld('', t('origin'), { req:1, dk:'origin', idx:i, ek:`origin${i}`, val:it.origin })}${fld('', t('capacity'), { req:1, dk:'capacity', idx:i, ek:`capacity${i}`, val:it.capacity, ph:'50 MT' })}
+        ${fld('', t('pack'), { dk:'pack', idx:i, val:it.pack, ph:'200kg Drum / ISO Tank' })}${fld('', t('lead_t'), { dk:'lead', idx:i, val:it.lead, ph:'4 weeks' })}
+        ${fld('', t('price'), { dk:'price', idx:i, val:it.price, hint:t('price_h') })}${fld('', t('sample'), { dk:'sample', idx:i, val:it.sample, type:'select', options:[['y', t('sample_y')], ['n', t('sample_n')]] })}
+        ${fld('', t('strength'), { req:1, dk:'strength', idx:i, ek:`strength${i}`, val:it.strength, type:'area', full:1, ph:t('strength_h') })}
+      </div></div>`).join('')}
+      <div class="foot" style="margin-top:12px"><button type="button" class="btn sm" data-add>${esc(t('add'))}</button></div></div>`;
+    else if (st === 3) body = `<div class="card"><h3>${esc(t('s_att'))}</h3><p class="d">${esc(t('s_att_d'))}</p>
+      ${ATT.map((k) => { const [a, b] = t('att')[k]; const list = d.files[k] || []; const err = S.errs && S.errs[`att_${k}`];
+        return `<div class="up${err ? ' err' : ''}" data-drop="${k}"><b>${esc(a)}<span class="tag ${ATT_REQ[k] ? 'req' : 'opt'}">${esc(ATT_REQ[k] ? t('req') : t('opt'))}</span>${b ? `<small>${esc(b)}</small>` : ''}</b>
+          <div class="files">${list.map((f, j) => `<span>📎 ${esc(f.name)} <small>${sizeText(f.size)}</small><button type="button" data-rmf="${k}|${j}" aria-label="${esc(t('remove'))}">×</button></span>`).join('') || `<span style="background:none;padding:0" class="${err ? 'msg' : ''}">${esc(err || t('drop'))}</span>`}</div>
+          <label class="btn sm">${esc(t('pick'))}<input type="file" multiple data-file="${k}"></label></div>`; }).join('')}
+      ${S.errs && S.errs.size ? `<p class="msg">${esc(S.errs.size)}</p>` : ''}
+      <div class="agree">${esc(t('agree_body'))}</div>
+      <label class="ck ${d.agree ? 'on' : ''}" for="agree"><input type="checkbox" id="agree" data-agree ${d.agree ? 'checked' : ''}>${esc(t('agree'))}</label>
+      ${S.errs && S.errs.agree ? `<p class="msg">${esc(S.errs.agree)}</p>` : ''}
+      ${S.failMsg ? `<div class="alert" role="alert" style="margin:16px 0 0">${esc(S.failMsg)}</div>` : ''}</div>`;
+    else body = `<div class="card done"><div class="mark">✓</div><h2>${esc(t('done'))}</h2></div>`;
+    const foot = st === 4 ? '' : `<div class="foot">${st > 1 ? `<button type="button" class="btn" data-prev ${S.busy ? 'disabled' : ''}>${esc(t('prev'))}</button>` : ''}<span class="spacer"></span>
+      ${st < 3 ? `<button type="button" class="btn pri" data-next>${esc(t('next'))} →</button>` : `<button type="button" class="btn pri" data-submit ${S.busy ? 'disabled' : ''}>${esc(S.busy ? t('sending') : t('submit'))}</button>`}</div>`;
+    return `<div class="formhead"><h2>${esc(t('f_title'))}</h2>${steps}</div>
+      ${S.errs && Object.keys(S.errs).length && st < 4 ? `<div class="alert" role="alert">${esc(t('required'))}</div>` : ''}
+      ${body}${foot}`;
+  }
+  function viewSupply(){
+    const cur = S.step <= 2 ? 1 : (S.step === 3 ? 2 : 3);
+    return `<section class="wrap intro" aria-labelledby="pTitle">
+      <div class="crumb"><button type="button" data-home>${esc(t('crumb_home'))}</button> › ${esc(t('crumb'))}</div>
+      <h1 id="pTitle">${esc(t('title'))}</h1><p>${esc(t('lead'))}</p>
+    </section>
+    <main class="wrap main"><div class="layout">
+      <ol class="flow" aria-label="${esc(t('crumb'))}">${t('flow').map(([h, p], i) => `<li class="${i + 1 === cur ? 'on' : (i + 1 < cur ? 'past' : '')}"><span class="dot">${i + 1 < cur ? '✓' : i + 1}</span><span class="n">STEP ${i + 1}</span><b>${esc(h)}</b><small>${esc(p)}</small></li>`).join('')}</ol>
+      <div id="form">${viewForm()}</div>
+    </div></main>`;
+  }
+  function validate(step){
+    const d = S.d, e = {}; const req = (k, v) => { if (!String(v ?? '').trim()) e[k] = t('required'); };
+    if (step === 1) { ['contact','title','email','phone','company','country'].forEach((k) => req(k, d[k])); if (d.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email.trim())) e.email = t('email_bad'); }
+    if (step === 2) d.items.forEach((it, i) => ['name','grade','maker','origin','capacity','strength'].forEach((k) => req(`${k}${i}`, it[k])));
+    if (step === 3) {
+      ATT.forEach((k) => { if (ATT_REQ[k] && !(d.files[k] || []).length) e[`att_${k}`] = t('att_req').replace('{n}', t('att')[k][0]); });
+      if (totalSize() > MAX_TOTAL) e.size = t('too_big');
+      if (!d.agree) e.agree = t('agree_req');
+    }
+    S.errs = e; return !Object.keys(e).length;
+  }
+  const toB64 = (file) => new Promise((ok, no) => { const r = new FileReader(); r.onload = () => ok(String(r.result).split(',')[1] || ''); r.onerror = () => no(r.error); r.readAsDataURL(file); });
+  async function submit(){
+    if (S.busy) return;
+    if (!validate(3)) { render(); return; }
+    if (!/^https:\/\/script\.google(usercontent)?\.com\//.test(ENDPOINT)) { S.failMsg = t('not_ready'); render(); return; }
+    S.busy = true; S.failMsg = ''; render();
+    try {
+      const d = S.d; const files = [];
+      for (const k of ATT) for (const f of (d.files[k] || [])) files.push({ kind:k, name:f.name, type:f.type || 'application/octet-stream', size:f.size, data: await toB64(f.file) });
+      const payload = { action:'submit', lang, contact:d.contact.trim(), title:d.title.trim(), email:d.email.trim(), phone:d.phone.trim(), company:d.company.trim(), country:d.country,
+        items:d.items.map((x) => ({ ...x, name:x.name.trim() })), agree:true, files, hp:'' };
+      const r = await fetch(ENDPOINT, { method:'POST', body: JSON.stringify(payload) });
+      const j = await r.json();
+      if (!j || !j.ok) throw new Error((j && j.error) || 'fail');
+      S.step = 4; S.d = fresh();
+    } catch (err) { S.failMsg = t('fail'); }
+    S.busy = false; render(); $('#form') && $('#form').scrollIntoView({ block:'start' });
+  }
+
+  /* ── 그리기 · 이벤트 ── */
+  function render(){
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+    $('#langBox').innerHTML = [['ko','한국어'],['en','English'],['zh','中文']].map(([k, l]) => `<button type="button" data-lang="${k}" aria-pressed="${lang === k}">${l}</button>`).join('');
+    $('#view').innerHTML = S.view === 'supply' ? viewSupply() : viewHome();
+  }
+  const goView = (v) => { S.view = v; if (v === 'supply' && S.step === 4) { S.step = 1; } try { history.replaceState(null, '', v === 'supply' ? '#supply' : location.pathname); } catch { location.hash = v === 'supply' ? 'supply' : ''; } render(); window.scrollTo(0, 0); };
+  const addFiles = (k, list) => { const arr = S.d.files[k] || (S.d.files[k] = []); [...list].forEach((f) => arr.push({ name:f.name, size:f.size, type:f.type, file:f })); if (S.errs) { delete S.errs[`att_${k}`]; delete S.errs.size; } render(); };
+  document.addEventListener('click', (e) => {
+    const lb = e.target.closest('[data-lang]'); if (lb) { lang = lb.dataset.lang; try { localStorage.setItem('cbp-lang', lang); } catch { /* 무시 */ } render(); return; }
+    if (e.target.closest('[data-home]')) { goView('home'); return; }
+    if (e.target.closest('[data-go="supply"]')) { goView('supply'); return; }
+    if (e.target.closest('[data-next]')) { if (validate(S.step)) { S.step += 1; S.errs = null; } render(); $('#form').scrollIntoView({ block:'start' }); return; }
+    const gt = e.target.closest('[data-goto]'); if (gt) { S.step = +gt.dataset.goto; S.errs = null; S.failMsg = ''; render(); $('#form').scrollIntoView({ block:'start' }); return; }
+    if (e.target.closest('[data-prev]')) { S.step -= 1; S.errs = null; S.failMsg = ''; render(); $('#form').scrollIntoView({ block:'start' }); return; }
+    if (e.target.closest('[data-submit]')) { submit(); return; }
+    if (e.target.closest('[data-add]')) { S.d.items.push(blankItem()); render(); return; }
+    const rm = e.target.closest('[data-rm]'); if (rm) { S.d.items.splice(+rm.dataset.rm, 1); render(); return; }
+    const rf = e.target.closest('[data-rmf]'); if (rf) { const [k, j] = rf.dataset.rmf.split('|'); S.d.files[k].splice(+j, 1); render(); }
+  });
+  document.addEventListener('keydown', (e) => { const g = e.target.closest && e.target.closest('[data-goto]'); if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); g.click(); } });
+  document.addEventListener('input', (e) => { const el = e.target; if (!el.dataset || !el.dataset.k) return; if (el.dataset.i !== undefined) S.d.items[+el.dataset.i][el.dataset.k] = el.value; else S.d[el.dataset.k] = el.value; });
+  document.addEventListener('change', (e) => {
+    const el = e.target;
+    if (el.dataset.k && el.tagName === 'SELECT') { if (el.dataset.i !== undefined) S.d.items[+el.dataset.i][el.dataset.k] = el.value; else S.d[el.dataset.k] = el.value; return; }
+    if (el.dataset.file) { addFiles(el.dataset.file, el.files); return; }
+    if (el.hasAttribute('data-agree')) { S.d.agree = el.checked; if (S.errs) delete S.errs.agree; render(); }
+  });
+  document.addEventListener('dragover', (e) => { const z = e.target.closest('[data-drop]'); if (!z) return; e.preventDefault(); z.classList.add('drag'); });
+  document.addEventListener('dragleave', (e) => { const z = e.target.closest('[data-drop]'); if (z) z.classList.remove('drag'); });
+  document.addEventListener('drop', (e) => { const z = e.target.closest('[data-drop]'); if (!z) return; e.preventDefault(); addFiles(z.dataset.drop, e.dataTransfer.files); });
+  window.addEventListener('hashchange', () => { const v = location.hash === '#supply' ? 'supply' : 'home'; if (v !== S.view) { S.view = v; render(); } });
+  render();
+})();
+</script>
+</body>
+</html>
