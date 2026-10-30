@@ -103,6 +103,11 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .ip-prep{margin-top:14px;padding:12px 14px;border:1px dashed var(--line2);border-radius:12px}.ip-prep b{font-size:13.5px}.ip-prep ul{margin:6px 0 0;padding-left:18px;font-size:13px;color:var(--ink2);line-height:1.7}
 .ip-f{display:flex;justify-content:flex-end;margin-top:14px}
 .intro-pop{width:min(620px,100%)}
+.ip-ex{display:flex;align-items:center;gap:12px;margin-top:14px;padding:12px 14px;border-radius:12px;background:var(--navy-soft);border:1px solid var(--line)}.ip-ex b{font-size:14px;color:var(--navy)}.ip-ex p{margin:3px 0 0;font-size:13px;color:var(--ink2);line-height:1.6}.ip-ex .btn{flex:none}
+.kind-pills button{height:34px;padding:0 16px;font-family:var(--f-body);font-size:13.5px}
+.f select:invalid{color:var(--mute)}
+.up .files:empty{display:none}
+@media (max-width:560px){.ip-ex{flex-direction:column;align-items:flex-start}}
 .formgrid{display:grid;grid-template-columns:minmax(300px,0.85fr) minmax(0,1.3fr) minmax(320px,1fr);gap:20px;align-items:start}
 .col-a,.col-b,.col-c{min-width:0;display:grid;gap:14px}
 .formgrid > .done{grid-column:1/-1}
@@ -111,7 +116,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .col-b{grid-template-rows:minmax(0,1fr)}
 .col-b > #sec-items{display:flex;flex-direction:column}
 #sec-items > .item:last-of-type{flex:1 1 auto;display:flex;flex-direction:column}
-#sec-items > .item:last-of-type > .grid{flex:1 1 auto;grid-template-rows:repeat(7,auto) minmax(0,1fr)}
+#sec-items > .item:last-of-type > .grid{flex:1 1 auto;grid-template-rows:repeat(var(--irows,8),auto) minmax(0,1fr)}
 #sec-items > .item:last-of-type .f.full textarea{flex:1 1 auto;min-height:100px}
 .stbtn{display:inline-flex;align-items:center;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);cursor:pointer;font:inherit}
 .stbtn span{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:999px;font-size:13px;font-weight:700;color:var(--navy);line-height:1.6;background:var(--surface)}
@@ -228,7 +233,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     flow:[['공급 제안 프로세스 소개','진행 절차 · 준비 자료 안내'],['제안서 작성','제안 품목 입력 · 자료 첨부'],['구매팀 검토 · 회신','2주 내 결과 회신'],['샘플 평가 안내','적합 건에 한해 안내 예정']],
     intro_t:'공급 제안 프로세스', intro_l:[['제안서 작성','담당자 · 회사 정보와 제안 품목을 입력하고 자료를 첨부해 제출합니다. 제출하면 접수번호가 안내되고 확인 메일이 발송됩니다.'],['구매팀 검토 · 회신','접수일부터 2주 이내에 검토 결과를 이메일로 회신드립니다. 진행 상황은 「진행현황 확인」에서 접수번호와 이메일로 조회할 수 있습니다.'],['샘플 평가 안내','검토 결과 적합한 제안에 한해 샘플 평가 절차를 안내드립니다.']], intro_prep:'준비 자료', intro_ok:'확인',
     n1:'제출 자료', n1l:['필수 첨부: MSDS, CoA(시험성적서)','선택 첨부: 회사소개서, 제품 카탈로그, 기타 자료(특허 · 인증 등)','첨부 파일은 합계 20MB 이하 · PDF, Word, Excel, 이미지, ZIP'],
-    f_title:'공급 제안서', steps:['담당자 · 회사','제안 품목','첨부 자료','확인'],
+    f_title:'공급 제안서', kind_new:'신규 업체 제안', kind_ex:'기존 거래업체 개선 제안', kind_lab:'제안 구분', mainItem:'주력 아이템', mainItem_ph:'예) DMC, EMC, LiPF6', category:'품목군', cat_ph:'선택', sale:'판매 구분', sale_ph:'선택', sale_trade:'상품판매', sale_mfg:'제조판매', curItem:'기존 공급 제품', curItem_ph:'현재 천보에 공급 중인 제품', improve:'기존 대비 개선점', improve_ph:'품질 · 가격 · 공급 조건 등 기존 제품보다 나은 점', ex_t:'기존 거래업체도 제안할 수 있습니다', ex_d:'현재 천보에 공급 중인 제품보다 품질 · 가격 · 공급 조건이 더 나은 제품이 있다면 「기존 거래업체 개선 제안」으로 알려 주십시오.', ex_go:'기존 거래업체 개선 제안하기', steps:['담당자 · 회사','제안 품목','첨부 자료','확인'],
     s_contact:'담당자', s_contact_d:'검토 결과는 이 이메일로 회신드립니다.', contact:'이름', title_:'부서 · 직책', email:'이메일', phone:'전화번호',
     s_company:'회사 정보', company:'회사명', role:'공급사 / 제조사', role_ph:'구분 선택', role_sup:'공급사', role_mak:'제조사', role_req:'공급사 / 제조사 중 하나를 고르십시오.', website:'홈페이지 주소', website_h:'선택', country:'국가', countries:['대한민국','중국','일본','미국','독일','인도','기타'], select:'선택',
     s_items:'제안 품목', s_items_d:'품목이 여러 개면 「품목 추가」로 이어서 적어 주십시오.', item:'품목',
@@ -248,7 +253,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     flow:[['Proposal process','Steps · documents to prepare'],['Write proposal','Enter items · attach documents'],['Review · reply','Result within 2 weeks'],['Sample evaluation','Guidance for accepted proposals only']],
     intro_t:'Supply Proposal Process', intro_l:[['Write proposal','Enter your contact, company and proposed items, attach the documents and submit. A reference number and a confirmation e-mail will be sent.'],['Review · reply','We will reply by e-mail within 2 weeks of receipt. You can check the progress with your reference number and e-mail under “Check progress”.'],['Sample evaluation','Sample evaluation will be arranged only for proposals found suitable.']], intro_prep:'Documents to prepare', intro_ok:'OK',
     n1:'Documents', n1l:['Required: MSDS, CoA (Certificate of Analysis)','Optional: company profile, product catalog, others','Attachments up to 20MB in total · PDF, Word, Excel, images, ZIP'],
-    f_title:'Supply Proposal', steps:['Contact · Company','Proposed Items','Attachments','Done'],
+    f_title:'Supply Proposal', kind_new:'New supplier', kind_ex:'Improvement by existing supplier', kind_lab:'Proposal type', mainItem:'Main products', mainItem_ph:'e.g. DMC, EMC, LiPF6', category:'Product category', cat_ph:'Select', sale:'Sales type', sale_ph:'Select', sale_trade:'Trading (resale)', sale_mfg:'Own manufacturing', curItem:'Current product supplied', curItem_ph:'Product you currently supply to Chunbo', improve:'Improvement over current', improve_ph:'Better quality, price or supply terms than the current product', ex_t:'Existing suppliers are welcome too', ex_d:'If you have a product that is better in quality, price or supply terms than what you currently supply to Chunbo, please use “Improvement by existing supplier”.', ex_go:'Propose an improvement', steps:['Contact · Company','Proposed Items','Attachments','Done'],
     s_contact:'Contact Person', s_contact_d:'We will reply to this e-mail.', contact:'Name', title_:'Department · Title', email:'E-mail', phone:'Phone',
     s_company:'Company', company:'Company name', role:'Supplier / Manufacturer', role_ph:'Select type', role_sup:'Supplier', role_mak:'Manufacturer', role_req:'Please select supplier or manufacturer.', website:'Website', website_h:'Optional', country:'Country', countries:['Korea','China','Japan','USA','Germany','India','Other'], select:'Select',
     s_items:'Proposed Items', s_items_d:'For several items, use “Add item”.', item:'Item',
@@ -268,7 +273,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     flow:[['供应提案流程介绍','流程 · 准备资料说明'],['填写提案','填写品目 · 上传资料'],['审核 · 回复','2周内回复结果'],['样品评估通知','仅限合格提案另行通知']],
     intro_t:'供应提案流程', intro_l:[['填写提案','填写负责人 · 公司信息及提案品目，上传资料后提交。提交后将显示受理编号并发送确认邮件。'],['审核 · 回复','自受理之日起2周内通过邮件回复审核结果。可在“进度查询”中用受理编号和邮箱查询进度。'],['样品评估通知','仅对审核合格的提案另行通知样品评估。']], intro_prep:'准备资料', intro_ok:'确认',
     n1:'提交资料', n1l:['必须：MSDS、CoA（检验报告）','可选：公司介绍、产品目录、其他资料','附件合计20MB以内 · PDF、Word、Excel、图片、ZIP'],
-    f_title:'供应提案', steps:['负责人 · 公司','提案品目','附件','完成'],
+    f_title:'供应提案', kind_new:'新供应商提案', kind_ex:'现有供应商改进提案', kind_lab:'提案类型', mainItem:'主力产品', mainItem_ph:'例）DMC、EMC、LiPF6', category:'品类', cat_ph:'请选择', sale:'销售类型', sale_ph:'请选择', sale_trade:'贸易销售', sale_mfg:'自产销售', curItem:'现供应产品', curItem_ph:'目前向天宝供应的产品', improve:'相比现有产品的改进点', improve_ph:'质量、价格、供应条件等优于现有产品之处', ex_t:'现有供应商也可提案', ex_d:'如有在质量、价格或供应条件上优于目前向天宝供应产品的产品，请选择“现有供应商改进提案”。', ex_go:'提交改进提案', steps:['负责人 · 公司','提案品目','附件','完成'],
     s_contact:'负责人', s_contact_d:'审核结果将回复至此邮箱。', contact:'姓名', title_:'部门 · 职位', email:'邮箱', phone:'电话',
     s_company:'公司信息', company:'公司名称', role:'供应商 / 生产商', role_ph:'请选择', role_sup:'供应商', role_mak:'生产商', role_req:'请选择供应商或生产商。', website:'公司网址', website_h:'可选', country:'国家', countries:['韩国','中国','日本','美国','德国','印度','其他'], select:'请选择',
     s_items:'提案品目', s_items_d:'品目较多时，请点击“添加品目”。', item:'品目',
@@ -286,9 +291,11 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
   let lang = 'ko'; try { const l = localStorage.getItem('cbp-lang'); if (T[l]) lang = l; else if (/^zh/i.test(navigator.language)) lang = 'zh'; else if (!/^ko/i.test(navigator.language)) lang = 'en'; } catch { /* 기본 */ }
   const t = (k) => T[lang][k] ?? T.ko[k] ?? k;
-  const blankItem = () => ({ name:'', cas:'', grade:'', maker:'', origin:'', factory:'', capa:'', capacity:'', pack:'', lead:'', price:'', sample:'y', sales:'', customers:'', strength:'' });
-  const ITEM_REQ = ['name','grade','maker','origin','factory','capa','capacity','strength'];
-  const fresh = () => ({ contact:'', title:'', email:'', phone:'', company:'', role:'', website:'', country:'', items:[blankItem()], files:{}, agree:false });
+  const blankItem = () => ({ name:'', cas:'', grade:'', maker:'', origin:'', factory:'', capa:'', capacity:'', pack:'', lead:'', price:'', sample:'y', sales:'', customers:'', saleType:'', curItem:'', improve:'', strength:'' });
+  const ITEM_REQ0 = ['name','saleType','grade','maker','origin','factory','capa','capacity','strength'];
+  const itemReq = () => (S.d.kind === 'existing' ? ['name','saleType','improve', ...ITEM_REQ0.slice(2)] : ITEM_REQ0);   /* 기존 거래업체 개선 제안이면 「기존 대비 개선점」 필수 */
+  const ITEM_LABEL = { saleType:'sale' };
+  const fresh = () => ({ kind:'new', mainItem:'', category:'', contact:'', title:'', email:'', phone:'', company:'', role:'', website:'', country:'', items:[blankItem()], files:{}, agree:false });
   const viewOfHash = () => (location.hash === '#supply' ? 'supply' : (location.hash === '#status' ? 'status' : 'home'));
   const S = { view: viewOfHash(), step:1, errs:null, busy:false, failMsg:'', d:fresh() };
   const ICON = {
@@ -316,15 +323,16 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     const head = `<span class="lab"><span>${esc(label)}${o.req ? '<span class="req">*</span>' : ''}</span>${o.hint ? `<span class="hint">${esc(o.hint)}</span>` : ''}</span>`;
     let ctl;
     if (o.type === 'area') ctl = `<textarea ${attrs} placeholder="${esc(o.ph || '')}">${esc(v)}</textarea>`;
-    else if (o.type === 'select') ctl = `<select ${attrs}>${o.options.map(([a, b]) => `<option value="${esc(a)}"${String(v) === String(a) ? ' selected' : ''}>${esc(b)}</option>`).join('')}</select>`;
+    else if (o.type === 'select') ctl = `<select ${attrs}${o.ph_opt ? ' required' : ''}>${o.options.map(([a, b]) => `<option value="${esc(a)}"${String(v) === String(a) ? ' selected' : ''}>${esc(b)}</option>`).join('')}</select>`;
     else ctl = `<input ${attrs} type="${o.type || 'text'}" value="${esc(v)}" placeholder="${esc(o.ph || '')}"${o.ac ? ` autocomplete="${o.ac}"` : ''}>`;
     return `<label class="f${err ? ' err' : ''}${o.full ? ' full' : ''}" for="${id}">${head}${ctl}${err ? `<span class="msg">${esc(err)}</span>` : ''}</label>`;
   };
   const sizeText = (b) => (b > 1048576 ? `${(b / 1048576).toFixed(1)}MB` : `${Math.max(1, Math.round(b / 1024))}KB`);
   const totalSize = () => ATT.reduce((s, k) => s + (S.d.files[k] || []).reduce((a, f) => a + f.size, 0), 0);
+  const catOpts = () => `<option value="">${esc(t('cat_ph'))}</option>${[...new Set([...(W.cats || []), S.d.category].filter(Boolean))].map((c) => `<option${c === S.d.category ? ' selected' : ''}>${esc(c)}</option>`).join('')}`;
   const upBox = (k) => { const d = S.d; const [a, b] = t('att')[k]; const list = d.files[k] || []; const err = S.errs && S.errs[`att_${k}`];
     return `<div class="up${err ? ' err' : ''}" data-drop="${k}"><b>${esc(a)}<span class="tag ${ATT_REQ[k] ? 'req' : 'opt'}">${esc(ATT_REQ[k] ? t('req') : t('opt'))}</span>${b ? `<small>${esc(b)}</small>` : ''}</b>
-          <div class="files">${list.map((f, j) => `<span>📎 ${esc(f.name)} <small>${sizeText(f.size)}</small><button type="button" data-rmf="${k}|${j}" aria-label="${esc(t('remove'))}">×</button></span>`).join('') || `<span style="background:none;padding:0" class="${err ? 'msg' : ''}">${esc(err || t('drop'))}</span>`}</div>
+          <div class="files">${list.map((f, j) => `<span>📎 ${esc(f.name)} <small>${sizeText(f.size)}</small><button type="button" data-rmf="${k}|${j}" aria-label="${esc(t('remove'))}">×</button></span>`).join('') || (err ? `<span style="background:none;padding:0" class="msg">${esc(err)}</span>` : '')}</div>
           <label class="btn sm">${esc(t('pick'))}<input type="file" multiple data-file="${k}"></label></div>`; };
   function viewForm(){
     const d = S.d;
@@ -340,17 +348,21 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
         ${fld('country', t('country'), { req:1, type:'select', options:[['', t('select')], ...t('countries').map((x) => [x, x])] })}
         ${fld('contact', t('contact'), { req:1, ac:'name' })}${fld('title', t('title_'), { req:1, ac:'organization-title' })}
         ${fld('email', t('email'), { req:1, type:'email', ph:'name@company.com', ac:'email' })}${fld('phone', t('phone'), { req:1, type:'tel', ph:'+82 10-0000-0000', ac:'tel' })}
+        ${fld('mainItem', t('mainItem'), { ph:t('mainItem_ph'), hint:t('opt_h') })}
+        <label class="f" for="f_category"><span class="lab"><span>${esc(t('category'))}</span><span class="hint">${esc(t('opt_h'))}</span></span><select id="f_category" data-k="category">${catOpts()}</select></label>
       </div>${upBox('intro')}`);
     const sel = Math.max(0, Math.min(S.itemSel ?? 0, d.items.length - 1)); S.itemSel = sel;
     const miss = S.showErrs ? new Set((S.miss || []).filter((m) => m.sec === 'items').map((m) => m.idx)) : new Set();
-    const items = sec('items', t('s_items'), '', `${[d.items[sel]].map((it) => { const i = sel; return `<div class="item" id="item-${i}"><header><b>${esc(t('item'))} ${i + 1}</b><span class="spacer"></span></header><div class="grid">
-        ${fld('', t('name'), { req:1, dk:'name', idx:i, ek:`name${i}`, val:it.name })}${fld('', t('cas'), { dk:'cas', idx:i, val:it.cas, ph:'616-38-6' })}
-        ${fld('', t('grade'), { req:1, dk:'grade', idx:i, ek:`grade${i}`, val:it.grade })}${fld('', t('maker'), { req:1, dk:'maker', idx:i, ek:`maker${i}`, val:it.maker })}
-        ${fld('', t('origin'), { req:1, dk:'origin', idx:i, ek:`origin${i}`, val:it.origin })}${fld('', t('factory'), { req:1, dk:'factory', idx:i, ek:`factory${i}`, val:it.factory })}
-        ${fld('', t('capa'), { req:1, dk:'capa', idx:i, ek:`capa${i}`, val:it.capa, ph:t('capa_ph') })}${fld('', t('capacity'), { req:1, dk:'capacity', idx:i, ek:`capacity${i}`, val:it.capacity, ph:t('capacity_ph') })}
-        ${fld('', t('pack'), { dk:'pack', idx:i, val:it.pack, ph:'200kg Drum / ISO Tank' })}${fld('', t('lead_t'), { dk:'lead', idx:i, val:it.lead, ph:'4 weeks' })}
-        ${fld('', t('price'), { dk:'price', idx:i, val:it.price, ph:t('price_ph') })}${fld('', t('sample'), { dk:'sample', idx:i, val:it.sample, type:'select', options:[['y', t('sample_y')], ['n', t('sample_n')]] })}
-        ${fld('', t('sales'), { dk:'sales', idx:i, val:it.sales, ph:t('sales_ph'), hint:t('opt_h') })}${fld('', t('customers'), { dk:'customers', idx:i, val:it.customers, ph:t('customers_ph'), hint:t('opt_h') })}
+    const items = sec('items', t('s_items'), '', `${[d.items[sel]].map((it) => { const i = sel; return `<div class="item" id="item-${i}" style="--irows:${d.kind === 'existing' ? 9 : 8}"><header><b>${esc(t('item'))} ${i + 1}</b><span class="spacer"></span></header><div class="grid">
+        ${fld('', t('name'), { req:1, dk:'name', idx:i, ek:`name${i}`, val:it.name })}${fld('', t('sale'), { req:1, dk:'saleType', idx:i, ek:`saleType${i}`, val:it.saleType, type:'select', ph_opt:1, options:[['', t('sale_ph')], ['trade', t('sale_trade')], ['mfg', t('sale_mfg')]] })}
+        ${d.kind === 'existing' ? `${fld('', t('curItem'), { dk:'curItem', idx:i, val:it.curItem, ph:t('curItem_ph') })}${fld('', t('improve'), { req:1, dk:'improve', idx:i, ek:`improve${i}`, val:it.improve, ph:t('improve_ph') })}` : ''}
+        ${fld('', t('cas'), { dk:'cas', idx:i, val:it.cas, ph:'616-38-6' })}${fld('', t('grade'), { req:1, dk:'grade', idx:i, ek:`grade${i}`, val:it.grade })}
+        ${fld('', t('maker'), { req:1, dk:'maker', idx:i, ek:`maker${i}`, val:it.maker })}${fld('', t('origin'), { req:1, dk:'origin', idx:i, ek:`origin${i}`, val:it.origin })}
+        ${fld('', t('factory'), { req:1, dk:'factory', idx:i, ek:`factory${i}`, val:it.factory })}${fld('', t('capa'), { req:1, dk:'capa', idx:i, ek:`capa${i}`, val:it.capa, ph:t('capa_ph') })}
+        ${fld('', t('capacity'), { req:1, dk:'capacity', idx:i, ek:`capacity${i}`, val:it.capacity, ph:t('capacity_ph') })}${fld('', t('pack'), { dk:'pack', idx:i, val:it.pack, ph:'200kg Drum / ISO Tank' })}
+        ${fld('', t('lead_t'), { dk:'lead', idx:i, val:it.lead, ph:'4 weeks' })}${fld('', t('price'), { dk:'price', idx:i, val:it.price, ph:t('price_ph') })}
+        ${fld('', t('sample'), { dk:'sample', idx:i, val:it.sample, type:'select', options:[['y', t('sample_y')], ['n', t('sample_n')]] })}${fld('', t('sales'), { dk:'sales', idx:i, val:it.sales, ph:t('sales_ph'), hint:t('opt_h') })}
+        ${fld('', t('customers'), { dk:'customers', idx:i, val:it.customers, ph:t('customers_ph'), hint:t('opt_h'), full:1 })}
         ${fld('', t('strength'), { req:1, dk:'strength', idx:i, ek:`strength${i}`, val:it.strength, type:'area', full:1, ph:t('strength_h') })}
       </div></div>`; }).join('')}
 `, `<div class="sec-head"><h3>${esc(t('s_items'))} </h3><span class="ipills" role="group" aria-label="${esc(t('item'))}">${d.items.map((_, i) => `<button type="button" class="${i === sel ? 'on' : ''}${miss.has(i) ? ' bad' : ''}" data-ipill="${i}" aria-pressed="${i === sel}" aria-label="${esc(t('item'))} ${i + 1}">${i + 1}</button>`).join('')}</span><span class="spacer"></span><button type="button" class="btn sm" data-add>${esc(t('add'))}</button><button type="button" class="btn sm" data-delitem ${d.items.length > 1 ? '' : 'disabled'}>${esc(t('del_item'))}</button></div>`);
@@ -401,14 +413,14 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
       <h1 id="pTitle">${esc(t('title'))}</h1><p>${esc(t('lead'))}</p></div>
       <ol class="flow" aria-label="${esc(t('crumb'))}">${t('flow').map(([h, p], i) => i === 0 ? `<li class="intro0"><button type="button" data-intro aria-haspopup="dialog"><span class="dot">0</span><span class="n">STEP 0</span><b>${esc(h)}</b><small>${esc(p)} ›</small></button></li>` : `<li class="${i === cur ? 'on' : (i < cur ? 'past' : '')}"><span class="dot">${i < cur ? '✓' : i}</span><span class="n">STEP ${i}</span><b>${esc(h)}</b><small>${esc(p)}</small></li>`).join('')}</ol>
     </div></section>
-    <main class="wrap wide main"><div class="formhead"><h2>${esc(t('f_title'))}</h2></div>
+    <main class="wrap wide main"><div class="formhead"><h2>${esc(t('f_title'))}</h2>${S.step === 4 ? '' : `<span class="ipills kind-pills" role="group" aria-label="${esc(t('kind_lab'))}">${[['new', t('kind_new')], ['existing', t('kind_ex')]].map(([k, l]) => `<button type="button" class="${S.d.kind === k ? 'on' : ''}" data-kind="${k}" aria-pressed="${S.d.kind === k}">${esc(l)}</button>`).join('')}</span>`}</div>
       <div id="form" class="formgrid">${viewForm()}</div>
     </main>`;
   }
   function validate(step){
     const d = S.d, e = {}; const req = (k, v) => { if (!String(v ?? '').trim()) e[k] = t('required'); };
     if (step === 1) { ['contact','title','email','phone','company','country'].forEach((k) => req(k, d[k])); if (!d.role) e.role = t('role_req'); if (d.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email.trim())) e.email = t('email_bad'); }
-    if (step === 2) d.items.forEach((it, i) => ITEM_REQ.forEach((k) => req(`${k}${i}`, it[k])));
+    if (step === 2) d.items.forEach((it, i) => itemReq().forEach((k) => req(`${k}${i}`, it[k])));
     if (step === 3) {
       ATT.forEach((k) => { if (ATT_REQ[k] && !(d.files[k] || []).length) e[`att_${k}`] = t('att_req').replace('{n}', t('att')[k][0]); });
       if (totalSize() > MAX_TOTAL) e.size = t('too_big');
@@ -423,7 +435,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     const f1 = ['company','role','country','contact','title','email','phone'].filter((k) => blank(d[k])).map((k) => t(k === 'title' ? 'title_' : k));
     if (!blank(d.email) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email.trim())) f1.push(t('email_fmt'));
     if (f1.length) out.push({ sec:'contact', fields:f1 });
-    d.items.forEach((it, i) => { const ks = ITEM_REQ.filter((k) => blank(it[k])).map((k) => t(k)); if (ks.length) out.push({ sec:'items', idx:i, sub: d.items.length > 1 ? t('item_n').replace('{n}', i + 1) : '', fields:ks }); });
+    d.items.forEach((it, i) => { const ks = itemReq().filter((k) => blank(it[k])).map((k) => t(ITEM_LABEL[k] || k)); if (ks.length) out.push({ sec:'items', idx:i, sub: d.items.length > 1 ? t('item_n').replace('{n}', i + 1) : '', fields:ks }); });
     const fa = ATT.filter((k) => ATT_REQ[k] && !(d.files[k] || []).length).map((k) => t('att')[k][0]);
     if (fa.length) out.push({ sec:'att', fields:fa, attach:true });
     if (totalSize() > MAX_TOTAL) out.push({ sec:'att', text:t('too_big') });
@@ -443,7 +455,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     try {
       const d = S.d; const files = [];
       for (const k of ATT) for (const f of (d.files[k] || [])) files.push({ kind:k, name:f.name, type:f.type || 'application/octet-stream', size:f.size, data: await toB64(f.file) });
-      const payload = { action:'submit', lang, contact:d.contact.trim(), title:d.title.trim(), email:d.email.trim(), phone:d.phone.trim(), company:d.company.trim(), role:d.role, website:d.website.trim(), country:d.country,
+      const payload = { action:'submit', lang, contact:d.contact.trim(), title:d.title.trim(), email:d.email.trim(), phone:d.phone.trim(), kind:d.kind, mainItem:d.mainItem.trim(), category:d.category, company:d.company.trim(), role:d.role, website:d.website.trim(), country:d.country,
         items:d.items.map((x) => ({ ...x, name:x.name.trim() })), agree:true, files, hp:'' };
       const r = await fetch(ENDPOINT, { method:'POST', body: JSON.stringify(payload) });
       const j = await r.json();
@@ -461,6 +473,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     const box = document.createElement('div'); box.className = 'wish-back'; box.id = 'introPop';
     box.innerHTML = `<div class="wish intro-pop" role="dialog" aria-modal="true" aria-labelledby="introT"><div class="wish-h"><h2 id="introT">${esc(t('intro_t'))}</h2><button type="button" class="wish-x" data-introx aria-label="${esc(t('wish_close'))}">×</button></div>
       <ol class="ip-steps">${t('intro_l').map(([h, p], i) => `<li><span class="dot">${i + 1}</span><div><b>STEP ${i + 1} · ${esc(h)}</b><p>${esc(p)}</p></div></li>`).join('')}</ol>
+      <div class="ip-ex"><div><b>${esc(t('ex_t'))}</b><p>${esc(t('ex_d'))}</p></div><button type="button" class="btn sm" data-exgo>${esc(t('ex_go'))} →</button></div>
       <div class="ip-prep"><b>${esc(t('intro_prep'))}</b><ul>${t('n1l').map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
       <div class="ip-f"><button type="button" class="btn pri" data-introx>${esc(t('intro_ok'))}</button></div></div>`;
     document.body.appendChild(box); box.querySelector('[data-introx]').focus();
@@ -468,6 +481,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   function closeIntro(){ document.getElementById('introPop')?.remove(); }
   document.addEventListener('click', (e) => {
     if (e.target.closest('[data-intro]')) { openIntro(); return; }
+    if (e.target.closest('[data-exgo]')) { closeIntro(); S.d.kind = 'existing'; if (S.view !== 'supply') goView('supply'); else render(); document.getElementById('form')?.scrollIntoView({ block:'start' }); return; }
     if (e.target.closest('[data-introx]') || e.target.id === 'introPop') closeIntro();
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeIntro(); });
@@ -475,7 +489,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   const W = { open:false, kind:'원료', q:'', items:null, busy:false, err:'' };
   async function loadWish(){
     if (W.items || W.busy) return; W.busy = true; W.err = ''; renderWish();
-    try { if (!/^https:\/\/script\.google(usercontent)?\.com\//.test(ENDPOINT)) throw new Error('x'); const r = await fetch(ENDPOINT, { method:'POST', body: JSON.stringify({ action:'items' }) }); const j = await r.json(); if (!j || !j.ok) throw new Error('x'); W.items = j.items || []; }
+    try { if (!/^https:\/\/script\.google(usercontent)?\.com\//.test(ENDPOINT)) throw new Error('x'); const r = await fetch(ENDPOINT, { method:'POST', body: JSON.stringify({ action:'items' }) }); const j = await r.json(); if (!j || !j.ok) throw new Error('x'); W.items = j.items || []; W.cats = Array.isArray(j.cats) ? j.cats : []; const cs = document.getElementById('f_category'); if (cs) cs.innerHTML = catOpts(); }
     catch { W.err = t('wish_fail'); }
     W.busy = false; renderWish();
   }
@@ -516,7 +530,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     renderWish(); $('#stBtn').setAttribute('aria-pressed', String(S.view === 'status')); $('.hbtns').hidden = S.view === 'home';   /* 공급 희망 품목 · 진행현황 확인 = 공급 제안 문의 화면 안에서만 */
     $('#view').innerHTML = S.view === 'supply' ? viewSupply() : (S.view === 'status' ? viewStatus() : viewHome());
   }
-  const goView = (v) => { S.view = v; if (v === 'supply' && S.step === 4) { S.step = 1; } try { history.replaceState(null, '', v === 'home' ? location.pathname : `#${v}`); } catch { location.hash = v === 'home' ? '' : v; } render(); window.scrollTo(0, 0); };
+  const goView = (v) => { S.view = v; if (v === 'supply') loadWish(); if (v === 'supply' && S.step === 4) { S.step = 1; } try { history.replaceState(null, '', v === 'home' ? location.pathname : `#${v}`); } catch { location.hash = v === 'home' ? '' : v; } render(); window.scrollTo(0, 0); };
   const addFiles = (k, list) => { const arr = S.d.files[k] || (S.d.files[k] = []); [...list].forEach((f) => arr.push({ name:f.name, size:f.size, type:f.type, file:f })); if (S.errs) { delete S.errs[`att_${k}`]; delete S.errs.size; } render(); };
   document.addEventListener('click', (e) => {
     const lb = e.target.closest('[data-lang]'); if (lb) { lang = lb.dataset.lang; try { localStorage.setItem('cbp-lang', lang); } catch { /* 무시 */ } render(); return; }
@@ -525,6 +539,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     if (e.target.closest('[data-go="status"]')) { goView('status'); return; }
     const jp = e.target.closest('[data-jump]'); if (jp) { const [sec, idx] = jp.dataset.jump.split('|'); if (idx !== undefined) { S.itemSel = +idx; render(); } const sc = $(`#sec-${sec}`); if (sc) { sc.scrollIntoView({ behavior:'smooth', block:'start' }); const f = sc.querySelector('.f.err input, .f.err select, .f.err textarea'); if (f) setTimeout(() => f.focus({ preventScroll:true }), 400); } return; }
     if (e.target.closest('[data-submit]')) { submit(); return; }
+    const kd = e.target.closest('[data-kind]'); if (kd) { S.d.kind = kd.dataset.kind; render(); return; }
     const ip = e.target.closest('[data-ipill]'); if (ip) { S.itemSel = +ip.dataset.ipill; render(); return; }
     if (e.target.closest('[data-delitem]')) { if (S.d.items.length > 1) { S.d.items.splice(S.itemSel, 1); S.itemSel = Math.max(0, S.itemSel - 1); render(); } return; }
     if (e.target.closest('[data-add]')) { S.d.items.push(blankItem()); S.itemSel = S.d.items.length - 1; render(); const f = $('#f_name_' + S.itemSel); if (f) f.focus({ preventScroll:true }); return; }
@@ -542,8 +557,8 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   document.addEventListener('dragover', (e) => { const z = e.target.closest('[data-drop]'); if (!z) return; e.preventDefault(); z.classList.add('drag'); });
   document.addEventListener('dragleave', (e) => { const z = e.target.closest('[data-drop]'); if (z) z.classList.remove('drag'); });
   document.addEventListener('drop', (e) => { const z = e.target.closest('[data-drop]'); if (!z) return; e.preventDefault(); addFiles(z.dataset.drop, e.dataTransfer.files); });
-  window.addEventListener('hashchange', () => { const v = viewOfHash(); if (v !== S.view) { S.view = v; render(); } });
-  render();
+  window.addEventListener('hashchange', () => { const v = viewOfHash(); if (v !== S.view) { S.view = v; if (v === 'supply') loadWish(); render(); } });
+  render(); if (S.view === 'supply') loadWish();
 })();
 </script>
 </body>
