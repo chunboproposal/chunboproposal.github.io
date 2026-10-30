@@ -45,6 +45,7 @@ h1,h2,h3{font-family:var(--f-disp);text-wrap:balance;color:var(--ink);margin:0}
 .home{padding-block:10px 70px;background:var(--surface)}
 .sec-title{margin:40px 0 0;padding-bottom:18px;border-bottom:1px solid var(--ink);font-size:27px;font-weight:800}
 .sec-desc{margin:22px 0 24px;color:var(--ink2);font-size:16px}
+.sec-gap{height:28px}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
 .card3{position:relative;min-height:250px;border:1px solid var(--line2);border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:26px;background:var(--surface);color:var(--ink)}
 button.card3{cursor:pointer;font:inherit}
@@ -64,12 +65,6 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .crumb button{border:0;background:none;padding:0;color:var(--blue);cursor:pointer;font-weight:600}
 .intro h1{font-size:clamp(26px,4vw,34px);font-weight:700;margin:8px 0 10px}
 .intro p{max-width:66ch;color:var(--ink2);margin:0}
-.layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;align-items:start}
-.formgrid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(340px,1fr);gap:0 20px;align-items:start}
-.formgrid > .done{grid-column:1/-1}
-.layout > .fh{grid-column:2;grid-row:1;margin:0}.layout > .side{grid-column:1;grid-row:2}.layout > #form{grid-column:2;grid-row:2}
-.layout{row-gap:16px}
-.col-main,.col-side{min-width:0;display:grid;gap:14px}
 .col-side .up{grid-template-columns:minmax(0,1fr) auto;row-gap:8px}.col-side .up > b{grid-column:1;grid-row:1}.col-side .up > .btn{grid-column:2;grid-row:1;justify-self:end}.col-side .up .files{grid-column:1/-1;grid-row:2}
 .col-side .alert.miss{margin:0}.col-side .foot{margin-top:0}
 .col-side .btn.pri{min-width:160px}
@@ -79,8 +74,21 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .ipills button{min-width:28px;height:26px;padding:0 9px;border:0;border-radius:999px;background:transparent;color:var(--ink2);font-family:var(--f-mono);font-size:12.5px;font-weight:600;cursor:pointer}
 .ipills button:hover{background:#e2e7f0}.ipills button.on{background:#22a35a;color:#fff;box-shadow:0 2px 6px rgba(34,163,90,.28)}
 .sec-head .cnt{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 7px;border-radius:999px;background:var(--navy);color:#fff;font-family:var(--f-mono);font-size:12.5px}
-.side{display:grid;gap:14px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);min-width:0}
-.flow{list-style:none;margin:0;padding:18px 18px 6px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.intro-row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px 32px;flex-wrap:wrap}
+.intro-txt{min-width:0;flex:1 1 380px}
+.flow{list-style:none;margin:0;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:var(--surface);display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:0 14px;flex:0 1 860px}
+.flow li{position:relative;padding:0 0 0 38px;min-width:0}
+.flow li .dot{position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--surface2);color:var(--mute);font-family:var(--f-mono);font-size:12px;font-weight:600}
+.flow li.on .dot{background:var(--navy);color:#fff}
+.flow li.past .dot{background:var(--ok);color:#fff}
+.flow .n{display:block;font-family:var(--f-mono);font-size:11px;color:var(--blue);letter-spacing:.06em}
+.flow b{display:block;font-family:var(--f-disp);font-size:14px;margin:1px 0 1px}
+.flow small{display:block;color:var(--mute);font-size:12px;line-height:1.45}
+.flow li.on b{color:var(--navy)}
+.formgrid{display:grid;grid-template-columns:minmax(300px,0.85fr) minmax(0,1.3fr) minmax(320px,1fr);gap:20px;align-items:start}
+.col-a,.col-b,.col-c{min-width:0;display:grid;gap:14px}
+.formgrid > .done{grid-column:2/-1}
+.col-a .grid{grid-template-columns:1fr}
 .lookup{display:grid;gap:10px;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
 .lookup h3{font-size:15px}.lookup .d{margin:-6px 0 0;color:var(--mute);font-size:12.5px}
 .lookup .f input{height:38px;font-size:14px}
@@ -88,18 +96,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .lk-st{font-weight:700;color:var(--navy);white-space:pre-wrap;margin-bottom:8px}
 .lk-res dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;margin:0;font-size:12.5px}.lk-res dt{color:var(--mute)}.lk-res dd{margin:0;overflow-wrap:anywhere}
 .refno{margin:14px 0 4px;font-size:16px}.refno b{font-family:var(--f-mono);color:var(--navy);font-size:18px}.refno-d{margin:0;color:var(--mute);font-size:13px}
-.flow li{position:relative;padding:0 0 22px 40px;min-width:0}
-.flow li::before{content:"";position:absolute;left:13px;top:28px;bottom:2px;width:2px;background:var(--line)}
-.flow li:last-child::before{display:none}
-.flow li .dot{position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--surface2);color:var(--mute);font-family:var(--f-mono);font-size:12px;font-weight:600}
-.flow li.on .dot{background:var(--navy);color:#fff}
-.flow li.past .dot{background:var(--ok);color:#fff}
-.flow li.past::before{background:var(--ok)}
-.flow .n{display:block;font-family:var(--f-mono);font-size:11.5px;color:var(--blue);letter-spacing:.06em}
-.flow b{display:block;font-family:var(--f-disp);font-size:15px;margin:2px 0 2px}
-.flow small{display:block;color:var(--mute);font-size:13px;line-height:1.5}
-.flow li.on b{color:var(--navy)}
-.main{padding-block:24px 60px}
+.main{padding-block:18px 60px}
 .formhead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:16px}
 .formhead h2{font-size:24px}
 .steps{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
@@ -153,10 +150,11 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .done{text-align:center;padding:56px 22px}
 .done .mark{width:64px;height:64px;border-radius:50%;margin:0 auto 16px;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;font-weight:900}
 .done h2{font-size:24px}
-@media (max-width:1180px){.formgrid{grid-template-columns:minmax(0,1fr)}.col-side{margin-top:14px}}
+@media (max-width:1280px){.formgrid{grid-template-columns:minmax(280px,0.8fr) minmax(0,1.4fr)}.col-c{grid-column:1/-1}.formgrid > .done{grid-column:2}}
+@media (max-width:900px){.formgrid{grid-template-columns:minmax(0,1fr)}.col-c,.formgrid > .done{grid-column:auto}.col-a .grid{grid-template-columns:1fr 1fr}}
 @media (max-width:760px){
   .cards{grid-template-columns:1fr;gap:16px}.card3{min-height:200px}
-  .layout{grid-template-columns:1fr;gap:16px}.layout > .fh,.layout > .side,.layout > #form{grid-column:1;grid-row:auto}.side{position:static}.flow{position:static;display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;padding:14px 14px 0}.flow li::before{display:none}.flow li{padding-bottom:14px}
+  .flow{grid-template-columns:1fr 1fr;gap:12px;flex-basis:100%}
   .grid{grid-template-columns:1fr}
   .up{grid-template-columns:1fr}
   .card{padding:18px 16px}
@@ -255,11 +253,11 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   function viewHome(){
     return `<section class="home"><div class="wrap">
       <h2 class="sec-title">${esc(t('inq_title'))}</h2>
-      <p class="sec-desc">${esc(t('inq_desc'))}</p>
+      <div class="sec-gap"></div>
       <div class="cards">
-        <div class="card3 dim"><span class="soon">${esc(t('soon'))}</span>${ICON.flask}<h3>${esc(t('c1'))}</h3><p>${esc(t('c1s'))}</p></div>
-        <button type="button" class="card3" data-go="supply">${ICON.supply}<h3>${esc(t('c2'))}</h3><p>${esc(t('c2s'))}</p><span class="go">${esc(t('go'))} <i></i></span></button>
-        <div class="card3 dim"><span class="soon">${esc(t('soon'))}</span>${ICON.hand}<h3>${esc(t('c3'))}</h3><p>${esc(t('c3s'))}</p></div>
+        <div class="card3 dim"><span class="soon">${esc(t('soon'))}</span>${ICON.flask}<h3>${esc(t('c1'))}</h3></div>
+        <button type="button" class="card3" data-go="supply">${ICON.supply}<h3>${esc(t('c2'))}</h3><span class="go">${esc(t('go'))} <i></i></span></button>
+        <div class="card3 dim"><span class="soon">${esc(t('soon'))}</span>${ICON.hand}<h3>${esc(t('c3'))}</h3></div>
       </div></div></section>`;
   }
 
@@ -279,7 +277,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   const totalSize = () => ATT.reduce((s, k) => s + (S.d.files[k] || []).reduce((a, f) => a + f.size, 0), 0);
   function viewForm(){
     const d = S.d;
-    if (S.step === 4) return `<div class="card done"><div class="mark">✓</div><h2>${esc(t('done'))}</h2>${S.lastNo ? `<p class="refno">${esc(t('refno'))} <b>${esc(S.lastNo)}</b></p><p class="refno-d">${esc(t('refno_d'))}</p>` : ''}</div>`;
+    if (S.step === 4) return `<div class="col-a">${viewLookup()}</div><div class="card done"><div class="mark">✓</div><h2>${esc(t('done'))}</h2>${S.lastNo ? `<p class="refno">${esc(t('refno'))} <b>${esc(S.lastNo)}</b></p><p class="refno-d">${esc(t('refno_d'))}</p>` : ''}</div>`;
     if (S.showErrs) { S.miss = missingAll(); validateAll(); }
     const sec = (id, title, desc, inner, head) => `<section class="card" id="sec-${id}">${head || `<h3>${esc(title)}</h3>`}<p class="d">${esc(desc || '')}</p>${inner}</section>`;
     const contact = sec('contact', t('s_contact'), t('s_contact_d'), `<div class="grid">
@@ -306,8 +304,9 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
       <label class="ck ${d.agree ? 'on' : ''}" for="agree"><input type="checkbox" id="agree" data-agree ${d.agree ? 'checked' : ''}>${esc(t('agree'))}</label>
       ${S.errs && S.errs.agree ? `<p class="msg">${esc(S.errs.agree)}</p>` : ''}`);
     const missBox = S.miss && S.miss.length ? `<div class="alert miss" id="missBox" role="alert">${S.miss.map((m) => `<div class="mrow"><span>${esc(missText(m))}</span><button type="button" class="btn sm" data-jump="${m.sec}">${esc(t('miss_go'))} →</button></div>`).join('')}</div>` : '';
-    return `      <div class="col-main">${contact}${items}</div>
-      <div class="col-side">${att}${missBox}${S.failMsg ? `<div class="alert" role="alert">${esc(S.failMsg)}</div>` : ''}
+    return `<div class="col-a">${contact}${viewLookup()}</div>
+      <div class="col-b">${items}</div>
+      <div class="col-side col-c">${att}${missBox}${S.failMsg ? `<div class="alert" role="alert">${esc(S.failMsg)}</div>` : ''}
       <div class="foot"><span class="spacer"></span><button type="button" class="btn pri" data-submit ${S.busy ? 'disabled' : ''}>${esc(S.busy ? t('sending') : t('submit'))}</button></div></div>`;
   }
   function viewLookup(){
@@ -334,14 +333,14 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   }
   function viewSupply(){
     const cur = S.step === 4 ? 3 : (ATT.some((k) => (S.d.files[k] || []).length) ? 2 : 1);
-    return `<section class="wrap wide intro" aria-labelledby="pTitle">
-      <div class="crumb"><button type="button" data-home>${esc(t('crumb_home'))}</button> › ${esc(t('crumb'))}</div>
-      <h1 id="pTitle">${esc(t('title'))}</h1><p>${esc(t('lead'))}</p>
-    </section>
-    <main class="wrap wide main"><div class="layout"><div class="formhead fh"><h2>${esc(t('f_title'))}</h2></div>
-      <aside class="side"><ol class="flow" aria-label="${esc(t('crumb'))}">${t('flow').map(([h, p], i) => `<li class="${i + 1 === cur ? 'on' : (i + 1 < cur ? 'past' : '')}"><span class="dot">${i + 1 < cur ? '✓' : i + 1}</span><span class="n">STEP ${i + 1}</span><b>${esc(h)}</b><small>${esc(p)}</small></li>`).join('')}</ol>${viewLookup()}</aside>
+    return `<section class="wrap wide intro" aria-labelledby="pTitle"><div class="intro-row">
+      <div class="intro-txt"><div class="crumb"><button type="button" data-home>${esc(t('crumb_home'))}</button> › ${esc(t('crumb'))}</div>
+      <h1 id="pTitle">${esc(t('title'))}</h1><p>${esc(t('lead'))}</p></div>
+      <ol class="flow" aria-label="${esc(t('crumb'))}">${t('flow').map(([h, p], i) => `<li class="${i + 1 === cur ? 'on' : (i + 1 < cur ? 'past' : '')}"><span class="dot">${i + 1 < cur ? '✓' : i + 1}</span><span class="n">STEP ${i + 1}</span><b>${esc(h)}</b><small>${esc(p)}</small></li>`).join('')}</ol>
+    </div></section>
+    <main class="wrap wide main"><div class="formhead"><h2>${esc(t('f_title'))}</h2></div>
       <div id="form" class="formgrid">${viewForm()}</div>
-    </div></main>`;
+    </main>`;
   }
   function validate(step){
     const d = S.d, e = {}; const req = (k, v) => { if (!String(v ?? '').trim()) e[k] = t('required'); };
