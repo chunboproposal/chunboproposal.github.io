@@ -35,9 +35,10 @@ h1,h2,h3{font-family:var(--f-disp);text-wrap:balance;color:var(--ink);margin:0}
 .top .bar{display:flex;align-items:center;gap:28px;padding-block:0;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));min-height:68px;flex-wrap:nowrap}
 .logo{display:inline-flex;align-items:center;border:0;background:none;padding:0;cursor:pointer}
 .logo-svg{height:46px;width:auto;display:block}
-@media (max-width:640px){.top .bar{flex-wrap:wrap;padding-block:8px}.top .bar .spacer{flex-basis:100%;order:1;height:0}.top .bar .stbtn,.top .bar .lang{order:2}}
+@media (max-width:640px){.top .bar{flex-wrap:wrap;padding-block:8px}.top .bar .spacer{flex-basis:100%;order:1;height:0}.top .bar .hbtns,.top .bar .lang{order:2}}
 @media (max-width:480px){.logo-svg{height:36px}.top .bar{gap:8px}.lang button{padding:5px 8px;font-size:12px}.stbtn span{padding:5px 9px;font-size:12px}}
 .spacer{flex:1}
+.hbtns{display:inline-flex;align-items:center;gap:8px}
 .lang{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface2)}
 .lang button{border:0;background:transparent;padding:5px 12px;border-radius:999px;font-size:13px;font-weight:600;color:var(--ink2);cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--navy);color:#fff}
@@ -191,8 +192,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 <header class="top"><div class="bar">
   <button type="button" class="logo" data-home aria-label="(주)천보"><svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="2 4 210 68" role="img" aria-label="(주)천보 Your True Partner"><defs><clipPath id="cbIn"><ellipse cx="45" cy="37" rx="38" ry="30"/></clipPath></defs><g clip-path="url(#cbIn)" fill="#2b2d8f"><rect x="0" y="25.6" width="34" height="3.4"/><rect x="0" y="33.6" width="34" height="3.4"/><rect x="0" y="41.6" width="34" height="3.4"/><rect x="56" y="25.6" width="34" height="3.4"/><rect x="56" y="33.6" width="34" height="3.4"/><rect x="56" y="41.6" width="34" height="3.4"/></g><path d="M15.5 56.5 L30.5 13 L44.5 56.5 Z M44.5 56.5 L58.5 13 L73.5 56.5 Z" fill="#1f6b2c" stroke="#fff" stroke-width="1.4" stroke-linejoin="round" paint-order="stroke"/><ellipse cx="45" cy="37" rx="40" ry="32" fill="none" stroke="#2b2d8f" stroke-width="4"/><g fill="#eef6ec" font-family="Arial, Helvetica, sans-serif" font-size="18.5" text-anchor="middle"><text x="30.5" y="53.2">C</text><text x="58.8" y="53.2">B</text></g><text x="96.5" y="23.4" font-family="'Roboto Condensed','Arial Narrow',Arial,sans-serif" font-weight="700" font-size="13.2" fill="#28297e" textLength="108" lengthAdjust="spacingAndGlyphs">Your True Partner</text><text x="95" y="62.5" font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-weight="700" font-size="35" fill="#454545" textLength="113" lengthAdjust="spacingAndGlyphs">(주)천보</text></svg></button>
   <span class="spacer"></span>
-  <button type="button" class="stbtn" data-wish id="wishBtn"><span></span></button>
-  <button type="button" class="stbtn" data-go="status" id="stBtn"><span></span></button>
+  <div class="hbtns"><button type="button" class="stbtn" data-wish id="wishBtn"><span></span></button><button type="button" class="stbtn" data-go="status" id="stBtn"><span></span></button></div>
   <div class="lang" role="group" aria-label="Language" id="langBox"></div>
 </div></header>
 <div id="view"></div>
