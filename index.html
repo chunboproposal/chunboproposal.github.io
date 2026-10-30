@@ -295,6 +295,10 @@ h1,h2,h3{letter-spacing:-.01em}
 .sec-head h3{border:0;padding:0;margin:0}
 .sec-sp{height:0}
 @media (max-width:640px){.item .grid{grid-template-columns:1fr}.item .grid > .f,.item .grid > .f.w3{grid-column:1/-1}}
+.formgrid > .col-a,.formgrid > .col-c{align-self:stretch}
+.col-a{grid-template-rows:auto minmax(0,1fr)}.col-a > .card:last-child{display:flex;flex-direction:column}
+.formgrid > .col-c{display:flex;flex-direction:column;gap:14px}.col-c > #sec-att{display:flex;flex-direction:column;flex:1 1 auto}
+#sec-att .agree{margin-top:auto}
 .mi-box{gap:6px}.mi-head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) 74px;gap:6px;font-weight:600;color:var(--ink2)}.mi-head span:last-child{grid-column:2}
 .mi-row{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) 34px 34px;gap:6px}
 .mi-row input,.mi-row select{height:42px;border:1px solid var(--line2);border-radius:2px;padding:0 10px;background:#fff;font-size:14.5px;min-width:0;width:100%}
