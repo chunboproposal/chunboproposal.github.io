@@ -58,12 +58,22 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .card3.dim{opacity:.75}
 .ico{width:64px;height:64px}
 /* 공급 제안 */
-.intro{padding-block:32px 8px}
+.wrap.wide{max-width:1840px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.intro{padding-block:28px 4px}
 .crumb{font-size:13px;color:var(--mute)}
 .crumb button{border:0;background:none;padding:0;color:var(--blue);cursor:pointer;font-weight:600}
 .intro h1{font-size:clamp(26px,4vw,34px);font-weight:700;margin:8px 0 10px}
 .intro p{max-width:66ch;color:var(--ink2);margin:0}
-.layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:28px;align-items:start}
+.layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;align-items:start}
+.formgrid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(340px,1fr);gap:0 20px;align-items:start}
+.formgrid > .formhead,.formgrid > .done{grid-column:1/-1}
+.col-main,.col-side{min-width:0;display:grid;gap:14px}
+.col-side .up{grid-template-columns:minmax(0,1fr) auto;row-gap:8px}.col-side .up > b{grid-column:1;grid-row:1}.col-side .up > .btn{grid-column:2;grid-row:1;justify-self:end}.col-side .up .files{grid-column:1/-1;grid-row:2}
+.col-side .alert.miss{margin:0}.col-side .foot{margin-top:0}
+.col-side .btn.pri{min-width:160px}
+.sec-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sec-head h3{display:flex;align-items:center;gap:8px;font-size:17px}
+.sec-head .cnt{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 7px;border-radius:999px;background:var(--navy);color:#fff;font-family:var(--f-mono);font-size:12.5px}
 .flow{list-style:none;margin:0;padding:18px 18px 6px;border:1px solid var(--line);border-radius:14px;background:var(--surface);position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px)}
 .flow li{position:relative;padding:0 0 22px 40px;min-width:0}
 .flow li::before{content:"";position:absolute;left:13px;top:28px;bottom:2px;width:2px;background:var(--line)}
@@ -86,7 +96,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .steps li.done{color:var(--ink)}.steps li.done i{background:var(--ok)}
 .steps li.go{cursor:pointer}.steps li.go:hover{background:var(--navy-soft)}.steps li.done.go:hover{background:var(--ok-soft)}
 .card{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:22px 22px 24px}
-.card + .card{margin-top:14px}
+.card + .card{margin-top:0}
 .card > h3{font-size:17px}
 .card > p.d{margin:4px 0 16px;color:var(--mute);font-size:13.5px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px}
@@ -130,6 +140,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .done{text-align:center;padding:56px 22px}
 .done .mark{width:64px;height:64px;border-radius:50%;margin:0 auto 16px;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;font-weight:900}
 .done h2{font-size:24px}
+@media (max-width:1180px){.formgrid{grid-template-columns:minmax(0,1fr)}.col-side{margin-top:14px}}
 @media (max-width:760px){
   .cards{grid-template-columns:1fr;gap:16px}.card3{min-height:200px}
   .layout{grid-template-columns:1fr;gap:16px}.flow{position:static;display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;padding:14px 14px 0}.flow li::before{display:none}.flow li{padding-bottom:14px}
@@ -166,7 +177,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     s_contact:'담당자', s_contact_d:'검토 결과는 이 이메일로 회신드립니다.', contact:'이름', title_:'부서 · 직책', email:'이메일', phone:'전화번호',
     s_company:'회사 정보', company:'회사명', country:'국가', countries:['대한민국','중국','일본','미국','독일','인도','기타'], select:'선택',
     s_items:'제안 품목', s_items_d:'품목이 여러 개면 「품목 추가」로 이어서 적어 주십시오.', item:'품목',
-    name:'품목명', cas:'CAS No.', grade:'규격 · Grade · 순도', maker:'제조사', origin:'생산지(국가 · 공장)', capacity:'월 공급 가능 물량', pack:'포장 단위', lead_t:'리드타임', price:'단가 · 가격 조건', price_h:'선택 · 예) USD 2.5/kg CIF Busan', sample:'샘플 제공', sample_y:'가능', sample_n:'불가', strength:'제안 내용 · 강점', strength_h:'공급 이력, 품질 관리, 가격 경쟁력, 공급 안정성 등', add:'＋ 품목 추가', remove:'삭제',
+    name:'품목명', cas:'CAS No.', grade:'규격 · Grade · 순도', maker:'제조사', origin:'생산지(국가 · 공장)', capacity:'월 공급 가능 물량', pack:'포장 단위', lead_t:'리드타임', price:'단가 · 가격 조건', price_h:'선택 · 예) USD 2.5/kg CIF Busan', sample:'샘플 제공', sample_y:'가능', sample_n:'불가', strength:'제안 내용 · 강점', strength_h:'공급 이력, 품질 관리, 가격 경쟁력, 공급 안정성 등', add:'＋ 품목 추가', del_item:'－ 품목 삭제', remove:'삭제',
     s_att:'첨부 자료', s_att_d:'MSDS · CoA 는 필수입니다(품목이 여러 개면 모두 첨부). 합계 20MB 이하.', req:'필수', opt:'선택', pick:'파일 선택', drop:'여기로 끌어 놓거나 「파일 선택」',
     att:{ msds:['MSDS','물질안전보건자료'], coa:['CoA','시험성적서'], intro:['회사소개서',''], catalog:['제품 카탈로그',''], etc:['기타 자료','인증서 · 제조공정 등 · 여러 개 첨부 가능'] },
     att_req:'{n} 파일을 첨부해 주십시오.', too_big:'첨부 파일 합계가 20MB 를 넘습니다. 파일을 줄여 주십시오.',
@@ -185,7 +196,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     s_contact:'Contact Person', s_contact_d:'We will reply to this e-mail.', contact:'Name', title_:'Department · Title', email:'E-mail', phone:'Phone',
     s_company:'Company', company:'Company name', country:'Country', countries:['Korea','China','Japan','USA','Germany','India','Other'], select:'Select',
     s_items:'Proposed Items', s_items_d:'For several items, use “Add item”.', item:'Item',
-    name:'Item name', cas:'CAS No.', grade:'Specification · Grade · Purity', maker:'Manufacturer', origin:'Origin (country · plant)', capacity:'Monthly supply capacity', pack:'Packing', lead_t:'Lead time', price:'Price · terms', price_h:'Optional · e.g. USD 2.5/kg CIF Busan', sample:'Sample', sample_y:'Available', sample_n:'Not available', strength:'Proposal · strengths', strength_h:'Supply record, quality control, price, supply stability, etc.', add:'＋ Add item', remove:'Remove',
+    name:'Item name', cas:'CAS No.', grade:'Specification · Grade · Purity', maker:'Manufacturer', origin:'Origin (country · plant)', capacity:'Monthly supply capacity', pack:'Packing', lead_t:'Lead time', price:'Price · terms', price_h:'Optional · e.g. USD 2.5/kg CIF Busan', sample:'Sample', sample_y:'Available', sample_n:'Not available', strength:'Proposal · strengths', strength_h:'Supply record, quality control, price, supply stability, etc.', add:'＋ Add item', del_item:'－ Remove item', remove:'Remove',
     s_att:'Attachments', s_att_d:'MSDS and CoA are required (for every item). Up to 20MB in total.', req:'Required', opt:'Optional', pick:'Choose file', drop:'Drop files here or “Choose file”',
     att:{ msds:['MSDS','Material Safety Data Sheet'], coa:['CoA','Certificate of Analysis'], intro:['Company profile',''], catalog:['Product catalog',''], etc:['Others','Certificates · process, etc. · multiple files allowed'] },
     att_req:'Please attach {n}.', too_big:'Attachments exceed 20MB in total. Please reduce the files.',
@@ -204,7 +215,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     s_contact:'负责人', s_contact_d:'审核结果将回复至此邮箱。', contact:'姓名', title_:'部门 · 职位', email:'邮箱', phone:'电话',
     s_company:'公司信息', company:'公司名称', country:'国家', countries:['韩国','中国','日本','美国','德国','印度','其他'], select:'请选择',
     s_items:'提案品目', s_items_d:'品目较多时，请点击“添加品目”。', item:'品目',
-    name:'品名', cas:'CAS No.', grade:'规格 · 等级 · 纯度', maker:'生产商', origin:'产地（国家 · 工厂）', capacity:'月供应能力', pack:'包装', lead_t:'交货期', price:'价格 · 条件', price_h:'可选 · 例）USD 2.5/kg CIF Busan', sample:'样品', sample_y:'可提供', sample_n:'不可提供', strength:'提案内容 · 优势', strength_h:'供应业绩、质量管理、价格竞争力、供应稳定性等', add:'＋ 添加品目', remove:'删除',
+    name:'品名', cas:'CAS No.', grade:'规格 · 等级 · 纯度', maker:'生产商', origin:'产地（国家 · 工厂）', capacity:'月供应能力', pack:'包装', lead_t:'交货期', price:'价格 · 条件', price_h:'可选 · 例）USD 2.5/kg CIF Busan', sample:'样品', sample_y:'可提供', sample_n:'不可提供', strength:'提案内容 · 优势', strength_h:'供应业绩、质量管理、价格竞争力、供应稳定性等', add:'＋ 添加品目', del_item:'－ 删除品目', remove:'删除',
     s_att:'附件', s_att_d:'MSDS 和 CoA 为必须（多个品目请全部附上）。合计20MB以内。', req:'必须', opt:'可选', pick:'选择文件', drop:'拖放至此或点击“选择文件”',
     att:{ msds:['MSDS','化学品安全技术说明书'], coa:['CoA','检验报告'], intro:['公司介绍',''], catalog:['产品目录',''], etc:['其他资料','证书 · 工艺等 · 可上传多个文件'] },
     att_req:'请附上 {n} 文件。', too_big:'附件合计超过20MB，请减少文件。',
@@ -257,7 +268,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     const d = S.d;
     if (S.step === 4) return `<div class="card done"><div class="mark">✓</div><h2>${esc(t('done'))}</h2></div>`;
     if (S.showErrs) { S.miss = missingAll(); validateAll(); }
-    const sec = (id, title, desc, inner) => `<section class="card" id="sec-${id}"><h3>${esc(title)}</h3><p class="d">${esc(desc || '')}</p>${inner}</section>`;
+    const sec = (id, title, desc, inner, head) => `<section class="card" id="sec-${id}">${head || `<h3>${esc(title)}</h3>`}<p class="d">${esc(desc || '')}</p>${inner}</section>`;
     const contact = sec('contact', t('s_contact'), t('s_contact_d'), `<div class="grid">
         ${fld('contact', t('contact'), { req:1, ac:'name' })}${fld('title', t('title_'), { req:1, ac:'organization-title' })}
         ${fld('email', t('email'), { req:1, type:'email', ph:'name@company.com', ac:'email' })}${fld('phone', t('phone'), { req:1, type:'tel', ph:'+82 10-0000-0000', ac:'tel' })}
@@ -266,7 +277,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
         ${fld('company', t('company'), { req:1, ac:'organization' })}
         ${fld('country', t('country'), { req:1, type:'select', options:[['', t('select')], ...t('countries').map((x) => [x, x])] })}
       </div>`);
-    const items = sec('items', t('s_items'), t('s_items_d'), `${d.items.map((it, i) => `<div class="item"><header><b>${esc(t('item'))} ${i + 1}</b><span class="spacer"></span>${d.items.length > 1 ? `<button type="button" class="link" data-rm="${i}">${esc(t('remove'))}</button>` : ''}</header><div class="grid">
+    const items = sec('items', t('s_items'), t('s_items_d'), `${d.items.map((it, i) => `<div class="item"><header><b>${esc(t('item'))} ${i + 1}</b><span class="spacer"></span></header><div class="grid">
         ${fld('', t('name'), { req:1, dk:'name', idx:i, ek:`name${i}`, val:it.name })}${fld('', t('cas'), { dk:'cas', idx:i, val:it.cas, ph:'616-38-6' })}
         ${fld('', t('grade'), { req:1, dk:'grade', idx:i, ek:`grade${i}`, val:it.grade })}${fld('', t('maker'), { req:1, dk:'maker', idx:i, ek:`maker${i}`, val:it.maker })}
         ${fld('', t('origin'), { req:1, dk:'origin', idx:i, ek:`origin${i}`, val:it.origin })}${fld('', t('capacity'), { req:1, dk:'capacity', idx:i, ek:`capacity${i}`, val:it.capacity, ph:'50 MT' })}
@@ -274,7 +285,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
         ${fld('', t('price'), { dk:'price', idx:i, val:it.price, hint:t('price_h') })}${fld('', t('sample'), { dk:'sample', idx:i, val:it.sample, type:'select', options:[['y', t('sample_y')], ['n', t('sample_n')]] })}
         ${fld('', t('strength'), { req:1, dk:'strength', idx:i, ek:`strength${i}`, val:it.strength, type:'area', full:1, ph:t('strength_h') })}
       </div></div>`).join('')}
-      <div class="foot" style="margin-top:12px"><button type="button" class="btn sm" data-add>${esc(t('add'))}</button></div>`);
+`, `<div class="sec-head"><h3>${esc(t('s_items'))} <span class="cnt" aria-label="${esc(t('item'))}">${d.items.length}</span></h3><span class="spacer"></span><button type="button" class="btn sm" data-add>${esc(t('add'))}</button><button type="button" class="btn sm" data-delitem ${d.items.length > 1 ? '' : 'disabled'}>${esc(t('del_item'))}</button></div>`);
     const att = sec('att', t('s_att'), t('s_att_d'), `${ATT.map((k) => { const [a, b] = t('att')[k]; const list = d.files[k] || []; const err = S.errs && S.errs[`att_${k}`];
         return `<div class="up${err ? ' err' : ''}" data-drop="${k}"><b>${esc(a)}<span class="tag ${ATT_REQ[k] ? 'req' : 'opt'}">${esc(ATT_REQ[k] ? t('req') : t('opt'))}</span>${b ? `<small>${esc(b)}</small>` : ''}</b>
           <div class="files">${list.map((f, j) => `<span>📎 ${esc(f.name)} <small>${sizeText(f.size)}</small><button type="button" data-rmf="${k}|${j}" aria-label="${esc(t('remove'))}">×</button></span>`).join('') || `<span style="background:none;padding:0" class="${err ? 'msg' : ''}">${esc(err || t('drop'))}</span>`}</div>
@@ -285,19 +296,19 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
       ${S.errs && S.errs.agree ? `<p class="msg">${esc(S.errs.agree)}</p>` : ''}`);
     const missBox = S.miss && S.miss.length ? `<div class="alert miss" id="missBox" role="alert">${S.miss.map((m) => `<div class="mrow"><span>${esc(missText(m))}</span><button type="button" class="btn sm" data-jump="${m.sec}">${esc(t('miss_go'))} →</button></div>`).join('')}</div>` : '';
     return `<div class="formhead"><h2>${esc(t('f_title'))}</h2></div>
-      ${contact}${company}${items}${att}
-      ${missBox}${S.failMsg ? `<div class="alert" role="alert" style="margin:14px 0 0">${esc(S.failMsg)}</div>` : ''}
-      <div class="foot"><span class="spacer"></span><button type="button" class="btn pri" data-submit ${S.busy ? 'disabled' : ''}>${esc(S.busy ? t('sending') : t('submit'))}</button></div>`;
+      <div class="col-main">${contact}${company}${items}</div>
+      <div class="col-side">${att}${missBox}${S.failMsg ? `<div class="alert" role="alert">${esc(S.failMsg)}</div>` : ''}
+      <div class="foot"><span class="spacer"></span><button type="button" class="btn pri" data-submit ${S.busy ? 'disabled' : ''}>${esc(S.busy ? t('sending') : t('submit'))}</button></div></div>`;
   }
   function viewSupply(){
     const cur = S.step === 4 ? 3 : (ATT.some((k) => (S.d.files[k] || []).length) ? 2 : 1);
-    return `<section class="wrap intro" aria-labelledby="pTitle">
+    return `<section class="wrap wide intro" aria-labelledby="pTitle">
       <div class="crumb"><button type="button" data-home>${esc(t('crumb_home'))}</button> › ${esc(t('crumb'))}</div>
       <h1 id="pTitle">${esc(t('title'))}</h1><p>${esc(t('lead'))}</p>
     </section>
-    <main class="wrap main"><div class="layout">
+    <main class="wrap wide main"><div class="layout">
       <ol class="flow" aria-label="${esc(t('crumb'))}">${t('flow').map(([h, p], i) => `<li class="${i + 1 === cur ? 'on' : (i + 1 < cur ? 'past' : '')}"><span class="dot">${i + 1 < cur ? '✓' : i + 1}</span><span class="n">STEP ${i + 1}</span><b>${esc(h)}</b><small>${esc(p)}</small></li>`).join('')}</ol>
-      <div id="form">${viewForm()}</div>
+      <div id="form" class="formgrid">${viewForm()}</div>
     </div></main>`;
   }
   function validate(step){
@@ -364,6 +375,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     if (e.target.closest('[data-go="supply"]')) { goView('supply'); return; }
     const jp = e.target.closest('[data-jump]'); if (jp) { const sc = $(`#sec-${jp.dataset.jump}`); if (sc) { sc.scrollIntoView({ behavior:'smooth', block:'start' }); const f = sc.querySelector('.f.err input, .f.err select, .f.err textarea'); if (f) setTimeout(() => f.focus({ preventScroll:true }), 400); } return; }
     if (e.target.closest('[data-submit]')) { submit(); return; }
+    if (e.target.closest('[data-delitem]')) { if (S.d.items.length > 1) { S.d.items.pop(); render(); } return; }
     if (e.target.closest('[data-add]')) { S.d.items.push(blankItem()); render(); return; }
     const rm = e.target.closest('[data-rm]'); if (rm) { S.d.items.splice(+rm.dataset.rm, 1); render(); return; }
     const rf = e.target.closest('[data-rmf]'); if (rf) { const [k, j] = rf.dataset.rmf.split('|'); S.d.files[k].splice(+j, 1); render(); }
