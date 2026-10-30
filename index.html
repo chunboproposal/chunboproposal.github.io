@@ -35,7 +35,7 @@ h1,h2,h3{font-family:var(--f-disp);text-wrap:balance;color:var(--ink);margin:0}
 .top .bar{display:flex;align-items:center;gap:28px;padding-block:0;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));min-height:68px;flex-wrap:nowrap}
 .logo{display:inline-flex;align-items:center;border:0;background:none;padding:0;cursor:pointer}
 .logo-svg{height:46px;width:auto;display:block}
-@media (max-width:480px){.logo-svg{height:36px}.top .bar{gap:10px}.lang button{padding:5px 8px;font-size:12px}}
+@media (max-width:480px){.logo-svg{height:36px}.top .bar{gap:8px}.lang button{padding:5px 8px;font-size:12px}.stbtn span{padding:5px 9px;font-size:12px}}
 .spacer{flex:1}
 .lang{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface2)}
 .lang button{border:0;background:transparent;padding:5px 12px;border-radius:999px;font-size:13px;font-weight:600;color:var(--ink2);cursor:pointer}
@@ -67,7 +67,8 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .intro p{max-width:66ch;color:var(--ink2);margin:0}
 .col-side .up{grid-template-columns:minmax(0,1fr) auto;row-gap:8px}.col-side .up > b{grid-column:1;grid-row:1}.col-side .up > .btn{grid-column:2;grid-row:1;justify-self:end}.col-side .up .files{grid-column:1/-1;grid-row:2}
 .col-side .alert.miss{margin:0}.col-side .foot{margin-top:0}
-.col-side .btn.pri{min-width:160px}
+.agree-row{display:flex;align-items:stretch;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.agree-row .ck{margin:0}.agree-row .sendbtn{min-width:160px;min-height:0;height:auto;margin-left:auto}
 .sec-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .sec-head h3{display:flex;align-items:center;gap:8px;font-size:17px}
 .ipills{display:inline-flex;flex-wrap:wrap;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface2)}
@@ -87,10 +88,20 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .flow li.on b{color:var(--navy)}
 .formgrid{display:grid;grid-template-columns:minmax(300px,0.85fr) minmax(0,1.3fr) minmax(320px,1fr);gap:20px;align-items:start}
 .col-a,.col-b,.col-c{min-width:0;display:grid;gap:14px}
-.formgrid > .done{grid-column:2/-1}
+.formgrid > .done{grid-column:1/-1}
 .col-a .grid{grid-template-columns:1fr}
+.formgrid{align-items:stretch}.formgrid > .col-a,.formgrid > .col-c,.formgrid > .done{align-self:start}
+.col-b{grid-template-rows:minmax(0,1fr)}
+.col-b > #sec-items{display:flex;flex-direction:column}
+#sec-items > .item:last-of-type{flex:1 1 auto;display:flex;flex-direction:column}
+#sec-items > .item:last-of-type > .grid{flex:1 1 auto;grid-template-rows:repeat(5,auto) minmax(0,1fr)}
+#sec-items > .item:last-of-type .f.full textarea{flex:1 1 auto;min-height:100px}
+.stbtn{display:inline-flex;align-items:center;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);cursor:pointer;font:inherit}
+.stbtn span{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:999px;font-size:13px;font-weight:700;color:var(--navy);line-height:1.6;background:var(--surface)}
+.stbtn:hover span,.stbtn[aria-pressed="true"] span{background:var(--navy);color:#fff}
+.stwrap{max-width:480px}
 .lookup{display:grid;gap:10px;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
-.lookup h3{font-size:15px}.lookup .d{margin:-6px 0 0;color:var(--mute);font-size:12.5px}
+.lookup h3{font-size:16px}.stwrap .lookup{padding:20px 22px;gap:12px}.stwrap .lookup .f input{height:44px}.stwrap .lookup .btn{min-height:44px}.lookup .d{margin:-6px 0 0;color:var(--mute);font-size:12.5px}
 .lookup .f input{height:38px;font-size:14px}
 .lk-res{border-radius:10px;background:var(--navy-soft);padding:12px}
 .lk-st{font-weight:700;color:var(--navy);white-space:pre-wrap;margin-bottom:8px}
@@ -108,6 +119,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .card{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:22px 22px 24px}
 .card + .card{margin-top:0}
 .card > h3{font-size:17px}
+.sec-sp{height:14px}
 .card > p.d{margin:4px 0 16px;color:var(--mute);font-size:13.5px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px}
 .grid .full{grid-column:1/-1}
@@ -150,7 +162,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .done{text-align:center;padding:56px 22px}
 .done .mark{width:64px;height:64px;border-radius:50%;margin:0 auto 16px;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;font-weight:900}
 .done h2{font-size:24px}
-@media (max-width:1280px){.formgrid{grid-template-columns:minmax(280px,0.8fr) minmax(0,1.4fr)}.col-c{grid-column:1/-1}.formgrid > .done{grid-column:2}}
+@media (max-width:1280px){.formgrid{grid-template-columns:minmax(280px,0.8fr) minmax(0,1.4fr)}.col-c{grid-column:1/-1}}
 @media (max-width:900px){.formgrid{grid-template-columns:minmax(0,1fr)}.col-c,.formgrid > .done{grid-column:auto}.col-a .grid{grid-template-columns:1fr 1fr}}
 @media (max-width:760px){
   .cards{grid-template-columns:1fr;gap:16px}.card3{min-height:200px}
@@ -166,6 +178,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 <header class="top"><div class="bar">
   <button type="button" class="logo" data-home aria-label="(주)천보"><svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="2 4 210 68" role="img" aria-label="(주)천보 Your True Partner"><defs><clipPath id="cbIn"><ellipse cx="45" cy="37" rx="38" ry="30"/></clipPath></defs><g clip-path="url(#cbIn)" fill="#2b2d8f"><rect x="0" y="25.6" width="34" height="3.4"/><rect x="0" y="33.6" width="34" height="3.4"/><rect x="0" y="41.6" width="34" height="3.4"/><rect x="56" y="25.6" width="34" height="3.4"/><rect x="56" y="33.6" width="34" height="3.4"/><rect x="56" y="41.6" width="34" height="3.4"/></g><path d="M15.5 56.5 L30.5 13 L44.5 56.5 Z M44.5 56.5 L58.5 13 L73.5 56.5 Z" fill="#1f6b2c" stroke="#fff" stroke-width="1.4" stroke-linejoin="round" paint-order="stroke"/><ellipse cx="45" cy="37" rx="40" ry="32" fill="none" stroke="#2b2d8f" stroke-width="4"/><g fill="#eef6ec" font-family="Arial, Helvetica, sans-serif" font-size="18.5" text-anchor="middle"><text x="30.5" y="53.2">C</text><text x="58.8" y="53.2">B</text></g><text x="96.5" y="23.4" font-family="'Roboto Condensed','Arial Narrow',Arial,sans-serif" font-weight="700" font-size="13.2" fill="#28297e" textLength="108" lengthAdjust="spacingAndGlyphs">Your True Partner</text><text x="95" y="62.5" font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-weight="700" font-size="35" fill="#454545" textLength="113" lengthAdjust="spacingAndGlyphs">(주)천보</text></svg></button>
   <span class="spacer"></span>
+  <button type="button" class="stbtn" data-go="status" id="stBtn"><span></span></button>
   <div class="lang" role="group" aria-label="Language" id="langBox"></div>
 </div></header>
 <div id="view"></div>
@@ -195,7 +208,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     agree_t:'개인정보 수집 · 이용 동의', agree_body:'수집 항목: 담당자 이름, 부서 · 직책, 이메일, 전화번호\n이용 목적: 공급 제안 접수 · 검토 및 결과 회신\n보유 기간: 접수일부터 3년(또는 회사 정책에 따름) — 기간이 지나면 지체 없이 파기합니다.\n동의를 거부하실 수 있으나, 거부 시 제안을 접수할 수 없습니다.',
     agree:'개인정보 수집 · 이용에 동의합니다. (필수)', agree_req:'개인정보 수집 · 이용에 동의해야 제출할 수 있습니다.',
     prev:'이전', next:'다음', submit:'제출', sending:'제출 중…', miss:'「{step}」의 {fields} 항목을 입력하세요.', miss_att:'「{step}」의 {fields} 파일을 첨부하세요.', miss_go:'바로가기', item_n:'품목 {n}', email_fmt:'이메일 형식', required:'필수 항목을 입력해 주십시오.', email_bad:'이메일 형식을 확인해 주십시오.',
-    done:'제출이 완료되었습니다.', refno:'접수번호', refno_d:'진행현황을 확인할 때 접수번호와 제출하신 이메일이 필요합니다. 메모해 두십시오.', lk_t:'진행현황 확인', lk_d:'접수번호와 제출하신 이메일을 입력하십시오.', lk_no:'접수번호', lk_email:'이메일', lk_btn:'조회', lk_busy:'조회 중…', lk_nf:'접수번호 또는 이메일이 맞지 않습니다.', lk_wait:'잠시 후 다시 조회해 주십시오.', lk_fail:'조회하지 못했습니다. 잠시 후 다시 시도해 주십시오.', lk_none:'접수되었습니다. 구매팀이 검토를 준비하고 있습니다.', lk_at:'접수', lk_upd:'갱신', lk_items:'제안 품목', fail:'제출하지 못했습니다. 잠시 후 다시 「제출」 을 눌러 주십시오.', not_ready:'접수 주소가 아직 설정되지 않았습니다.',
+    done:'접수가 완료되었습니다.', refno:'접수번호', refno_d:'진행현황 확인을 위해서 접수번호를 기억해주세요.', lk_lead:'공급 제안 접수번호와 제출하신 이메일로 진행현황을 확인할 수 있습니다.', lk_t:'진행현황 확인', lk_d:'접수번호와 제출하신 이메일을 입력하십시오.', lk_no:'접수번호', lk_email:'이메일', lk_btn:'조회', lk_busy:'조회 중…', lk_nf:'접수번호 또는 이메일이 맞지 않습니다.', lk_wait:'잠시 후 다시 조회해 주십시오.', lk_fail:'조회하지 못했습니다. 잠시 후 다시 시도해 주십시오.', lk_none:'접수되었습니다. 구매팀이 검토를 준비하고 있습니다.', lk_at:'접수', lk_upd:'갱신', lk_items:'제안 품목', fail:'제출하지 못했습니다. 잠시 후 다시 「제출」 을 눌러 주십시오.', not_ready:'접수 주소가 아직 설정되지 않았습니다.',
     foot:'천보 구매팀 · 원부자재 공급 제안' },
   en:{ inq:'1:1 Inquiry', inq_title:'Contact', inq_desc:'Please select the type of inquiry.', go:'Go', soon:'Coming soon',
     c1:'Product Purchase', c1s:'Products of Chunbo · Chunbo Advanced Materials · Chunbo BLS', c2:'Supply Proposal', c2s:'Submit a raw material supply proposal', c3:'Business Partnership', c3s:'Joint development · alliances',
@@ -214,7 +227,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     agree_t:'Consent to Collection and Use of Personal Information', agree_body:'Items: name, department · title, e-mail, phone\nPurpose: receiving, reviewing and replying to supply proposals\nRetention: 3 years from receipt (or per company policy), then destroyed without delay.\nYou may refuse consent, but the proposal cannot be submitted without it.',
     agree:'I agree to the collection and use of personal information. (Required)', agree_req:'You must agree to the personal information terms to submit.',
     prev:'Back', next:'Next', submit:'Submit', sending:'Submitting…', miss:'Please fill in {fields} in “{step}”.', miss_att:'Please attach {fields} in “{step}”.', miss_go:'Go', item_n:'Item {n}', email_fmt:'e-mail format', required:'Please fill in the required fields.', email_bad:'Please check the e-mail format.',
-    done:'Your proposal has been submitted.', refno:'Reference No.', refno_d:'You will need this reference number and your e-mail to check the progress. Please keep it.', lk_t:'Check progress', lk_d:'Enter your reference number and the e-mail you submitted.', lk_no:'Reference No.', lk_email:'E-mail', lk_btn:'Check', lk_busy:'Checking…', lk_nf:'The reference number or e-mail does not match.', lk_wait:'Please try again in a moment.', lk_fail:'Could not check the progress. Please try again later.', lk_none:'Received. Our purchasing team is preparing the review.', lk_at:'Submitted', lk_upd:'Updated', lk_items:'Items', fail:'Submission failed. Please press “Submit” again in a moment.', not_ready:'The submission address is not set yet.',
+    done:'Your proposal has been received.', refno:'Reference No.', refno_d:'Please keep this reference number to check the progress.', lk_lead:'Check the progress of your supply proposal with the reference number and your e-mail.', lk_t:'Check progress', lk_d:'Enter your reference number and the e-mail you submitted.', lk_no:'Reference No.', lk_email:'E-mail', lk_btn:'Check', lk_busy:'Checking…', lk_nf:'The reference number or e-mail does not match.', lk_wait:'Please try again in a moment.', lk_fail:'Could not check the progress. Please try again later.', lk_none:'Received. Our purchasing team is preparing the review.', lk_at:'Submitted', lk_upd:'Updated', lk_items:'Items', fail:'Submission failed. Please press “Submit” again in a moment.', not_ready:'The submission address is not set yet.',
     foot:'Chunbo Purchasing Team · Raw Material Supply Proposal' },
   zh:{ inq:'一对一咨询', inq_title:'联系我们', inq_desc:'请选择咨询类型。', go:'前往', soon:'准备中',
     c1:'产品采购咨询', c1s:'Chunbo · Chunbo Advanced Materials · Chunbo BLS 产品采购', c2:'供应提案', c2s:'提交原辅材料供应提案', c3:'业务合作咨询', c3s:'共同开发 · 业务合作',
@@ -233,7 +246,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     agree_t:'个人信息收集及使用同意', agree_body:'收集项目：姓名、部门 · 职位、邮箱、电话\n使用目的：供应提案的受理、审核及结果回复\n保存期限：自受理之日起3年（或按公司政策），期满后立即销毁。\n您可以拒绝同意，但拒绝后将无法提交提案。',
     agree:'同意收集及使用个人信息。（必选）', agree_req:'须同意个人信息条款后方可提交。',
     prev:'上一步', next:'下一步', submit:'提交', sending:'提交中…', miss:'请填写「{step}」中的{fields}。', miss_att:'请在「{step}」中上传{fields}。', miss_go:'前往', item_n:'品目 {n}', email_fmt:'邮箱格式', required:'请填写必填项。', email_bad:'请确认邮箱格式。',
-    done:'提交已完成。', refno:'受理编号', refno_d:'查询进度时需要受理编号和提交时的邮箱，请妥善保存。', lk_t:'进度查询', lk_d:'请输入受理编号和提交时的邮箱。', lk_no:'受理编号', lk_email:'邮箱', lk_btn:'查询', lk_busy:'查询中…', lk_nf:'受理编号或邮箱不正确。', lk_wait:'请稍后再试。', lk_fail:'查询失败，请稍后再试。', lk_none:'已受理，采购部正在准备审核。', lk_at:'受理', lk_upd:'更新', lk_items:'提案品目', fail:'提交失败，请稍后再点击“提交”。', not_ready:'尚未设置受理地址。',
+    done:'受理已完成。', refno:'受理编号', refno_d:'请记住受理编号，以便查询进度。', lk_lead:'可使用受理编号和提交时的邮箱查询供应提案进度。', lk_t:'进度查询', lk_d:'请输入受理编号和提交时的邮箱。', lk_no:'受理编号', lk_email:'邮箱', lk_btn:'查询', lk_busy:'查询中…', lk_nf:'受理编号或邮箱不正确。', lk_wait:'请稍后再试。', lk_fail:'查询失败，请稍后再试。', lk_none:'已受理，采购部正在准备审核。', lk_at:'受理', lk_upd:'更新', lk_items:'提案品目', fail:'提交失败，请稍后再点击“提交”。', not_ready:'尚未设置受理地址。',
     foot:'Chunbo 采购部 · 原辅材料供应提案' }
   };
   const $ = (s, el = document) => el.querySelector(s);
@@ -242,7 +255,8 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   const t = (k) => T[lang][k] ?? T.ko[k] ?? k;
   const blankItem = () => ({ name:'', cas:'', grade:'', maker:'', origin:'', capacity:'', pack:'', lead:'', price:'', sample:'y', strength:'' });
   const fresh = () => ({ contact:'', title:'', email:'', phone:'', company:'', country:'', items:[blankItem()], files:{}, agree:false });
-  const S = { view: location.hash === '#supply' ? 'supply' : 'home', step:1, errs:null, busy:false, failMsg:'', d:fresh() };
+  const viewOfHash = () => (location.hash === '#supply' ? 'supply' : (location.hash === '#status' ? 'status' : 'home'));
+  const S = { view: viewOfHash(), step:1, errs:null, busy:false, failMsg:'', d:fresh() };
   const ICON = {
     flask:'<svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1c2340" stroke-width="2" aria-hidden="true"><path d="M25 8h14M27 8v16L13 50a5 5 0 0 0 4 7h30a5 5 0 0 0 4-7L37 24V8"/><path d="M18 40c6-3 10 3 16 0s10 2 13 0" stroke="#6a2c91"/><circle cx="26" cy="47" r="3" stroke="#a3238e"/><circle cx="38" cy="49" r="3" stroke="#13a3b5"/></svg>',
     supply:'<svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1c2340" stroke-width="2" aria-hidden="true"><path d="M10 26l22-12 22 12v22L32 60 10 48z"/><path d="M10 26l22 12 22-12M32 38v22" stroke="#6a2c91"/><path d="M40 8h14v14" stroke="#13a3b5"/><path d="M54 8L42 20" stroke="#13a3b5"/></svg>',
@@ -277,16 +291,16 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   const totalSize = () => ATT.reduce((s, k) => s + (S.d.files[k] || []).reduce((a, f) => a + f.size, 0), 0);
   function viewForm(){
     const d = S.d;
-    if (S.step === 4) return `<div class="col-a">${viewLookup()}</div><div class="card done"><div class="mark">✓</div><h2>${esc(t('done'))}</h2>${S.lastNo ? `<p class="refno">${esc(t('refno'))} <b>${esc(S.lastNo)}</b></p><p class="refno-d">${esc(t('refno_d'))}</p>` : ''}</div>`;
+    if (S.step === 4) return `<div class="card done"><div class="mark">✓</div><h2>${esc(t('done'))}</h2>${S.lastNo ? `<p class="refno">${esc(t('refno'))} <b>${esc(S.lastNo)}</b></p><p class="refno-d">${esc(t('refno_d'))}</p>` : ''}</div>`;
     if (S.showErrs) { S.miss = missingAll(); validateAll(); }
-    const sec = (id, title, desc, inner, head) => `<section class="card" id="sec-${id}">${head || `<h3>${esc(title)}</h3>`}<p class="d">${esc(desc || '')}</p>${inner}</section>`;
-    const contact = sec('contact', t('s_contact'), t('s_contact_d'), `<div class="grid">
+    const sec = (id, title, desc, inner, head) => `<section class="card" id="sec-${id}">${head || `<h3>${esc(title)}</h3>`}${desc ? `<p class="d">${esc(desc)}</p>` : '<div class="sec-sp"></div>'}${inner}</section>`;
+    const contact = sec('contact', t('s_contact'), '', `<div class="grid">
         ${fld('company', t('company'), { req:1, ac:'organization' })}
         ${fld('country', t('country'), { req:1, type:'select', options:[['', t('select')], ...t('countries').map((x) => [x, x])] })}
         ${fld('contact', t('contact'), { req:1, ac:'name' })}${fld('title', t('title_'), { req:1, ac:'organization-title' })}
         ${fld('email', t('email'), { req:1, type:'email', ph:'name@company.com', ac:'email' })}${fld('phone', t('phone'), { req:1, type:'tel', ph:'+82 10-0000-0000', ac:'tel' })}
       </div>`);
-    const items = sec('items', t('s_items'), t('s_items_d'), `${d.items.map((it, i) => `<div class="item" id="item-${i}"><header><b>${esc(t('item'))} ${i + 1}</b><span class="spacer"></span></header><div class="grid">
+    const items = sec('items', t('s_items'), '', `${d.items.map((it, i) => `<div class="item" id="item-${i}"><header><b>${esc(t('item'))} ${i + 1}</b><span class="spacer"></span></header><div class="grid">
         ${fld('', t('name'), { req:1, dk:'name', idx:i, ek:`name${i}`, val:it.name })}${fld('', t('cas'), { dk:'cas', idx:i, val:it.cas, ph:'616-38-6' })}
         ${fld('', t('grade'), { req:1, dk:'grade', idx:i, ek:`grade${i}`, val:it.grade })}${fld('', t('maker'), { req:1, dk:'maker', idx:i, ek:`maker${i}`, val:it.maker })}
         ${fld('', t('origin'), { req:1, dk:'origin', idx:i, ek:`origin${i}`, val:it.origin })}${fld('', t('capacity'), { req:1, dk:'capacity', idx:i, ek:`capacity${i}`, val:it.capacity, ph:'50 MT' })}
@@ -295,19 +309,20 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
         ${fld('', t('strength'), { req:1, dk:'strength', idx:i, ek:`strength${i}`, val:it.strength, type:'area', full:1, ph:t('strength_h') })}
       </div></div>`).join('')}
 `, `<div class="sec-head"><h3>${esc(t('s_items'))} </h3><span class="ipills" role="group" aria-label="${esc(t('item'))}">${d.items.map((_, i) => `<button type="button" class="${i === Math.min(S.itemSel ?? d.items.length - 1, d.items.length - 1) ? 'on' : ''}" data-ipill="${i}" aria-label="${esc(t('item'))} ${i + 1}">${i + 1}</button>`).join('')}</span><span class="spacer"></span><button type="button" class="btn sm" data-add>${esc(t('add'))}</button><button type="button" class="btn sm" data-delitem ${d.items.length > 1 ? '' : 'disabled'}>${esc(t('del_item'))}</button></div>`);
-    const att = sec('att', t('s_att'), t('s_att_d'), `${ATT.map((k) => { const [a, b] = t('att')[k]; const list = d.files[k] || []; const err = S.errs && S.errs[`att_${k}`];
+    const att = sec('att', t('s_att'), '', `${ATT.map((k) => { const [a, b] = t('att')[k]; const list = d.files[k] || []; const err = S.errs && S.errs[`att_${k}`];
         return `<div class="up${err ? ' err' : ''}" data-drop="${k}"><b>${esc(a)}<span class="tag ${ATT_REQ[k] ? 'req' : 'opt'}">${esc(ATT_REQ[k] ? t('req') : t('opt'))}</span>${b ? `<small>${esc(b)}</small>` : ''}</b>
           <div class="files">${list.map((f, j) => `<span>📎 ${esc(f.name)} <small>${sizeText(f.size)}</small><button type="button" data-rmf="${k}|${j}" aria-label="${esc(t('remove'))}">×</button></span>`).join('') || `<span style="background:none;padding:0" class="${err ? 'msg' : ''}">${esc(err || t('drop'))}</span>`}</div>
           <label class="btn sm">${esc(t('pick'))}<input type="file" multiple data-file="${k}"></label></div>`; }).join('')}
       ${S.errs && S.errs.size ? `<p class="msg">${esc(S.errs.size)}</p>` : ''}
       <div class="agree">${esc(t('agree_body'))}</div>
-      <label class="ck ${d.agree ? 'on' : ''}" for="agree"><input type="checkbox" id="agree" data-agree ${d.agree ? 'checked' : ''}>${esc(t('agree'))}</label>
+      <div class="agree-row"><label class="ck ${d.agree ? 'on' : ''}" for="agree"><input type="checkbox" id="agree" data-agree ${d.agree ? 'checked' : ''}>${esc(t('agree'))}</label>
+      <button type="button" class="btn pri sendbtn" data-submit ${S.busy ? 'disabled' : ''}>${esc(S.busy ? t('sending') : t('submit'))}</button></div>
       ${S.errs && S.errs.agree ? `<p class="msg">${esc(S.errs.agree)}</p>` : ''}`);
     const missBox = S.miss && S.miss.length ? `<div class="alert miss" id="missBox" role="alert">${S.miss.map((m) => `<div class="mrow"><span>${esc(missText(m))}</span><button type="button" class="btn sm" data-jump="${m.sec}">${esc(t('miss_go'))} →</button></div>`).join('')}</div>` : '';
-    return `<div class="col-a">${contact}${viewLookup()}</div>
+    return `<div class="col-a">${contact}</div>
       <div class="col-b">${items}</div>
       <div class="col-side col-c">${att}${missBox}${S.failMsg ? `<div class="alert" role="alert">${esc(S.failMsg)}</div>` : ''}
-      <div class="foot"><span class="spacer"></span><button type="button" class="btn pri" data-submit ${S.busy ? 'disabled' : ''}>${esc(S.busy ? t('sending') : t('submit'))}</button></div></div>`;
+</div>`;
   }
   function viewLookup(){
     const L = S.lk || (S.lk = { no:'', email:'' }); const r = L.res;
@@ -319,6 +334,12 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
       ${r ? `<div class="lk-res" role="status"><div class="lk-st">${esc(r.status || t('lk_none'))}</div>
         <dl><dt>${esc(t('lk_no'))}</dt><dd>${esc(r.no)}</dd><dt>${esc(t('lk_items'))}</dt><dd>${esc(r.items)}</dd><dt>${esc(t('lk_at'))}</dt><dd>${esc(r.at)}</dd>${r.statusAt ? `<dt>${esc(t('lk_upd'))}</dt><dd>${esc(r.statusAt)}</dd>` : ''}</dl></div>` : ''}
     </form>`;
+  }
+  function viewStatus(){
+    return `<section class="wrap intro" aria-labelledby="sTitle">
+      <div class="crumb"><button type="button" data-home>${esc(t('crumb_home'))}</button> › ${esc(t('lk_t'))}</div>
+      <h1 id="sTitle">${esc(t('lk_t'))}</h1><p>${esc(t('lk_lead'))}</p>
+    </section><main class="wrap main"><div class="stwrap">${viewLookup()}</div></main>`;
   }
   async function lookup(){
     const L = S.lk; if (!L || L.busy) return;
@@ -395,14 +416,16 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   function render(){
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
     $('#langBox').innerHTML = [['ko','한국어'],['en','English'],['zh','中文']].map(([k, l]) => `<button type="button" data-lang="${k}" aria-pressed="${lang === k}">${l}</button>`).join('');
-    $('#view').innerHTML = S.view === 'supply' ? viewSupply() : viewHome();
+    $('#stBtn span').textContent = t('lk_t'); $('#stBtn').setAttribute('aria-pressed', String(S.view === 'status'));
+    $('#view').innerHTML = S.view === 'supply' ? viewSupply() : (S.view === 'status' ? viewStatus() : viewHome());
   }
-  const goView = (v) => { S.view = v; if (v === 'supply' && S.step === 4) { S.step = 1; } try { history.replaceState(null, '', v === 'supply' ? '#supply' : location.pathname); } catch { location.hash = v === 'supply' ? 'supply' : ''; } render(); window.scrollTo(0, 0); };
+  const goView = (v) => { S.view = v; if (v === 'supply' && S.step === 4) { S.step = 1; } try { history.replaceState(null, '', v === 'home' ? location.pathname : `#${v}`); } catch { location.hash = v === 'home' ? '' : v; } render(); window.scrollTo(0, 0); };
   const addFiles = (k, list) => { const arr = S.d.files[k] || (S.d.files[k] = []); [...list].forEach((f) => arr.push({ name:f.name, size:f.size, type:f.type, file:f })); if (S.errs) { delete S.errs[`att_${k}`]; delete S.errs.size; } render(); };
   document.addEventListener('click', (e) => {
     const lb = e.target.closest('[data-lang]'); if (lb) { lang = lb.dataset.lang; try { localStorage.setItem('cbp-lang', lang); } catch { /* 무시 */ } render(); return; }
     if (e.target.closest('[data-home]')) { goView('home'); return; }
     if (e.target.closest('[data-go="supply"]')) { goView('supply'); return; }
+    if (e.target.closest('[data-go="status"]')) { goView('status'); return; }
     const jp = e.target.closest('[data-jump]'); if (jp) { const sc = $(`#sec-${jp.dataset.jump}`); if (sc) { sc.scrollIntoView({ behavior:'smooth', block:'start' }); const f = sc.querySelector('.f.err input, .f.err select, .f.err textarea'); if (f) setTimeout(() => f.focus({ preventScroll:true }), 400); } return; }
     if (e.target.closest('[data-submit]')) { submit(); return; }
     const ip = e.target.closest('[data-ipill]'); if (ip) { S.itemSel = +ip.dataset.ipill; render(); const el = $(`#item-${S.itemSel}`); if (el) el.scrollIntoView({ behavior:'smooth', block:'start' }); return; }
@@ -422,7 +445,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   document.addEventListener('dragover', (e) => { const z = e.target.closest('[data-drop]'); if (!z) return; e.preventDefault(); z.classList.add('drag'); });
   document.addEventListener('dragleave', (e) => { const z = e.target.closest('[data-drop]'); if (z) z.classList.remove('drag'); });
   document.addEventListener('drop', (e) => { const z = e.target.closest('[data-drop]'); if (!z) return; e.preventDefault(); addFiles(z.dataset.drop, e.dataTransfer.files); });
-  window.addEventListener('hashchange', () => { const v = location.hash === '#supply' ? 'supply' : 'home'; if (v !== S.view) { S.view = v; render(); } });
+  window.addEventListener('hashchange', () => { const v = viewOfHash(); if (v !== S.view) { S.view = v; render(); } });
   render();
 })();
 </script>
