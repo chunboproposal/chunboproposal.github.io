@@ -84,7 +84,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .steps li i{display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;border-radius:50%;background:var(--line2);color:#fff;font-style:normal;font-size:11.5px;font-family:var(--f-mono)}
 .steps li.on{background:var(--navy);color:#fff}.steps li.on i{background:#fff;color:var(--navy)}
 .steps li.done{color:var(--ink)}.steps li.done i{background:var(--ok)}
-.steps li.done.go{cursor:pointer}.steps li.done.go:hover{background:var(--navy-soft)}
+.steps li.go{cursor:pointer}.steps li.go:hover{background:var(--navy-soft)}.steps li.done.go:hover{background:var(--ok-soft)}
 .card{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:22px 22px 24px}
 .card + .card{margin-top:14px}
 .card > h3{font-size:17px}
@@ -119,6 +119,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .ck{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line2);border-radius:10px;font-weight:600;font-size:14px;cursor:pointer;background:var(--surface)}
 .ck input{width:17px;height:17px;accent-color:var(--navy);margin:0}
 .ck.on{border-color:var(--navy);background:var(--navy-soft)}
+.alert.miss{display:grid;gap:8px;margin:14px 0 0}.alert .mrow{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px}.alert .mrow .btn{border-color:var(--bad);color:var(--bad);background:var(--surface)}
 .alert{padding:12px 16px;border-radius:10px;background:var(--bad-soft);color:var(--bad);font-weight:600;font-size:14px;margin-bottom:14px}
 .foot{display:flex;align-items:center;gap:10px;margin-top:20px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:10px;border:1px solid var(--line2);background:var(--surface);color:var(--ink);font-weight:700;cursor:pointer;font-size:14.5px}
@@ -171,7 +172,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     att_req:'{n} 파일을 첨부해 주십시오.', too_big:'첨부 파일 합계가 20MB 를 넘습니다. 파일을 줄여 주십시오.',
     agree_t:'개인정보 수집 · 이용 동의', agree_body:'수집 항목: 담당자 이름, 부서 · 직책, 이메일, 전화번호\n이용 목적: 공급 제안 접수 · 검토 및 결과 회신\n보유 기간: 접수일부터 3년(또는 회사 정책에 따름) — 기간이 지나면 지체 없이 파기합니다.\n동의를 거부하실 수 있으나, 거부 시 제안을 접수할 수 없습니다.',
     agree:'개인정보 수집 · 이용에 동의합니다. (필수)', agree_req:'개인정보 수집 · 이용에 동의해야 제출할 수 있습니다.',
-    prev:'이전', next:'다음', submit:'제출', sending:'제출 중…', required:'필수 항목을 입력해 주십시오.', email_bad:'이메일 형식을 확인해 주십시오.',
+    prev:'이전', next:'다음', submit:'제출', sending:'제출 중…', miss:'「{step}」의 {fields} 항목을 입력하세요.', miss_att:'「{step}」의 {fields} 파일을 첨부하세요.', miss_go:'바로가기', item_n:'품목 {n}', email_fmt:'이메일 형식', required:'필수 항목을 입력해 주십시오.', email_bad:'이메일 형식을 확인해 주십시오.',
     done:'제출이 완료되었습니다.', fail:'제출하지 못했습니다. 잠시 후 다시 「제출」 을 눌러 주십시오.', not_ready:'접수 주소가 아직 설정되지 않았습니다.',
     foot:'천보 구매팀 · 원부자재 공급 제안' },
   en:{ inq:'1:1 Inquiry', inq_title:'Contact', inq_desc:'Please select the type of inquiry.', go:'Go', soon:'Coming soon',
@@ -190,7 +191,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     att_req:'Please attach {n}.', too_big:'Attachments exceed 20MB in total. Please reduce the files.',
     agree_t:'Consent to Collection and Use of Personal Information', agree_body:'Items: name, department · title, e-mail, phone\nPurpose: receiving, reviewing and replying to supply proposals\nRetention: 3 years from receipt (or per company policy), then destroyed without delay.\nYou may refuse consent, but the proposal cannot be submitted without it.',
     agree:'I agree to the collection and use of personal information. (Required)', agree_req:'You must agree to the personal information terms to submit.',
-    prev:'Back', next:'Next', submit:'Submit', sending:'Submitting…', required:'Please fill in the required fields.', email_bad:'Please check the e-mail format.',
+    prev:'Back', next:'Next', submit:'Submit', sending:'Submitting…', miss:'Please fill in {fields} in “{step}”.', miss_att:'Please attach {fields} in “{step}”.', miss_go:'Go', item_n:'Item {n}', email_fmt:'e-mail format', required:'Please fill in the required fields.', email_bad:'Please check the e-mail format.',
     done:'Your proposal has been submitted.', fail:'Submission failed. Please press “Submit” again in a moment.', not_ready:'The submission address is not set yet.',
     foot:'Chunbo Purchasing Team · Raw Material Supply Proposal' },
   zh:{ inq:'一对一咨询', inq_title:'联系我们', inq_desc:'请选择咨询类型。', go:'前往', soon:'准备中',
@@ -209,7 +210,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     att_req:'请附上 {n} 文件。', too_big:'附件合计超过20MB，请减少文件。',
     agree_t:'个人信息收集及使用同意', agree_body:'收集项目：姓名、部门 · 职位、邮箱、电话\n使用目的：供应提案的受理、审核及结果回复\n保存期限：自受理之日起3年（或按公司政策），期满后立即销毁。\n您可以拒绝同意，但拒绝后将无法提交提案。',
     agree:'同意收集及使用个人信息。（必选）', agree_req:'须同意个人信息条款后方可提交。',
-    prev:'上一步', next:'下一步', submit:'提交', sending:'提交中…', required:'请填写必填项。', email_bad:'请确认邮箱格式。',
+    prev:'上一步', next:'下一步', submit:'提交', sending:'提交中…', miss:'请填写「{step}」中的{fields}。', miss_att:'请在「{step}」中上传{fields}。', miss_go:'前往', item_n:'品目 {n}', email_fmt:'邮箱格式', required:'请填写必填项。', email_bad:'请确认邮箱格式。',
     done:'提交已完成。', fail:'提交失败，请稍后再点击“提交”。', not_ready:'尚未设置受理地址。',
     foot:'Chunbo 采购部 · 原辅材料供应提案' }
   };
@@ -253,20 +254,19 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   const sizeText = (b) => (b > 1048576 ? `${(b / 1048576).toFixed(1)}MB` : `${Math.max(1, Math.round(b / 1024))}KB`);
   const totalSize = () => ATT.reduce((s, k) => s + (S.d.files[k] || []).reduce((a, f) => a + f.size, 0), 0);
   function viewForm(){
-    const d = S.d, st = S.step;
-    const steps = `<ol class="steps">${t('steps').map((s, i) => { const back = i + 1 < st && st < 4 && !S.busy; return `<li class="${i + 1 === st ? 'on' : (i + 1 < st ? 'done' : '')}${back ? ' go' : ''}"${back ? ` data-goto="${i + 1}" role="button" tabindex="0"` : ''}><i>${i + 1 < st ? '✓' : i + 1}</i>${esc(s)}</li>`; }).join('')}</ol>`;
-    let body = '';
-    if (st === 1) body = `
-      <div class="card"><h3>${esc(t('s_contact'))}</h3><p class="d">${esc(t('s_contact_d'))}</p><div class="grid">
+    const d = S.d;
+    if (S.step === 4) return `<div class="card done"><div class="mark">✓</div><h2>${esc(t('done'))}</h2></div>`;
+    if (S.showErrs) { S.miss = missingAll(); validateAll(); }
+    const sec = (id, title, desc, inner) => `<section class="card" id="sec-${id}"><h3>${esc(title)}</h3><p class="d">${esc(desc || '')}</p>${inner}</section>`;
+    const contact = sec('contact', t('s_contact'), t('s_contact_d'), `<div class="grid">
         ${fld('contact', t('contact'), { req:1, ac:'name' })}${fld('title', t('title_'), { req:1, ac:'organization-title' })}
         ${fld('email', t('email'), { req:1, type:'email', ph:'name@company.com', ac:'email' })}${fld('phone', t('phone'), { req:1, type:'tel', ph:'+82 10-0000-0000', ac:'tel' })}
-      </div></div>
-      <div class="card"><h3>${esc(t('s_company'))}</h3><p class="d"></p><div class="grid">
+      </div>`);
+    const company = sec('company', t('s_company'), '', `<div class="grid">
         ${fld('company', t('company'), { req:1, ac:'organization' })}
         ${fld('country', t('country'), { req:1, type:'select', options:[['', t('select')], ...t('countries').map((x) => [x, x])] })}
-      </div></div>`;
-    else if (st === 2) body = `<div class="card"><h3>${esc(t('s_items'))}</h3><p class="d">${esc(t('s_items_d'))}</p>
-      ${d.items.map((it, i) => `<div class="item"><header><b>${esc(t('item'))} ${i + 1}</b><span class="spacer"></span>${d.items.length > 1 ? `<button type="button" class="link" data-rm="${i}">${esc(t('remove'))}</button>` : ''}</header><div class="grid">
+      </div>`);
+    const items = sec('items', t('s_items'), t('s_items_d'), `${d.items.map((it, i) => `<div class="item"><header><b>${esc(t('item'))} ${i + 1}</b><span class="spacer"></span>${d.items.length > 1 ? `<button type="button" class="link" data-rm="${i}">${esc(t('remove'))}</button>` : ''}</header><div class="grid">
         ${fld('', t('name'), { req:1, dk:'name', idx:i, ek:`name${i}`, val:it.name })}${fld('', t('cas'), { dk:'cas', idx:i, val:it.cas, ph:'616-38-6' })}
         ${fld('', t('grade'), { req:1, dk:'grade', idx:i, ek:`grade${i}`, val:it.grade })}${fld('', t('maker'), { req:1, dk:'maker', idx:i, ek:`maker${i}`, val:it.maker })}
         ${fld('', t('origin'), { req:1, dk:'origin', idx:i, ek:`origin${i}`, val:it.origin })}${fld('', t('capacity'), { req:1, dk:'capacity', idx:i, ek:`capacity${i}`, val:it.capacity, ph:'50 MT' })}
@@ -274,26 +274,23 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
         ${fld('', t('price'), { dk:'price', idx:i, val:it.price, hint:t('price_h') })}${fld('', t('sample'), { dk:'sample', idx:i, val:it.sample, type:'select', options:[['y', t('sample_y')], ['n', t('sample_n')]] })}
         ${fld('', t('strength'), { req:1, dk:'strength', idx:i, ek:`strength${i}`, val:it.strength, type:'area', full:1, ph:t('strength_h') })}
       </div></div>`).join('')}
-      <div class="foot" style="margin-top:12px"><button type="button" class="btn sm" data-add>${esc(t('add'))}</button></div></div>`;
-    else if (st === 3) body = `<div class="card"><h3>${esc(t('s_att'))}</h3><p class="d">${esc(t('s_att_d'))}</p>
-      ${ATT.map((k) => { const [a, b] = t('att')[k]; const list = d.files[k] || []; const err = S.errs && S.errs[`att_${k}`];
+      <div class="foot" style="margin-top:12px"><button type="button" class="btn sm" data-add>${esc(t('add'))}</button></div>`);
+    const att = sec('att', t('s_att'), t('s_att_d'), `${ATT.map((k) => { const [a, b] = t('att')[k]; const list = d.files[k] || []; const err = S.errs && S.errs[`att_${k}`];
         return `<div class="up${err ? ' err' : ''}" data-drop="${k}"><b>${esc(a)}<span class="tag ${ATT_REQ[k] ? 'req' : 'opt'}">${esc(ATT_REQ[k] ? t('req') : t('opt'))}</span>${b ? `<small>${esc(b)}</small>` : ''}</b>
           <div class="files">${list.map((f, j) => `<span>📎 ${esc(f.name)} <small>${sizeText(f.size)}</small><button type="button" data-rmf="${k}|${j}" aria-label="${esc(t('remove'))}">×</button></span>`).join('') || `<span style="background:none;padding:0" class="${err ? 'msg' : ''}">${esc(err || t('drop'))}</span>`}</div>
           <label class="btn sm">${esc(t('pick'))}<input type="file" multiple data-file="${k}"></label></div>`; }).join('')}
       ${S.errs && S.errs.size ? `<p class="msg">${esc(S.errs.size)}</p>` : ''}
       <div class="agree">${esc(t('agree_body'))}</div>
       <label class="ck ${d.agree ? 'on' : ''}" for="agree"><input type="checkbox" id="agree" data-agree ${d.agree ? 'checked' : ''}>${esc(t('agree'))}</label>
-      ${S.errs && S.errs.agree ? `<p class="msg">${esc(S.errs.agree)}</p>` : ''}
-      ${S.failMsg ? `<div class="alert" role="alert" style="margin:16px 0 0">${esc(S.failMsg)}</div>` : ''}</div>`;
-    else body = `<div class="card done"><div class="mark">✓</div><h2>${esc(t('done'))}</h2></div>`;
-    const foot = st === 4 ? '' : `<div class="foot">${st > 1 ? `<button type="button" class="btn" data-prev ${S.busy ? 'disabled' : ''}>${esc(t('prev'))}</button>` : ''}<span class="spacer"></span>
-      ${st < 3 ? `<button type="button" class="btn pri" data-next>${esc(t('next'))} →</button>` : `<button type="button" class="btn pri" data-submit ${S.busy ? 'disabled' : ''}>${esc(S.busy ? t('sending') : t('submit'))}</button>`}</div>`;
-    return `<div class="formhead"><h2>${esc(t('f_title'))}</h2>${steps}</div>
-      ${S.errs && Object.keys(S.errs).length && st < 4 ? `<div class="alert" role="alert">${esc(t('required'))}</div>` : ''}
-      ${body}${foot}`;
+      ${S.errs && S.errs.agree ? `<p class="msg">${esc(S.errs.agree)}</p>` : ''}`);
+    const missBox = S.miss && S.miss.length ? `<div class="alert miss" id="missBox" role="alert">${S.miss.map((m) => `<div class="mrow"><span>${esc(missText(m))}</span><button type="button" class="btn sm" data-jump="${m.sec}">${esc(t('miss_go'))} →</button></div>`).join('')}</div>` : '';
+    return `<div class="formhead"><h2>${esc(t('f_title'))}</h2></div>
+      ${contact}${company}${items}${att}
+      ${missBox}${S.failMsg ? `<div class="alert" role="alert" style="margin:14px 0 0">${esc(S.failMsg)}</div>` : ''}
+      <div class="foot"><span class="spacer"></span><button type="button" class="btn pri" data-submit ${S.busy ? 'disabled' : ''}>${esc(S.busy ? t('sending') : t('submit'))}</button></div>`;
   }
   function viewSupply(){
-    const cur = S.step <= 2 ? 1 : (S.step === 3 ? 2 : 3);
+    const cur = S.step === 4 ? 3 : (ATT.some((k) => (S.d.files[k] || []).length) ? 2 : 1);
     return `<section class="wrap intro" aria-labelledby="pTitle">
       <div class="crumb"><button type="button" data-home>${esc(t('crumb_home'))}</button> › ${esc(t('crumb'))}</div>
       <h1 id="pTitle">${esc(t('title'))}</h1><p>${esc(t('lead'))}</p>
@@ -314,10 +311,30 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     }
     S.errs = e; return !Object.keys(e).length;
   }
+  /* 빠진 필수 항목 — 「어디의 어떤 항목」 목록 */
+  const SEC_NAME = { contact:'s_contact', company:'s_company', items:'s_items', att:'s_att' };
+  function missingAll(){
+    const d = S.d, out = []; const blank = (v) => !String(v ?? '').trim();
+    const f1 = ['contact','title','email','phone'].filter((k) => blank(d[k])).map((k) => t(k === 'title' ? 'title_' : k));
+    if (!blank(d.email) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email.trim())) f1.push(t('email_fmt'));
+    if (f1.length) out.push({ sec:'contact', fields:f1 });
+    const f2 = ['company','country'].filter((k) => blank(d[k])).map((k) => t(k));
+    if (f2.length) out.push({ sec:'company', fields:f2 });
+    d.items.forEach((it, i) => { const ks = ['name','grade','maker','origin','capacity','strength'].filter((k) => blank(it[k])).map((k) => t(k)); if (ks.length) out.push({ sec:'items', sub: d.items.length > 1 ? t('item_n').replace('{n}', i + 1) : '', fields:ks }); });
+    const fa = ATT.filter((k) => ATT_REQ[k] && !(d.files[k] || []).length).map((k) => t('att')[k][0]);
+    if (fa.length) out.push({ sec:'att', fields:fa, attach:true });
+    if (totalSize() > MAX_TOTAL) out.push({ sec:'att', text:t('too_big') });
+    if (!d.agree) out.push({ sec:'att', text:t('agree_req') });
+    return out;
+  }
+  function validateAll(){ const e = {}; [1, 2, 3].forEach((n) => { validate(n); Object.assign(e, S.errs); }); S.errs = e; return !Object.keys(e).length; }
+  const missText = (m) => m.text || t(m.attach ? 'miss_att' : 'miss').replace('{step}', `${t(SEC_NAME[m.sec])}${m.sub ? ` › ${m.sub}` : ''}`).replace('{fields}', m.fields.map((x) => `「${x}」`).join(', '));
   const toB64 = (file) => new Promise((ok, no) => { const r = new FileReader(); r.onload = () => ok(String(r.result).split(',')[1] || ''); r.onerror = () => no(r.error); r.readAsDataURL(file); });
   async function submit(){
     if (S.busy) return;
-    if (!validate(3)) { render(); return; }
+    const miss = missingAll(); validateAll();
+    S.miss = miss; S.showErrs = !!miss.length;
+    if (miss.length) { render(); const a = $('#missBox'); if (a) a.scrollIntoView({ block:'center' }); return; }
     if (!/^https:\/\/script\.google(usercontent)?\.com\//.test(ENDPOINT)) { S.failMsg = t('not_ready'); render(); return; }
     S.busy = true; S.failMsg = ''; render();
     try {
@@ -328,7 +345,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
       const r = await fetch(ENDPOINT, { method:'POST', body: JSON.stringify(payload) });
       const j = await r.json();
       if (!j || !j.ok) throw new Error((j && j.error) || 'fail');
-      S.step = 4; S.d = fresh();
+      S.step = 4; S.d = fresh(); S.miss = null; S.showErrs = false; S.errs = null;
     } catch (err) { S.failMsg = t('fail'); }
     S.busy = false; render(); $('#form') && $('#form').scrollIntoView({ block:'start' });
   }
@@ -345,15 +362,12 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     const lb = e.target.closest('[data-lang]'); if (lb) { lang = lb.dataset.lang; try { localStorage.setItem('cbp-lang', lang); } catch { /* 무시 */ } render(); return; }
     if (e.target.closest('[data-home]')) { goView('home'); return; }
     if (e.target.closest('[data-go="supply"]')) { goView('supply'); return; }
-    if (e.target.closest('[data-next]')) { if (validate(S.step)) { S.step += 1; S.errs = null; } render(); $('#form').scrollIntoView({ block:'start' }); return; }
-    const gt = e.target.closest('[data-goto]'); if (gt) { S.step = +gt.dataset.goto; S.errs = null; S.failMsg = ''; render(); $('#form').scrollIntoView({ block:'start' }); return; }
-    if (e.target.closest('[data-prev]')) { S.step -= 1; S.errs = null; S.failMsg = ''; render(); $('#form').scrollIntoView({ block:'start' }); return; }
+    const jp = e.target.closest('[data-jump]'); if (jp) { const sc = $(`#sec-${jp.dataset.jump}`); if (sc) { sc.scrollIntoView({ behavior:'smooth', block:'start' }); const f = sc.querySelector('.f.err input, .f.err select, .f.err textarea'); if (f) setTimeout(() => f.focus({ preventScroll:true }), 400); } return; }
     if (e.target.closest('[data-submit]')) { submit(); return; }
     if (e.target.closest('[data-add]')) { S.d.items.push(blankItem()); render(); return; }
     const rm = e.target.closest('[data-rm]'); if (rm) { S.d.items.splice(+rm.dataset.rm, 1); render(); return; }
     const rf = e.target.closest('[data-rmf]'); if (rf) { const [k, j] = rf.dataset.rmf.split('|'); S.d.files[k].splice(+j, 1); render(); }
   });
-  document.addEventListener('keydown', (e) => { const g = e.target.closest && e.target.closest('[data-goto]'); if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); g.click(); } });
   document.addEventListener('input', (e) => { const el = e.target; if (!el.dataset || !el.dataset.k) return; if (el.dataset.i !== undefined) S.d.items[+el.dataset.i][el.dataset.k] = el.value; else S.d[el.dataset.k] = el.value; });
   document.addEventListener('change', (e) => {
     const el = e.target;
