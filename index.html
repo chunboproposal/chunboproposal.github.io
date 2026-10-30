@@ -121,7 +121,8 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .stbtn{display:inline-flex;align-items:center;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);cursor:pointer;font:inherit}
 .stbtn span{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:999px;font-size:13px;font-weight:700;color:var(--navy);line-height:1.6;background:var(--surface)}
 .stbtn:hover span,.stbtn[aria-pressed="true"] span{background:var(--navy);color:#fff}
-.stwrap{max-width:480px}
+.stwrap{max-width:480px;margin-inline:auto}
+.st-center{text-align:center;padding-top:max(40px,8vh)}.st-center p{margin-inline:auto}.st-main{padding-top:24px}
 .wish-back{position:fixed;inset:0;z-index:50;background:rgba(13,27,61,.38);display:flex;align-items:flex-start;justify-content:center;padding:72px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));overflow:auto}
 .wish{width:min(760px,100%);background:var(--surface);border-radius:16px;padding:20px 22px;box-shadow:0 24px 60px rgba(13,27,61,.25)}
 .wish-h{display:flex;align-items:center}.wish-h h2{font-size:20px}.wish-x{margin-left:auto;border:0;background:none;font-size:26px;line-height:1;color:var(--mute);cursor:pointer}
@@ -188,7 +189,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .up + .up{margin-top:10px}
 .up.drag{border-color:var(--navy);background:var(--navy-soft)}
 .up.err{border-color:var(--bad);background:var(--bad-soft)}
-.up b{font-size:14px}.up b small{display:block;font-weight:400;color:var(--mute);font-size:12px}
+.up b{font-size:14px}.up b .req{color:var(--bad);margin-left:2px}.up b small{display:block;font-weight:400;color:var(--mute);font-size:12px}
 .up .files{display:flex;flex-wrap:wrap;gap:6px;font-size:13px;color:var(--ink2);min-width:0}
 .up .files span{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:var(--surface2);max-width:100%;overflow-wrap:anywhere}
 .up .files span button{border:0;background:none;cursor:pointer;color:var(--mute);padding:0;font-size:15px;line-height:1}
@@ -220,6 +221,71 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   .card{padding:18px 16px}
 }
 @media (prefers-reduced-motion:no-preference){.btn,.ck,.up,button.card3{transition:border-color .15s,background .15s,box-shadow .15s}}
+
+/* ══ 디자인 정리(2026-10-30) — 알약 · 그림자 · 색 배경 · 둥근 모서리를 줄이고 반듯한 기업 홈페이지 톤으로 ══ */
+:root{--bg:#f5f6f7;--surface2:#f5f6f7;--line:#dddfe3;--line2:#c9ccd2;--ink:#191c21;--ink2:#454b55;--mute:#757b85;--faint:#9ba0a8;--navy:#11295a;--blue:#11295a;--navy-soft:#f5f6f7;--f-disp:var(--f-body);--f-mono:var(--f-body)}
+h1,h2,h3{letter-spacing:-.01em}
+.top{border-bottom-color:var(--line)}
+.lang{border:0;background:none;padding:0;gap:0;border-radius:0}
+.lang button{border-radius:0;padding:2px 11px;font-weight:500;color:var(--mute);background:none;line-height:1.4}
+.lang button + button{border-left:1px solid var(--line2)}
+.lang button[aria-pressed="true"]{background:none;color:var(--ink);font-weight:700}
+.stbtn{padding:0;border:1px solid var(--line2);border-radius:2px;background:#fff}
+.stbtn span{padding:6px 14px;border-radius:0;background:none;color:var(--ink);font-weight:600;font-size:13px}
+.stbtn:hover,.stbtn[aria-pressed="true"]{border-color:var(--navy);background:var(--navy)}.stbtn:hover span,.stbtn[aria-pressed="true"] span{background:none;color:#fff}
+.sec-title{font-weight:700;border-bottom:2px solid var(--ink)}
+.card3{border-radius:2px;border-color:var(--line)}button.card3:hover{box-shadow:none;border-color:var(--navy)}
+.card3 h3{letter-spacing:0;font-weight:700;font-size:20px}
+.card3 .soon{border-radius:0;background:none;border:1px solid var(--line);font-weight:500;color:var(--faint)}
+.crumb button{color:var(--ink2);font-weight:500}
+.intro h1{font-weight:700}
+.flow{border:0;border-top:2px solid var(--ink);border-radius:0;background:none;padding:12px 0 0;gap:0}
+.flow li{padding:0 16px;border-left:1px solid var(--line)}.flow li:first-child{padding-left:0;border-left:0}
+.flow li .dot{display:none}
+.flow .n{font-size:11.5px;font-weight:700;color:var(--faint);letter-spacing:.06em}
+.flow li.on .n,.flow li.past .n{color:var(--navy)}
+.flow b{font-size:14.5px;font-weight:700}
+.flow li.intro0 > button{border-radius:0}
+.flow li.intro0 small{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+.flow li.intro0 > button:hover b{color:var(--navy);text-decoration:none}
+.formhead h2{font-weight:700}
+.card{border-radius:2px;border-color:var(--line);padding:24px}
+.card > h3{font-size:16px;font-weight:700;padding-bottom:12px;border-bottom:1px solid var(--ink)}
+.sec-sp{height:18px}
+.sec-head{padding-bottom:10px;border-bottom:1px solid var(--ink);margin-bottom:16px}.sec-head h3{font-size:16px;font-weight:700}
+.item{border:0;border-radius:0;padding:0;background:none}
+.item header{display:none}
+.f{font-weight:500}.f .lab{font-weight:600}
+.f input,.f select,.f textarea{border-radius:2px;height:42px;font-size:14.5px}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--navy)}
+.btn{border-radius:2px;min-height:42px;font-weight:600}.btn.sm{min-height:34px;font-weight:600}
+.btn:hover{border-color:var(--navy);color:var(--navy)}.btn.pri:hover{color:#fff;background:#0b1f47}
+.ipills{border:0;border-radius:0;background:none;padding:0;gap:4px}
+.ipills button{border:1px solid var(--line2);border-radius:0;background:#fff;color:var(--ink2);font-family:var(--f-body);font-weight:600}
+.ipills button:hover{background:#fff;border-color:var(--navy)}
+.ipills button.on{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:none}
+.ipills button.bad{box-shadow:none;border-color:var(--bad)}
+.kind-pills{gap:0}.kind-pills button{height:36px;padding:0 16px}.kind-pills button + button{margin-left:-1px}
+.up{border:1px solid var(--line);border-radius:0;background:#fff}.up + .up{margin-top:-1px}
+.up.drag{background:#f7f9fc}
+.tag{background:none!important;padding:0;border-radius:0;font-weight:500;font-size:11.5px}.tag.req{color:var(--bad)}.tag.opt{color:var(--faint)}
+.up .files span{border-radius:0;background:var(--surface2)}
+.agree{border-radius:0;background:#fafafa;border:1px solid var(--line)}
+.ck{border-radius:2px}
+.alert{border-radius:0;border:1px solid #f0c9cd}
+.done .mark{border-radius:0;background:var(--navy);width:56px;height:56px;font-size:26px}
+.wish-back{background:rgba(10,15,25,.45)}
+.wish{border-radius:2px;box-shadow:0 12px 32px rgba(0,0,0,.2)}
+.wish-bar input{border-radius:2px}
+.wp-proc{border:0;border-top:2px solid var(--ink);border-radius:0;background:none;padding:12px 0 0}
+.wp-steps{gap:0}.wp-steps li{border-radius:0;border:1px solid var(--line);background:#fff;margin-left:-1px}.wp-steps li:first-child{margin-left:0}
+.wp-steps .dot{display:none}
+.wp-proc .ip-ex,.ip-ex{border-radius:0;background:#fafafa;border:1px solid var(--line)}
+.wp-h{padding-top:14px;border-top:2px solid var(--ink)}
+.wish-g{border-radius:0;background:none;padding:0;color:var(--ink);font-weight:700;font-size:13.5px}
+.wgp{grid-template-columns:150px minmax(0,1fr)}
+.wgp li{border-top-style:solid}
+.agree-row .sendbtn{min-height:42px}.lookup{border-radius:2px}.lk-res{border-radius:0;background:#fafafa;border:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -241,65 +307,65 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   const ATT_REQ = { msds:true, coa:true };
   const T = {
   ko:{ inq:'1:1 문의', inq_title:'제안하기', inq_desc:'문의 종류를 선택해 주십시오.', go:'바로가기', soon:'준비 중',
-    c1:'제품 구매 문의', c1s:'천보 · 천보신소재 · 천보비엘에스 제품 구매', c2:'공급 제안 문의', c2s:'원부자재 공급 제안서 제출', c3:'사업 협력 문의', c3s:'공동 개발 · 사업 제휴',
+    c1:'제품 구매 문의', c1s:'천보, 천보신소재, 천보비엘에스 제품 구매', c2:'공급 제안 문의', c2s:'원부자재 공급 제안서 제출', c3:'사업 협력 문의', c3s:'공동 개발, 사업 제휴',
     crumb_home:'제안하기', crumb:'공급 제안 문의', title:'원부자재 공급 제안',
     lead:'품질과 공급 안정성을 갖춘 원부자재 협력사를 찾고 있습니다.',
-    flow:[['공급 희망 품목','프로세스 안내 · 희망 품목 보기'],['제안서 작성','제안 품목 입력 · 자료 첨부'],['구매팀 검토 · 회신','2주 내 결과 회신'],['샘플 평가 안내','적합 건에 한해 안내 예정']],
-    intro_t:'공급 제안 프로세스', intro_l:[['제안서 작성','담당자 · 회사 정보와 제안 품목을 입력하고 자료를 첨부해 제출합니다. 제출하면 접수번호가 안내되고 확인 메일이 발송됩니다.'],['구매팀 검토 · 회신','접수일부터 2주 이내에 검토 결과를 이메일로 회신드립니다. 진행 상황은 「진행현황 확인」에서 접수번호와 이메일로 조회할 수 있습니다.'],['샘플 평가 안내','검토 결과 적합한 제안에 한해 샘플 평가 절차를 안내드립니다.']], intro_prep:'준비 자료', intro_ok:'확인',
-    n1:'제출 자료', n1l:['필수 첨부: MSDS, CoA(시험성적서)','선택 첨부: 회사소개서, 제품 카탈로그, 기타 자료(특허 · 인증 등)','첨부 파일은 합계 20MB 이하 · PDF, Word, Excel, 이미지, ZIP'],
-    f_title:'공급 제안서', kind_new:'신규 업체 제안', kind_ex:'기존 거래업체 개선 제안', kind_lab:'제안 구분', mainItem:'주력 아이템', mainItem_ph:'예) DMC, EMC, LiPF6', category:'품목군', cat_ph:'선택', sale:'판매 구분', sale_ph:'선택', sale_trade:'상품판매', sale_mfg:'제조판매', curItem:'기존 공급 제품', curItem_ph:'현재 천보에 공급 중인 제품', improve:'기존 대비 개선점', improve_ph:'품질 · 가격 · 공급 조건 등 기존 제품보다 나은 점', ex_t:'기존 거래업체도 제안할 수 있습니다', ex_d:'현재 천보에 공급 중인 제품보다 품질 · 가격 · 공급 조건이 더 나은 제품이 있다면 「기존 거래업체 개선 제안」으로 알려 주십시오.', ex_go:'기존 거래업체 개선 제안하기', steps:['담당자 · 회사','제안 품목','첨부 자료','확인'],
-    s_contact:'담당자', s_contact_d:'검토 결과는 이 이메일로 회신드립니다.', contact:'이름', title_:'부서 · 직책', email:'이메일', phone:'전화번호',
+    flow:[['공급 희망 품목','프로세스 안내 및 희망 품목 보기'],['제안서 작성','제안 품목 입력 및 자료 첨부'],['구매팀 검토 및 회신','2주 내 결과 회신'],['샘플 평가 안내','적합 건에 한해 안내 예정']],
+    intro_t:'공급 제안 프로세스', intro_l:[['제안서 작성','담당자 정보, 회사 정보, 제안 품목을 입력하고 자료를 첨부해 제출합니다. 제출하면 접수번호가 안내되고 확인 메일이 발송됩니다.'],['구매팀 검토 및 회신','접수일부터 2주 이내에 검토 결과를 이메일로 회신드립니다. 진행 상황은 ‘진행현황 확인’에서 접수번호와 이메일로 조회할 수 있습니다.'],['샘플 평가 안내','검토 결과 적합한 제안에 한해 샘플 평가 절차를 안내드립니다.']], intro_prep:'준비 자료', intro_ok:'확인',
+    n1:'제출 자료', n1l:['필수 첨부: MSDS, CoA(시험성적서)','선택 첨부: 회사소개서, 제품 카탈로그, 기타 자료(특허, 인증 등)','첨부 파일은 합계 20MB 이하(PDF, Word, Excel, 이미지, ZIP)'],
+    f_title:'공급 제안서', kind_new:'신규 업체 제안', kind_ex:'기존 거래업체 개선 제안', kind_lab:'제안 구분', mainItem:'주력 아이템', mainItem_ph:'예) DMC, EMC, LiPF6', category:'품목군', cat_ph:'선택', sale:'판매 구분', sale_ph:'선택', sale_trade:'상품판매', sale_mfg:'제조판매', curItem:'기존 공급 제품', curItem_ph:'현재 천보에 공급 중인 제품', improve:'기존 대비 개선점', improve_ph:'품질, 가격, 공급 조건 등 기존 제품보다 나은 점', ex_t:'기존 거래업체도 제안할 수 있습니다', ex_d:'현재 천보에 공급 중인 제품보다 품질, 가격, 공급 조건이 더 나은 제품이 있다면 ‘기존 거래업체 개선 제안’으로 알려 주십시오.', ex_go:'기존 거래업체 개선 제안하기', steps:['담당자/회사','제안 품목','첨부 자료','확인'],
+    s_contact:'담당자', s_contact_d:'검토 결과는 이 이메일로 회신드립니다.', contact:'이름', title_:'부서/직책', email:'이메일', phone:'전화번호',
     s_company:'회사 정보', company:'회사명', role:'공급사 / 제조사', role_ph:'구분 선택', role_sup:'공급사', role_mak:'제조사', role_req:'공급사 / 제조사 중 하나를 고르십시오.', website:'홈페이지 주소', website_h:'선택', company_ph:'천보', contact_ph:'홍길동', country:'국가', countries:['대한민국','중국','일본','미국','독일','인도','기타'], select:'선택',
-    s_items:'제안 품목', s_items_d:'품목이 여러 개면 「품목 추가」로 이어서 적어 주십시오.', item:'품목',
-    name:'품목명', cas:'CAS No.', grade:'규격 · Grade · 순도', maker:'제조사', origin:'생산지(국가)', factory:'제조공장 주소', capa:'제안 품목 연간 Capa', capa_ph:'예) 1,200 MT/년', capacity:'공급 가능 물량', capacity_ph:'예) 50 MT/월', sales:'제안 품목 매출액', sales_ph:'예) 연 USD 5M', customers:'주요 고객사', customers_ph:'예) A사, B사', opt_h:'선택', pack:'포장 단위', lead_t:'리드타임', price:'단가 · 가격 조건', price_ph:'예) USD 2.5/kg CIF Busan', sample:'샘플 제공', sample_y:'가능', sample_n:'불가', strength:'제안 내용 · 강점', strength_h:'양산 이력, 품질 관리, 특허 · 기술, 가격 경쟁력, 공급 안정성 등', add:'＋ 품목 추가', del_item:'－ 품목 삭제', remove:'삭제',
-    s_att:'첨부 자료', s_att_d:'MSDS · CoA 는 필수입니다(품목이 여러 개면 모두 첨부). 합계 20MB 이하.', req:'필수', opt:'선택', pick:'파일 선택', drop:'여기로 끌어 놓거나 「파일 선택」',
-    att:{ intro:['회사소개서',''], catalog:['제품 카탈로그',''], msds:['MSDS','물질안전보건자료'], coa:['CoA','시험성적서'], etc:['기타 자료','인증서 · 특허 · 제조공정 등 · 여러 개 첨부 가능'] },
+    s_items:'제안 품목', s_items_d:'품목이 여러 개면 ‘품목 추가’로 이어서 적어 주십시오.', item:'품목',
+    name:'품목명', cas:'CAS No.', grade:'규격/Grade/순도', maker:'제조사', origin:'생산지(국가)', factory:'제조공장 주소', capa:'제안 품목 연간 Capa', capa_ph:'예) 1,200 MT/년', capacity:'공급 가능 물량', capacity_ph:'예) 50 MT/월', sales:'제안 품목 매출액', sales_ph:'예) 연 USD 5M', customers:'주요 고객사', customers_ph:'예) A사, B사', opt_h:'선택', pack:'포장 단위', lead_t:'리드타임', price:'단가/가격 조건', price_ph:'예) USD 2.5/kg CIF Busan', sample:'샘플 제공', sample_y:'가능', sample_n:'불가', strength:'제안 내용 및 강점', strength_h:'양산 이력, 품질 관리, 특허 및 기술, 가격 경쟁력, 공급 안정성 등', add:'＋ 품목 추가', del_item:'－ 품목 삭제', remove:'삭제',
+    s_att:'첨부 자료', s_att_d:'MSDS와 CoA는 필수입니다(품목이 여러 개면 모두 첨부). 합계 20MB 이하.', req:'필수', opt:'선택', pick:'파일 선택', drop:'여기로 끌어 놓거나 ‘파일 선택’',
+    att:{ intro:['회사소개서',''], catalog:['제품 카탈로그',''], msds:['MSDS','물질안전보건자료'], coa:['CoA','시험성적서'], etc:['기타 자료','인증서, 특허, 제조공정 등(여러 개 첨부 가능)'] },
     att_req:'{n} 파일을 첨부해 주십시오.', too_big:'첨부 파일 합계가 20MB 를 넘습니다. 파일을 줄여 주십시오.',
-    agree_t:'개인정보 수집 · 이용 동의', agree_body:'수집 항목: 담당자 이름, 부서 · 직책, 이메일, 전화번호\n이용 목적: 공급 제안 접수 · 검토 및 결과 회신\n보유 기간: 접수일부터 3년(또는 회사 정책에 따름) — 기간이 지나면 지체 없이 파기합니다.\n동의를 거부하실 수 있으나, 거부 시 제안을 접수할 수 없습니다.',
-    agree:'개인정보 수집 · 이용에 동의합니다. (필수)', agree_req:'개인정보 수집 · 이용에 동의해야 제출할 수 있습니다.',
-    prev:'이전', next:'다음', submit:'제출', sending:'제출 중…', miss:'「{step}」의 {fields} 항목을 입력하세요.', miss_att:'「{step}」의 {fields} 파일을 첨부하세요.', miss_go:'바로가기', item_n:'품목 {n}', email_fmt:'이메일 형식', required:'필수 항목을 입력해 주십시오.', email_bad:'이메일 형식을 확인해 주십시오.',
-    wish_t:'공급 희망 품목', wish_d:'천보가 공급 제안을 받고 있는 품목입니다.', wish_raw:'원료', wish_sub:'부자재', wish_q:'품목명 · 사양 검색', wish_none:'검색 결과가 없습니다.', wish_load:'불러오는 중…', wish_fail:'목록을 불러오지 못했습니다. 잠시 후 다시 열어 주십시오.', wish_empty:'현재 공개된 품목이 없습니다.', wish_go:'이 품목으로 제안하기', wish_close:'닫기', wish_etc:'기타', done:'접수가 완료되었습니다.', refno:'접수번호', refno_d:'진행현황 확인을 위해서 접수번호를 기억해주세요.', lk_lead:'공급 제안 접수번호와 제출하신 이메일로 진행현황을 확인할 수 있습니다.', lk_t:'진행현황 확인', lk_d:'접수번호와 제출하신 이메일을 입력하십시오.', lk_no:'접수번호', lk_email:'이메일', lk_btn:'조회', lk_busy:'조회 중…', lk_nf:'접수번호 또는 이메일이 맞지 않습니다.', lk_wait:'잠시 후 다시 조회해 주십시오.', lk_fail:'조회하지 못했습니다. 잠시 후 다시 시도해 주십시오.', lk_none:'접수되었습니다. 구매팀이 검토를 준비하고 있습니다.', lk_at:'접수', lk_upd:'갱신', lk_items:'제안 품목', fail:'제출하지 못했습니다. 잠시 후 다시 「제출」 을 눌러 주십시오.', not_ready:'접수 주소가 아직 설정되지 않았습니다.',
-    foot:'천보 구매팀 · 원부자재 공급 제안' },
+    agree_t:'개인정보 수집 및 이용 동의', agree_body:'수집 항목: 담당자 이름, 부서/직책, 이메일, 전화번호\n이용 목적: 공급 제안 접수, 검토 및 결과 회신\n보유 기간: 접수일부터 3년(또는 회사 정책에 따름), 기간이 지나면 지체 없이 파기합니다.\n동의를 거부하실 수 있으나, 거부 시 제안을 접수할 수 없습니다.',
+    agree:'개인정보 수집 및 이용에 동의합니다. (필수)', agree_req:'개인정보 수집 및 이용에 동의해야 제출할 수 있습니다.',
+    prev:'이전', next:'다음', submit:'제출', sending:'제출 중…', miss:'‘{step}’의 {fields} 항목을 입력하세요.', miss_att:'‘{step}’의 {fields} 파일을 첨부하세요.', miss_go:'바로가기', item_n:'품목 {n}', email_fmt:'이메일 형식', required:'필수 항목을 입력해 주십시오.', email_bad:'이메일 형식을 확인해 주십시오.',
+    wish_t:'공급 희망 품목', wish_d:'천보가 공급 제안을 받고 있는 품목입니다.', wish_raw:'원료', wish_sub:'부자재', wish_q:'품목명 또는 사양 검색', wish_none:'검색 결과가 없습니다.', wish_load:'불러오는 중…', wish_fail:'목록을 불러오지 못했습니다. 잠시 후 다시 열어 주십시오.', wish_empty:'현재 공개된 품목이 없습니다.', wish_go:'이 품목으로 제안하기', wish_close:'닫기', wish_etc:'기타', done:'접수가 완료되었습니다.', refno:'접수번호', refno_d:'진행현황 확인을 위해서 접수번호를 기억해주세요.', lk_lead:'공급 제안 접수번호와 제출하신 이메일로 진행현황을 확인할 수 있습니다.', lk_t:'진행현황 확인', lk_d:'접수번호와 제출하신 이메일을 입력하십시오.', lk_no:'접수번호', lk_email:'이메일', lk_btn:'조회', lk_busy:'조회 중…', lk_nf:'접수번호 또는 이메일이 맞지 않습니다.', lk_wait:'잠시 후 다시 조회해 주십시오.', lk_fail:'조회하지 못했습니다. 잠시 후 다시 시도해 주십시오.', lk_none:'접수되었습니다. 구매팀이 검토를 준비하고 있습니다.', lk_at:'접수', lk_upd:'갱신', lk_items:'제안 품목', fail:'제출하지 못했습니다. 잠시 후 다시 ‘제출’을 눌러 주십시오.', not_ready:'접수 주소가 아직 설정되지 않았습니다.',
+    foot:'천보 구매팀 | 원부자재 공급 제안' },
   en:{ inq:'1:1 Inquiry', inq_title:'Proposals', inq_desc:'Please select the type of inquiry.', go:'Go', soon:'Coming soon',
-    c1:'Product Purchase', c1s:'Products of Chunbo · Chunbo Advanced Materials · Chunbo BLS', c2:'Supply Proposal', c2s:'Submit a raw material supply proposal', c3:'Business Partnership', c3s:'Joint development · alliances',
+    c1:'Product Purchase', c1s:'Products of Chunbo, Chunbo Advanced Materials, Chunbo BLS', c2:'Supply Proposal', c2s:'Submit a raw material supply proposal', c3:'Business Partnership', c3s:'Joint development / alliances',
     crumb_home:'Proposals', crumb:'Supply Proposal', title:'Raw Material Supply Proposal',
     lead:'We are looking for raw material partners who offer reliable quality and stable supply.',
-    flow:[['Items we seek','Process guide · items we seek'],['Write proposal','Enter items · attach documents'],['Review · reply','Result within 2 weeks'],['Sample evaluation','Guidance for accepted proposals only']],
-    intro_t:'Supply Proposal Process', intro_l:[['Write proposal','Enter your contact, company and proposed items, attach the documents and submit. A reference number and a confirmation e-mail will be sent.'],['Review · reply','We will reply by e-mail within 2 weeks of receipt. You can check the progress with your reference number and e-mail under “Check progress”.'],['Sample evaluation','Sample evaluation will be arranged only for proposals found suitable.']], intro_prep:'Documents to prepare', intro_ok:'OK',
-    n1:'Documents', n1l:['Required: MSDS, CoA (Certificate of Analysis)','Optional: company profile, product catalog, others','Attachments up to 20MB in total · PDF, Word, Excel, images, ZIP'],
-    f_title:'Supply Proposal', kind_new:'New supplier', kind_ex:'Improvement by existing supplier', kind_lab:'Proposal type', mainItem:'Main products', mainItem_ph:'e.g. DMC, EMC, LiPF6', category:'Product category', cat_ph:'Select', sale:'Sales type', sale_ph:'Select', sale_trade:'Trading (resale)', sale_mfg:'Own manufacturing', curItem:'Current product supplied', curItem_ph:'Product you currently supply to Chunbo', improve:'Improvement over current', improve_ph:'Better quality, price or supply terms than the current product', ex_t:'Existing suppliers are welcome too', ex_d:'If you have a product that is better in quality, price or supply terms than what you currently supply to Chunbo, please use “Improvement by existing supplier”.', ex_go:'Propose an improvement', steps:['Contact · Company','Proposed Items','Attachments','Done'],
-    s_contact:'Contact Person', s_contact_d:'We will reply to this e-mail.', contact:'Name', title_:'Department · Title', email:'E-mail', phone:'Phone',
+    flow:[['Items we seek','Process guide / items we seek'],['Write proposal','Enter items / attach documents'],['Review / reply','Result within 2 weeks'],['Sample evaluation','Guidance for accepted proposals only']],
+    intro_t:'Supply Proposal Process', intro_l:[['Write proposal','Enter your contact, company and proposed items, attach the documents and submit. A reference number and a confirmation e-mail will be sent.'],['Review / reply','We will reply by e-mail within 2 weeks of receipt. You can check the progress with your reference number and e-mail under “Check progress”.'],['Sample evaluation','Sample evaluation will be arranged only for proposals found suitable.']], intro_prep:'Documents to prepare', intro_ok:'OK',
+    n1:'Documents', n1l:['Required: MSDS, CoA (Certificate of Analysis)','Optional: company profile, product catalog, others','Attachments up to 20MB in total, PDF, Word, Excel, images, ZIP'],
+    f_title:'Supply Proposal', kind_new:'New supplier', kind_ex:'Improvement by existing supplier', kind_lab:'Proposal type', mainItem:'Main products', mainItem_ph:'e.g. DMC, EMC, LiPF6', category:'Product category', cat_ph:'Select', sale:'Sales type', sale_ph:'Select', sale_trade:'Trading (resale)', sale_mfg:'Own manufacturing', curItem:'Current product supplied', curItem_ph:'Product you currently supply to Chunbo', improve:'Improvement over current', improve_ph:'Better quality, price or supply terms than the current product', ex_t:'Existing suppliers are welcome too', ex_d:'If you have a product that is better in quality, price or supply terms than what you currently supply to Chunbo, please use “Improvement by existing supplier”.', ex_go:'Propose an improvement', steps:['Contact / Company','Proposed Items','Attachments','Done'],
+    s_contact:'Contact Person', s_contact_d:'We will reply to this e-mail.', contact:'Name', title_:'Department / Title', email:'E-mail', phone:'Phone',
     s_company:'Company', company:'Company name', role:'Supplier / Manufacturer', role_ph:'Select type', role_sup:'Supplier', role_mak:'Manufacturer', role_req:'Please select supplier or manufacturer.', website:'Website', website_h:'Optional', company_ph:'Chunbo', contact_ph:'Gildong Hong', country:'Country', countries:['Korea','China','Japan','USA','Germany','India','Other'], select:'Select',
     s_items:'Proposed Items', s_items_d:'For several items, use “Add item”.', item:'Item',
-    name:'Item name', cas:'CAS No.', grade:'Specification · Grade · Purity', maker:'Manufacturer', origin:'Origin (country)', factory:'Plant address', capa:'Annual capacity of the item', capa_ph:'e.g. 1,200 MT/year', capacity:'Available supply volume', capacity_ph:'e.g. 50 MT/month', sales:'Sales of the item', sales_ph:'e.g. USD 5M/year', customers:'Major customers', customers_ph:'e.g. Company A, Company B', opt_h:'Optional', pack:'Packing', lead_t:'Lead time', price:'Price · terms', price_ph:'e.g. USD 2.5/kg CIF Busan', sample:'Sample', sample_y:'Available', sample_n:'Not available', strength:'Proposal · strengths', strength_h:'Mass production record, quality control, patents · technology, price, supply stability, etc.', add:'＋ Add item', del_item:'－ Remove item', remove:'Remove',
+    name:'Item name', cas:'CAS No.', grade:'Specification / Grade / Purity', maker:'Manufacturer', origin:'Origin (country)', factory:'Plant address', capa:'Annual capacity of the item', capa_ph:'e.g. 1,200 MT/year', capacity:'Available supply volume', capacity_ph:'e.g. 50 MT/month', sales:'Sales of the item', sales_ph:'e.g. USD 5M/year', customers:'Major customers', customers_ph:'e.g. Company A, Company B', opt_h:'Optional', pack:'Packing', lead_t:'Lead time', price:'Price / terms', price_ph:'e.g. USD 2.5/kg CIF Busan', sample:'Sample', sample_y:'Available', sample_n:'Not available', strength:'Proposal / strengths', strength_h:'Mass production record, quality control, patents, technology, price, supply stability, etc.', add:'＋ Add item', del_item:'－ Remove item', remove:'Remove',
     s_att:'Attachments', s_att_d:'MSDS and CoA are required (for every item). Up to 20MB in total.', req:'Required', opt:'Optional', pick:'Choose file', drop:'Drop files here or “Choose file”',
-    att:{ msds:['MSDS','Material Safety Data Sheet'], coa:['CoA','Certificate of Analysis'], intro:['Company profile',''], catalog:['Product catalog',''], etc:['Others','Certificates · patents · process, etc. · multiple files allowed'] },
+    att:{ msds:['MSDS','Material Safety Data Sheet'], coa:['CoA','Certificate of Analysis'], intro:['Company profile',''], catalog:['Product catalog',''], etc:['Others','Certificates, patents, process, etc., multiple files allowed'] },
     att_req:'Please attach {n}.', too_big:'Attachments exceed 20MB in total. Please reduce the files.',
-    agree_t:'Consent to Collection and Use of Personal Information', agree_body:'Items: name, department · title, e-mail, phone\nPurpose: receiving, reviewing and replying to supply proposals\nRetention: 3 years from receipt (or per company policy), then destroyed without delay.\nYou may refuse consent, but the proposal cannot be submitted without it.',
+    agree_t:'Consent to Collection and Use of Personal Information', agree_body:'Items: name, department, title, e-mail, phone\nPurpose: receiving, reviewing and replying to supply proposals\nRetention: 3 years from receipt (or per company policy), then destroyed without delay.\nYou may refuse consent, but the proposal cannot be submitted without it.',
     agree:'I agree to the collection and use of personal information. (Required)', agree_req:'You must agree to the personal information terms to submit.',
     prev:'Back', next:'Next', submit:'Submit', sending:'Submitting…', miss:'Please fill in {fields} in “{step}”.', miss_att:'Please attach {fields} in “{step}”.', miss_go:'Go', item_n:'Item {n}', email_fmt:'e-mail format', required:'Please fill in the required fields.', email_bad:'Please check the e-mail format.',
-    wish_t:'Items we seek', wish_etc:'Others', wish_d:'Items for which Chunbo is accepting supply proposals.', wish_raw:'Raw materials', wish_sub:'Sub-materials', wish_q:'Search item name · spec', wish_none:'No results.', wish_load:'Loading…', wish_fail:'Could not load the list. Please try again later.', wish_empty:'No items are published at the moment.', wish_go:'Propose this item', wish_close:'Close', done:'Your proposal has been received.', refno:'Reference No.', refno_d:'Please keep this reference number to check the progress.', lk_lead:'Check the progress of your supply proposal with the reference number and your e-mail.', lk_t:'Check progress', lk_d:'Enter your reference number and the e-mail you submitted.', lk_no:'Reference No.', lk_email:'E-mail', lk_btn:'Check', lk_busy:'Checking…', lk_nf:'The reference number or e-mail does not match.', lk_wait:'Please try again in a moment.', lk_fail:'Could not check the progress. Please try again later.', lk_none:'Received. Our purchasing team is preparing the review.', lk_at:'Submitted', lk_upd:'Updated', lk_items:'Items', fail:'Submission failed. Please press “Submit” again in a moment.', not_ready:'The submission address is not set yet.',
-    foot:'Chunbo Purchasing Team · Raw Material Supply Proposal' },
+    wish_t:'Items we seek', wish_etc:'Others', wish_d:'Items for which Chunbo is accepting supply proposals.', wish_raw:'Raw materials', wish_sub:'Sub-materials', wish_q:'Search item name / spec', wish_none:'No results.', wish_load:'Loading…', wish_fail:'Could not load the list. Please try again later.', wish_empty:'No items are published at the moment.', wish_go:'Propose this item', wish_close:'Close', done:'Your proposal has been received.', refno:'Reference No.', refno_d:'Please keep this reference number to check the progress.', lk_lead:'Check the progress of your supply proposal with the reference number and your e-mail.', lk_t:'Check progress', lk_d:'Enter your reference number and the e-mail you submitted.', lk_no:'Reference No.', lk_email:'E-mail', lk_btn:'Check', lk_busy:'Checking…', lk_nf:'The reference number or e-mail does not match.', lk_wait:'Please try again in a moment.', lk_fail:'Could not check the progress. Please try again later.', lk_none:'Received. Our purchasing team is preparing the review.', lk_at:'Submitted', lk_upd:'Updated', lk_items:'Items', fail:'Submission failed. Please press “Submit” again in a moment.', not_ready:'The submission address is not set yet.',
+    foot:'Chunbo Purchasing Team, Raw Material Supply Proposal' },
   zh:{ inq:'一对一咨询', inq_title:'提案', inq_desc:'请选择咨询类型。', go:'前往', soon:'准备中',
-    c1:'产品采购咨询', c1s:'Chunbo · Chunbo Advanced Materials · Chunbo BLS 产品采购', c2:'供应提案', c2s:'提交原辅材料供应提案', c3:'业务合作咨询', c3s:'共同开发 · 业务合作',
+    c1:'产品采购咨询', c1s:'Chunbo、Chunbo Advanced Materials、Chunbo BLS 产品采购', c2:'供应提案', c2s:'提交原辅材料供应提案', c3:'业务合作咨询', c3s:'共同开发/业务合作',
     crumb_home:'提案', crumb:'供应提案', title:'原辅材料供应提案',
     lead:'我们正在寻找品质可靠、供应稳定的原辅材料合作伙伴。',
-    flow:[['征集品目','流程说明 · 征集品目'],['填写提案','填写品目 · 上传资料'],['审核 · 回复','2周内回复结果'],['样品评估通知','仅限合格提案另行通知']],
-    intro_t:'供应提案流程', intro_l:[['填写提案','填写负责人 · 公司信息及提案品目，上传资料后提交。提交后将显示受理编号并发送确认邮件。'],['审核 · 回复','自受理之日起2周内通过邮件回复审核结果。可在“进度查询”中用受理编号和邮箱查询进度。'],['样品评估通知','仅对审核合格的提案另行通知样品评估。']], intro_prep:'准备资料', intro_ok:'确认',
-    n1:'提交资料', n1l:['必须：MSDS、CoA（检验报告）','可选：公司介绍、产品目录、其他资料','附件合计20MB以内 · PDF、Word、Excel、图片、ZIP'],
-    f_title:'供应提案', kind_new:'新供应商提案', kind_ex:'现有供应商改进提案', kind_lab:'提案类型', mainItem:'主力产品', mainItem_ph:'例）DMC、EMC、LiPF6', category:'品类', cat_ph:'请选择', sale:'销售类型', sale_ph:'请选择', sale_trade:'贸易销售', sale_mfg:'自产销售', curItem:'现供应产品', curItem_ph:'目前向天宝供应的产品', improve:'相比现有产品的改进点', improve_ph:'质量、价格、供应条件等优于现有产品之处', ex_t:'现有供应商也可提案', ex_d:'如有在质量、价格或供应条件上优于目前向天宝供应产品的产品，请选择“现有供应商改进提案”。', ex_go:'提交改进提案', steps:['负责人 · 公司','提案品目','附件','完成'],
-    s_contact:'负责人', s_contact_d:'审核结果将回复至此邮箱。', contact:'姓名', title_:'部门 · 职位', email:'邮箱', phone:'电话',
+    flow:[['征集品目','流程说明/征集品目'],['填写提案','填写品目/上传资料'],['审核/回复','2周内回复结果'],['样品评估通知','仅限合格提案另行通知']],
+    intro_t:'供应提案流程', intro_l:[['填写提案','填写负责人、公司信息及提案品目，上传资料后提交。提交后将显示受理编号并发送确认邮件。'],['审核/回复','自受理之日起2周内通过邮件回复审核结果。可在“进度查询”中用受理编号和邮箱查询进度。'],['样品评估通知','仅对审核合格的提案另行通知样品评估。']], intro_prep:'准备资料', intro_ok:'确认',
+    n1:'提交资料', n1l:['必须：MSDS、CoA（检验报告）','可选：公司介绍、产品目录、其他资料','附件合计20MB以内、PDF、Word、Excel、图片、ZIP'],
+    f_title:'供应提案', kind_new:'新供应商提案', kind_ex:'现有供应商改进提案', kind_lab:'提案类型', mainItem:'主力产品', mainItem_ph:'例）DMC、EMC、LiPF6', category:'品类', cat_ph:'请选择', sale:'销售类型', sale_ph:'请选择', sale_trade:'贸易销售', sale_mfg:'自产销售', curItem:'现供应产品', curItem_ph:'目前向天宝供应的产品', improve:'相比现有产品的改进点', improve_ph:'质量、价格、供应条件等优于现有产品之处', ex_t:'现有供应商也可提案', ex_d:'如有在质量、价格或供应条件上优于目前向天宝供应产品的产品，请选择“现有供应商改进提案”。', ex_go:'提交改进提案', steps:['负责人/公司','提案品目','附件','完成'],
+    s_contact:'负责人', s_contact_d:'审核结果将回复至此邮箱。', contact:'姓名', title_:'部门/职位', email:'邮箱', phone:'电话',
     s_company:'公司信息', company:'公司名称', role:'供应商 / 生产商', role_ph:'请选择', role_sup:'供应商', role_mak:'生产商', role_req:'请选择供应商或生产商。', website:'公司网址', website_h:'可选', company_ph:'Chunbo', contact_ph:'洪吉童', country:'国家', countries:['韩国','中国','日本','美国','德国','印度','其他'], select:'请选择',
     s_items:'提案品目', s_items_d:'品目较多时，请点击“添加品目”。', item:'品目',
-    name:'品名', cas:'CAS No.', grade:'规格 · 等级 · 纯度', maker:'生产商', origin:'产地（国家）', factory:'工厂地址', capa:'提案品目年产能', capa_ph:'例）1,200 MT/年', capacity:'可供应量', capacity_ph:'例）50 MT/月', sales:'提案品目销售额', sales_ph:'例）年 USD 5M', customers:'主要客户', customers_ph:'例）A公司、B公司', opt_h:'可选', pack:'包装', lead_t:'交货期', price:'价格 · 条件', price_ph:'例）USD 2.5/kg CIF Busan', sample:'样品', sample_y:'可提供', sample_n:'不可提供', strength:'提案内容 · 优势', strength_h:'量产业绩、质量管理、专利 · 技术、价格竞争力、供应稳定性等', add:'＋ 添加品目', del_item:'－ 删除品目', remove:'删除',
+    name:'品名', cas:'CAS No.', grade:'规格/等级/纯度', maker:'生产商', origin:'产地（国家）', factory:'工厂地址', capa:'提案品目年产能', capa_ph:'例）1,200 MT/年', capacity:'可供应量', capacity_ph:'例）50 MT/月', sales:'提案品目销售额', sales_ph:'例）年 USD 5M', customers:'主要客户', customers_ph:'例）A公司、B公司', opt_h:'可选', pack:'包装', lead_t:'交货期', price:'价格/条件', price_ph:'例）USD 2.5/kg CIF Busan', sample:'样品', sample_y:'可提供', sample_n:'不可提供', strength:'提案内容/优势', strength_h:'量产业绩、质量管理、专利/技术、价格竞争力、供应稳定性等', add:'＋ 添加品目', del_item:'－ 删除品目', remove:'删除',
     s_att:'附件', s_att_d:'MSDS 和 CoA 为必须（多个品目请全部附上）。合计20MB以内。', req:'必须', opt:'可选', pick:'选择文件', drop:'拖放至此或点击“选择文件”',
-    att:{ msds:['MSDS','化学品安全技术说明书'], coa:['CoA','检验报告'], intro:['公司介绍',''], catalog:['产品目录',''], etc:['其他资料','证书 · 专利 · 工艺等 · 可上传多个文件'] },
+    att:{ msds:['MSDS','化学品安全技术说明书'], coa:['CoA','检验报告'], intro:['公司介绍',''], catalog:['产品目录',''], etc:['其他资料','证书/专利/工艺等/可上传多个文件'] },
     att_req:'请附上 {n} 文件。', too_big:'附件合计超过20MB，请减少文件。',
-    agree_t:'个人信息收集及使用同意', agree_body:'收集项目：姓名、部门 · 职位、邮箱、电话\n使用目的：供应提案的受理、审核及结果回复\n保存期限：自受理之日起3年（或按公司政策），期满后立即销毁。\n您可以拒绝同意，但拒绝后将无法提交提案。',
+    agree_t:'个人信息收集及使用同意', agree_body:'收集项目：姓名、部门、职位、邮箱、电话\n使用目的：供应提案的受理、审核及结果回复\n保存期限：自受理之日起3年（或按公司政策），期满后立即销毁。\n您可以拒绝同意，但拒绝后将无法提交提案。',
     agree:'同意收集及使用个人信息。（必选）', agree_req:'须同意个人信息条款后方可提交。',
     prev:'上一步', next:'下一步', submit:'提交', sending:'提交中…', miss:'请填写「{step}」中的{fields}。', miss_att:'请在「{step}」中上传{fields}。', miss_go:'前往', item_n:'品目 {n}', email_fmt:'邮箱格式', required:'请填写必填项。', email_bad:'请确认邮箱格式。',
-    wish_t:'征集品目', wish_etc:'其他', wish_d:'Chunbo 正在征集供应提案的品目。', wish_raw:'原料', wish_sub:'辅料', wish_q:'搜索品名 · 规格', wish_none:'没有搜索结果。', wish_load:'加载中…', wish_fail:'无法加载列表，请稍后再试。', wish_empty:'目前没有公开的品目。', wish_go:'提案此品目', wish_close:'关闭', done:'受理已完成。', refno:'受理编号', refno_d:'请记住受理编号，以便查询进度。', lk_lead:'可使用受理编号和提交时的邮箱查询供应提案进度。', lk_t:'进度查询', lk_d:'请输入受理编号和提交时的邮箱。', lk_no:'受理编号', lk_email:'邮箱', lk_btn:'查询', lk_busy:'查询中…', lk_nf:'受理编号或邮箱不正确。', lk_wait:'请稍后再试。', lk_fail:'查询失败，请稍后再试。', lk_none:'已受理，采购部正在准备审核。', lk_at:'受理', lk_upd:'更新', lk_items:'提案品目', fail:'提交失败，请稍后再点击“提交”。', not_ready:'尚未设置受理地址。',
-    foot:'Chunbo 采购部 · 原辅材料供应提案' }
+    wish_t:'征集品目', wish_etc:'其他', wish_d:'Chunbo 正在征集供应提案的品目。', wish_raw:'原料', wish_sub:'辅料', wish_q:'搜索品名/规格', wish_none:'没有搜索结果。', wish_load:'加载中…', wish_fail:'无法加载列表，请稍后再试。', wish_empty:'目前没有公开的品目。', wish_go:'提案此品目', wish_close:'关闭', done:'受理已完成。', refno:'受理编号', refno_d:'请记住受理编号，以便查询进度。', lk_lead:'可使用受理编号和提交时的邮箱查询供应提案进度。', lk_t:'进度查询', lk_d:'请输入受理编号和提交时的邮箱。', lk_no:'受理编号', lk_email:'邮箱', lk_btn:'查询', lk_busy:'查询中…', lk_nf:'受理编号或邮箱不正确。', lk_wait:'请稍后再试。', lk_fail:'查询失败，请稍后再试。', lk_none:'已受理，采购部正在准备审核。', lk_at:'受理', lk_upd:'更新', lk_items:'提案品目', fail:'提交失败，请稍后再点击“提交”。', not_ready:'尚未设置受理地址。',
+    foot:'Chunbo 采购部/原辅材料供应提案' }
   };
   const $ = (s, el = document) => el.querySelector(s);
   const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
@@ -313,9 +379,9 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   const viewOfHash = () => (location.hash === '#supply' ? 'supply' : (location.hash === '#status' ? 'status' : 'home'));
   const S = { view: viewOfHash(), step:1, errs:null, busy:false, failMsg:'', d:fresh() };
   const ICON = {
-    flask:'<svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1c2340" stroke-width="2" aria-hidden="true"><path d="M25 8h14M27 8v16L13 50a5 5 0 0 0 4 7h30a5 5 0 0 0 4-7L37 24V8"/><path d="M18 40c6-3 10 3 16 0s10 2 13 0" stroke="#6a2c91"/><circle cx="26" cy="47" r="3" stroke="#a3238e"/><circle cx="38" cy="49" r="3" stroke="#13a3b5"/></svg>',
-    supply:'<svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1c2340" stroke-width="2" aria-hidden="true"><path d="M10 26l22-12 22 12v22L32 60 10 48z"/><path d="M10 26l22 12 22-12M32 38v22" stroke="#6a2c91"/><path d="M40 8h14v14" stroke="#13a3b5"/><path d="M54 8L42 20" stroke="#13a3b5"/></svg>',
-    hand:'<svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1c2340" stroke-width="2" aria-hidden="true"><path d="M6 30l10-10 10 4 6-4 8 2 18 10"/><path d="M58 32l-8 8-12-10-8 6-6-4" stroke="#6a2c91"/><path d="M16 20l-6 16 14 12 6 4 6-2" /><path d="M30 46l6 4 4-2M36 42l6 4 4-2" stroke="#13a3b5"/></svg>'
+    flask:'<svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#11295a" stroke-width="2" aria-hidden="true"><path d="M25 8h14M27 8v16L13 50a5 5 0 0 0 4 7h30a5 5 0 0 0 4-7L37 24V8"/><path d="M18 40c6-3 10 3 16 0s10 2 13 0" stroke="#11295a"/><circle cx="26" cy="47" r="3" stroke="#11295a"/><circle cx="38" cy="49" r="3" stroke="#11295a"/></svg>',
+    supply:'<svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#11295a" stroke-width="2" aria-hidden="true"><path d="M10 26l22-12 22 12v22L32 60 10 48z"/><path d="M10 26l22 12 22-12M32 38v22" stroke="#11295a"/><path d="M40 8h14v14" stroke="#11295a"/><path d="M54 8L42 20" stroke="#11295a"/></svg>',
+    hand:'<svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#11295a" stroke-width="2" aria-hidden="true"><path d="M6 30l10-10 10 4 6-4 8 2 18 10"/><path d="M58 32l-8 8-12-10-8 6-6-4" stroke="#11295a"/><path d="M16 20l-6 16 14 12 6 4 6-2" /><path d="M30 46l6 4 4-2M36 42l6 4 4-2" stroke="#11295a"/></svg>'
   };
 
   /* ── 문의 종류 ── */
@@ -345,8 +411,8 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   const totalSize = () => ATT.reduce((s, k) => s + (S.d.files[k] || []).reduce((a, f) => a + f.size, 0), 0);
   const catOpts = () => `<option value="">${esc(t('cat_ph'))}</option>${[...new Set([...(W.cats || []), S.d.category].filter(Boolean))].map((c) => `<option${c === S.d.category ? ' selected' : ''}>${esc(c)}</option>`).join('')}`;
   const upBox = (k) => { const d = S.d; const [a, b] = t('att')[k]; const list = d.files[k] || []; const err = S.errs && S.errs[`att_${k}`];
-    return `<div class="up${err ? ' err' : ''}" data-drop="${k}"><b>${esc(a)}<span class="tag ${ATT_REQ[k] ? 'req' : 'opt'}">${esc(ATT_REQ[k] ? t('req') : t('opt'))}</span>${b ? `<small>${esc(b)}</small>` : ''}</b>
-          <div class="files">${list.map((f, j) => `<span>📎 ${esc(f.name)} <small>${sizeText(f.size)}</small><button type="button" data-rmf="${k}|${j}" aria-label="${esc(t('remove'))}">×</button></span>`).join('') || (err ? `<span style="background:none;padding:0" class="msg">${esc(err)}</span>` : '')}</div>
+    return `<div class="up${err ? ' err' : ''}" data-drop="${k}"><b>${esc(a)}${ATT_REQ[k] ? '<span class="req">*</span>' : ''}${b ? `<small>${esc(b)}</small>` : ''}</b>
+          <div class="files">${list.map((f, j) => `<span>${esc(f.name)} <small>${sizeText(f.size)}</small><button type="button" data-rmf="${k}|${j}" aria-label="${esc(t('remove'))}">×</button></span>`).join('') || (err ? `<span style="background:none;padding:0" class="msg">${esc(err)}</span>` : '')}</div>
           <label class="btn sm">${esc(t('pick'))}<input type="file" multiple data-file="${k}"></label></div>`; };
   function viewForm(){
     const d = S.d;
@@ -358,12 +424,12 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
         <div class="f co-row${(S.errs && S.errs.company) || roleErr ? ' err' : ''}"><span class="lab"><label for="f_company">${esc(t('company'))}<span class="req">*</span></label><label for="f_role" class="lab-r">${esc(t('role'))}<span class="req">*</span></label></span>
           <div class="co-ctl"><input id="f_company" data-k="company" type="text" value="${esc(d.company)}" placeholder="${esc(t('company_ph'))}" autocomplete="organization"><select id="f_role" data-k="role" required><option value="">${esc(t('role_ph'))}</option><option value="supplier"${d.role === 'supplier' ? ' selected' : ''}>${esc(t('role_sup'))}</option><option value="maker"${d.role === 'maker' ? ' selected' : ''}>${esc(t('role_mak'))}</option></select></div>
           ${(S.errs && S.errs.company) || roleErr ? `<span class="msg">${esc((S.errs && S.errs.company) || roleErr)}</span>` : ''}</div>
-        ${fld('website', t('website'), { type:'url', ph:'https://chunbochem.com', ac:'url', hint:t('website_h') })}
+        ${fld('website', t('website'), { type:'url', ph:'https://chunbochem.com', ac:'url' })}
         ${fld('country', t('country'), { req:1, type:'select', options:[['', t('select')], ...t('countries').map((x) => [x, x])] })}
         ${fld('contact', t('contact'), { req:1, ac:'name', ph:t('contact_ph') })}${fld('title', t('title_'), { req:1, ac:'organization-title' })}
         ${fld('email', t('email'), { req:1, type:'email', ph:'name@company.com', ac:'email' })}${fld('phone', t('phone'), { req:1, type:'tel', ph:'+82 10-0000-0000', ac:'tel' })}
-        ${fld('mainItem', t('mainItem'), { ph:t('mainItem_ph'), hint:t('opt_h') })}
-        <label class="f" for="f_category"><span class="lab"><span>${esc(t('category'))}</span><span class="hint">${esc(t('opt_h'))}</span></span><select id="f_category" data-k="category">${catOpts()}</select></label>
+        ${fld('mainItem', t('mainItem'), { ph:t('mainItem_ph') })}
+        <label class="f" for="f_category"><span class="lab"><span>${esc(t('category'))}</span></span><select id="f_category" data-k="category">${catOpts()}</select></label>
       </div>`);
     const sel = Math.max(0, Math.min(S.itemSel ?? 0, d.items.length - 1)); S.itemSel = sel;
     const miss = S.showErrs ? new Set((S.miss || []).filter((m) => m.sec === 'items').map((m) => m.idx)) : new Set();
@@ -375,8 +441,8 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
         ${fld('', t('factory'), { req:1, dk:'factory', idx:i, ek:`factory${i}`, val:it.factory })}${fld('', t('capa'), { req:1, dk:'capa', idx:i, ek:`capa${i}`, val:it.capa, ph:t('capa_ph') })}
         ${fld('', t('capacity'), { req:1, dk:'capacity', idx:i, ek:`capacity${i}`, val:it.capacity, ph:t('capacity_ph') })}${fld('', t('pack'), { dk:'pack', idx:i, val:it.pack, ph:'200kg Drum / ISO Tank' })}
         ${fld('', t('lead_t'), { dk:'lead', idx:i, val:it.lead, ph:'4 weeks' })}${fld('', t('price'), { dk:'price', idx:i, val:it.price, ph:t('price_ph') })}
-        ${fld('', t('sample'), { dk:'sample', idx:i, val:it.sample, type:'select', options:[['y', t('sample_y')], ['n', t('sample_n')]] })}${fld('', t('sales'), { dk:'sales', idx:i, val:it.sales, ph:t('sales_ph'), hint:t('opt_h') })}
-        ${fld('', t('customers'), { dk:'customers', idx:i, val:it.customers, ph:t('customers_ph'), hint:t('opt_h'), full:1 })}
+        ${fld('', t('sample'), { dk:'sample', idx:i, val:it.sample, type:'select', options:[['y', t('sample_y')], ['n', t('sample_n')]] })}${fld('', t('sales'), { dk:'sales', idx:i, val:it.sales, ph:t('sales_ph') })}
+        ${fld('', t('customers'), { dk:'customers', idx:i, val:it.customers, ph:t('customers_ph'), full:1 })}
         ${fld('', t('strength'), { req:1, dk:'strength', idx:i, ek:`strength${i}`, val:it.strength, type:'area', full:1, ph:t('strength_h') })}
       </div></div>`; }).join('')}
 `, `<div class="sec-head"><h3>${esc(t('s_items'))} </h3><span class="ipills" role="group" aria-label="${esc(t('item'))}">${d.items.map((_, i) => `<button type="button" class="${i === sel ? 'on' : ''}${miss.has(i) ? ' bad' : ''}" data-ipill="${i}" aria-pressed="${i === sel}" aria-label="${esc(t('item'))} ${i + 1}">${i + 1}</button>`).join('')}</span><span class="spacer"></span><button type="button" class="btn sm" data-add>${esc(t('add'))}</button><button type="button" class="btn sm" data-delitem ${d.items.length > 1 ? '' : 'disabled'}>${esc(t('del_item'))}</button></div>`);
@@ -386,7 +452,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
       <div class="agree-row"><label class="ck ${d.agree ? 'on' : ''}" for="agree"><input type="checkbox" id="agree" data-agree ${d.agree ? 'checked' : ''}>${esc(t('agree'))}</label>
       <button type="button" class="btn pri sendbtn" data-submit ${S.busy ? 'disabled' : ''}>${esc(S.busy ? t('sending') : t('submit'))}</button></div>
       ${S.errs && S.errs.agree ? `<p class="msg">${esc(S.errs.agree)}</p>` : ''}`);
-    const missBox = S.miss && S.miss.length ? `<div class="alert miss" id="missBox" role="alert">${S.miss.map((m) => `<div class="mrow"><span>${esc(missText(m))}</span><button type="button" class="btn sm" data-jump="${m.sec}${m.idx !== undefined ? `|${m.idx}` : ''}">${esc(t('miss_go'))} →</button></div>`).join('')}</div>` : '';
+    const missBox = S.miss && S.miss.length ? `<div class="alert miss" id="missBox" role="alert">${S.miss.map((m) => `<div class="mrow"><span>${esc(missText(m))}</span><button type="button" class="btn sm" data-jump="${m.sec}${m.idx !== undefined ? `|${m.idx}` : ''}">${esc(t('miss_go'))}</button></div>`).join('')}</div>` : '';
     return `<div class="col-a col-side">${contact}</div>
       <div class="col-b">${items}</div>
       <div class="col-side col-c">${att}${missBox}${S.failMsg ? `<div class="alert" role="alert">${esc(S.failMsg)}</div>` : ''}
@@ -404,10 +470,10 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     </form>`;
   }
   function viewStatus(){
-    return `<section class="wrap intro" aria-labelledby="sTitle">
+    return `<section class="wrap intro st-center" aria-labelledby="sTitle">
       <div class="crumb"><button type="button" data-home>${esc(t('crumb_home'))}</button> › ${esc(t('lk_t'))}</div>
       <h1 id="sTitle">${esc(t('lk_t'))}</h1><p>${esc(t('lk_lead'))}</p>
-    </section><main class="wrap main"><div class="stwrap">${viewLookup()}</div></main>`;
+    </section><main class="wrap main st-main"><div class="stwrap">${viewLookup()}</div></main>`;
   }
   async function lookup(){
     const L = S.lk; if (!L || L.busy) return;
@@ -457,7 +523,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     return out;
   }
   function validateAll(){ const e = {}; [1, 2, 3].forEach((n) => { validate(n); Object.assign(e, S.errs); }); S.errs = e; return !Object.keys(e).length; }
-  const missText = (m) => m.text || t(m.attach ? 'miss_att' : 'miss').replace('{step}', `${t(SEC_NAME[m.sec])}${m.sub ? ` › ${m.sub}` : ''}`).replace('{fields}', m.fields.map((x) => `「${x}」`).join(', '));
+  const missText = (m) => m.text || t(m.attach ? 'miss_att' : 'miss').replace('{step}', `${t(SEC_NAME[m.sec])}${m.sub ? ` › ${m.sub}` : ''}`).replace('{fields}', m.fields.map((x) => `‘${x}’`).join(', '));
   const toB64 = (file) => new Promise((ok, no) => { const r = new FileReader(); r.onload = () => ok(String(r.result).split(',')[1] || ''); r.onerror = () => no(r.error); r.readAsDataURL(file); });
   async function submit(){
     if (S.busy) return;
@@ -486,8 +552,8 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     closeIntro();
     const box = document.createElement('div'); box.className = 'wish-back'; box.id = 'introPop';
     box.innerHTML = `<div class="wish intro-pop" role="dialog" aria-modal="true" aria-labelledby="introT"><div class="wish-h"><h2 id="introT">${esc(t('intro_t'))}</h2><button type="button" class="wish-x" data-introx aria-label="${esc(t('wish_close'))}">×</button></div>
-      <ol class="ip-steps">${t('intro_l').map(([h, p], i) => `<li><span class="dot">${i + 1}</span><div><b>STEP ${i + 1} · ${esc(h)}</b><p>${esc(p)}</p></div></li>`).join('')}</ol>
-      <div class="ip-ex"><div><b>${esc(t('ex_t'))}</b><p>${esc(t('ex_d'))}</p></div><button type="button" class="btn sm" data-exgo>${esc(t('ex_go'))} →</button></div>
+      <ol class="ip-steps">${t('intro_l').map(([h, p], i) => `<li><span class="dot">${i + 1}</span><div><b>STEP ${i + 1}&nbsp; ${esc(h)}</b><p>${esc(p)}</p></div></li>`).join('')}</ol>
+      <div class="ip-ex"><div><b>${esc(t('ex_t'))}</b><p>${esc(t('ex_d'))}</p></div><button type="button" class="btn sm" data-exgo>${esc(t('ex_go'))}</button></div>
       <div class="ip-prep"><b>${esc(t('intro_prep'))}</b><ul>${t('n1l').map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
       <div class="ip-f"><button type="button" class="btn pri" data-introx>${esc(t('intro_ok'))}</button></div></div>`;
     document.body.appendChild(box); box.querySelector('[data-introx]').focus();
@@ -520,9 +586,9 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     groups.sort((a, b) => (a.g ? 0 : 1) - (b.g ? 0 : 1) || a.g.localeCompare(b.g, 'ko'));
     box.innerHTML = `<div class="wish wish-wide" role="dialog" aria-modal="true" aria-labelledby="wishT"><div class="wish-h"><h2 id="wishT">${esc(t('wish_t'))}</h2><button type="button" class="wish-x" data-wishx aria-label="${esc(t('wish_close'))}">×</button></div>
       <section class="wp-proc" aria-label="${esc(t('intro_t'))}"><h3>${esc(t('intro_t'))}</h3>
-        <ol class="wp-steps">${t('intro_l').map(([h, p], i) => `<li><span class="dot">${i + 1}</span><div><b>STEP ${i + 1} · ${esc(h)}</b><p>${esc(p)}</p></div></li>`).join('')}</ol>
-        <p class="wp-prep"><b>${esc(t('intro_prep'))}</b> ${t('n1l').map((x) => esc(x)).join(' · ')}</p>
-        <div class="ip-ex"><div><b>${esc(t('ex_t'))}</b><p>${esc(t('ex_d'))}</p></div><button type="button" class="btn sm" data-exgo>${esc(t('ex_go'))} →</button></div></section>
+        <ol class="wp-steps">${t('intro_l').map(([h, p], i) => `<li><span class="dot">${i + 1}</span><div><b>STEP ${i + 1}&nbsp; ${esc(h)}</b><p>${esc(p)}</p></div></li>`).join('')}</ol>
+        <p class="wp-prep"><b>${esc(t('intro_prep'))}</b> ${t('n1l').map((x) => esc(x)).join(' / ')}</p>
+        <div class="ip-ex"><div><b>${esc(t('ex_t'))}</b><p>${esc(t('ex_d'))}</p></div><button type="button" class="btn sm" data-exgo>${esc(t('ex_go'))}</button></div></section>
       <h3 class="wp-h">${esc(t('wish_t'))}</h3><p class="wish-d">${esc(t('wish_d'))}</p>
       <div class="wish-bar"><span class="ipills" role="group">${[['원료', t('wish_raw')], ['부자재', t('wish_sub')]].map(([k, l]) => `<button type="button" class="${W.kind === k ? 'on' : ''}" data-wishk="${k}">${esc(l)} <small>${W.items ? nOf(k) : ''}</small></button>`).join('')}</span>
         <input id="wishQ" type="search" placeholder="${esc(t('wish_q'))}" value="${esc(W.q)}" autocomplete="off"></div>
