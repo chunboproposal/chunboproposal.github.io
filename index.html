@@ -73,7 +73,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .sec-head h3{display:flex;align-items:center;gap:8px;font-size:17px}
 .ipills{display:inline-flex;flex-wrap:wrap;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface2)}
 .ipills button{min-width:28px;height:26px;padding:0 9px;border:0;border-radius:999px;background:transparent;color:var(--ink2);font-family:var(--f-mono);font-size:12.5px;font-weight:600;cursor:pointer}
-.ipills button:hover{background:#e2e7f0}.ipills button.on{background:#22a35a;color:#fff;box-shadow:0 2px 6px rgba(34,163,90,.28)}
+.ipills button:hover{background:#e2e7f0}.ipills button.bad{color:var(--bad);box-shadow:inset 0 0 0 1.5px var(--bad)}.ipills button.bad.on{background:var(--bad);color:#fff}.ipills button.on{background:#22a35a;color:#fff;box-shadow:0 2px 6px rgba(34,163,90,.28)}
 .sec-head .cnt{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 7px;border-radius:999px;background:var(--navy);color:#fff;font-family:var(--f-mono);font-size:12.5px}
 .intro-row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px 32px;flex-wrap:wrap}
 .intro-txt{min-width:0;flex:1 1 380px}
@@ -300,15 +300,17 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
         ${fld('contact', t('contact'), { req:1, ac:'name' })}${fld('title', t('title_'), { req:1, ac:'organization-title' })}
         ${fld('email', t('email'), { req:1, type:'email', ph:'name@company.com', ac:'email' })}${fld('phone', t('phone'), { req:1, type:'tel', ph:'+82 10-0000-0000', ac:'tel' })}
       </div>`);
-    const items = sec('items', t('s_items'), '', `${d.items.map((it, i) => `<div class="item" id="item-${i}"><header><b>${esc(t('item'))} ${i + 1}</b><span class="spacer"></span></header><div class="grid">
+    const sel = Math.max(0, Math.min(S.itemSel ?? 0, d.items.length - 1)); S.itemSel = sel;
+    const miss = S.showErrs ? new Set((S.miss || []).filter((m) => m.sec === 'items').map((m) => m.idx)) : new Set();
+    const items = sec('items', t('s_items'), '', `${[d.items[sel]].map((it) => { const i = sel; return `<div class="item" id="item-${i}"><header><b>${esc(t('item'))} ${i + 1}</b><span class="spacer"></span></header><div class="grid">
         ${fld('', t('name'), { req:1, dk:'name', idx:i, ek:`name${i}`, val:it.name })}${fld('', t('cas'), { dk:'cas', idx:i, val:it.cas, ph:'616-38-6' })}
         ${fld('', t('grade'), { req:1, dk:'grade', idx:i, ek:`grade${i}`, val:it.grade })}${fld('', t('maker'), { req:1, dk:'maker', idx:i, ek:`maker${i}`, val:it.maker })}
         ${fld('', t('origin'), { req:1, dk:'origin', idx:i, ek:`origin${i}`, val:it.origin })}${fld('', t('capacity'), { req:1, dk:'capacity', idx:i, ek:`capacity${i}`, val:it.capacity, ph:'50 MT' })}
         ${fld('', t('pack'), { dk:'pack', idx:i, val:it.pack, ph:'200kg Drum / ISO Tank' })}${fld('', t('lead_t'), { dk:'lead', idx:i, val:it.lead, ph:'4 weeks' })}
         ${fld('', t('price'), { dk:'price', idx:i, val:it.price, hint:t('price_h') })}${fld('', t('sample'), { dk:'sample', idx:i, val:it.sample, type:'select', options:[['y', t('sample_y')], ['n', t('sample_n')]] })}
         ${fld('', t('strength'), { req:1, dk:'strength', idx:i, ek:`strength${i}`, val:it.strength, type:'area', full:1, ph:t('strength_h') })}
-      </div></div>`).join('')}
-`, `<div class="sec-head"><h3>${esc(t('s_items'))} </h3><span class="ipills" role="group" aria-label="${esc(t('item'))}">${d.items.map((_, i) => `<button type="button" class="${i === Math.min(S.itemSel ?? d.items.length - 1, d.items.length - 1) ? 'on' : ''}" data-ipill="${i}" aria-label="${esc(t('item'))} ${i + 1}">${i + 1}</button>`).join('')}</span><span class="spacer"></span><button type="button" class="btn sm" data-add>${esc(t('add'))}</button><button type="button" class="btn sm" data-delitem ${d.items.length > 1 ? '' : 'disabled'}>${esc(t('del_item'))}</button></div>`);
+      </div></div>`; }).join('')}
+`, `<div class="sec-head"><h3>${esc(t('s_items'))} </h3><span class="ipills" role="group" aria-label="${esc(t('item'))}">${d.items.map((_, i) => `<button type="button" class="${i === sel ? 'on' : ''}${miss.has(i) ? ' bad' : ''}" data-ipill="${i}" aria-pressed="${i === sel}" aria-label="${esc(t('item'))} ${i + 1}">${i + 1}</button>`).join('')}</span><span class="spacer"></span><button type="button" class="btn sm" data-add>${esc(t('add'))}</button><button type="button" class="btn sm" data-delitem ${d.items.length > 1 ? '' : 'disabled'}>${esc(t('del_item'))}</button></div>`);
     const att = sec('att', t('s_att'), '', `${ATT.map((k) => { const [a, b] = t('att')[k]; const list = d.files[k] || []; const err = S.errs && S.errs[`att_${k}`];
         return `<div class="up${err ? ' err' : ''}" data-drop="${k}"><b>${esc(a)}<span class="tag ${ATT_REQ[k] ? 'req' : 'opt'}">${esc(ATT_REQ[k] ? t('req') : t('opt'))}</span>${b ? `<small>${esc(b)}</small>` : ''}</b>
           <div class="files">${list.map((f, j) => `<span>📎 ${esc(f.name)} <small>${sizeText(f.size)}</small><button type="button" data-rmf="${k}|${j}" aria-label="${esc(t('remove'))}">×</button></span>`).join('') || `<span style="background:none;padding:0" class="${err ? 'msg' : ''}">${esc(err || t('drop'))}</span>`}</div>
@@ -318,7 +320,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
       <div class="agree-row"><label class="ck ${d.agree ? 'on' : ''}" for="agree"><input type="checkbox" id="agree" data-agree ${d.agree ? 'checked' : ''}>${esc(t('agree'))}</label>
       <button type="button" class="btn pri sendbtn" data-submit ${S.busy ? 'disabled' : ''}>${esc(S.busy ? t('sending') : t('submit'))}</button></div>
       ${S.errs && S.errs.agree ? `<p class="msg">${esc(S.errs.agree)}</p>` : ''}`);
-    const missBox = S.miss && S.miss.length ? `<div class="alert miss" id="missBox" role="alert">${S.miss.map((m) => `<div class="mrow"><span>${esc(missText(m))}</span><button type="button" class="btn sm" data-jump="${m.sec}">${esc(t('miss_go'))} →</button></div>`).join('')}</div>` : '';
+    const missBox = S.miss && S.miss.length ? `<div class="alert miss" id="missBox" role="alert">${S.miss.map((m) => `<div class="mrow"><span>${esc(missText(m))}</span><button type="button" class="btn sm" data-jump="${m.sec}${m.idx !== undefined ? `|${m.idx}` : ''}">${esc(t('miss_go'))} →</button></div>`).join('')}</div>` : '';
     return `<div class="col-a">${contact}</div>
       <div class="col-b">${items}</div>
       <div class="col-side col-c">${att}${missBox}${S.failMsg ? `<div class="alert" role="alert">${esc(S.failMsg)}</div>` : ''}
@@ -381,7 +383,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     const f1 = ['company','country','contact','title','email','phone'].filter((k) => blank(d[k])).map((k) => t(k === 'title' ? 'title_' : k));
     if (!blank(d.email) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email.trim())) f1.push(t('email_fmt'));
     if (f1.length) out.push({ sec:'contact', fields:f1 });
-    d.items.forEach((it, i) => { const ks = ['name','grade','maker','origin','capacity','strength'].filter((k) => blank(it[k])).map((k) => t(k)); if (ks.length) out.push({ sec:'items', sub: d.items.length > 1 ? t('item_n').replace('{n}', i + 1) : '', fields:ks }); });
+    d.items.forEach((it, i) => { const ks = ['name','grade','maker','origin','capacity','strength'].filter((k) => blank(it[k])).map((k) => t(k)); if (ks.length) out.push({ sec:'items', idx:i, sub: d.items.length > 1 ? t('item_n').replace('{n}', i + 1) : '', fields:ks }); });
     const fa = ATT.filter((k) => ATT_REQ[k] && !(d.files[k] || []).length).map((k) => t('att')[k][0]);
     if (fa.length) out.push({ sec:'att', fields:fa, attach:true });
     if (totalSize() > MAX_TOTAL) out.push({ sec:'att', text:t('too_big') });
@@ -426,11 +428,11 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     if (e.target.closest('[data-home]')) { goView('home'); return; }
     if (e.target.closest('[data-go="supply"]')) { goView('supply'); return; }
     if (e.target.closest('[data-go="status"]')) { goView('status'); return; }
-    const jp = e.target.closest('[data-jump]'); if (jp) { const sc = $(`#sec-${jp.dataset.jump}`); if (sc) { sc.scrollIntoView({ behavior:'smooth', block:'start' }); const f = sc.querySelector('.f.err input, .f.err select, .f.err textarea'); if (f) setTimeout(() => f.focus({ preventScroll:true }), 400); } return; }
+    const jp = e.target.closest('[data-jump]'); if (jp) { const [sec, idx] = jp.dataset.jump.split('|'); if (idx !== undefined) { S.itemSel = +idx; render(); } const sc = $(`#sec-${sec}`); if (sc) { sc.scrollIntoView({ behavior:'smooth', block:'start' }); const f = sc.querySelector('.f.err input, .f.err select, .f.err textarea'); if (f) setTimeout(() => f.focus({ preventScroll:true }), 400); } return; }
     if (e.target.closest('[data-submit]')) { submit(); return; }
-    const ip = e.target.closest('[data-ipill]'); if (ip) { S.itemSel = +ip.dataset.ipill; render(); const el = $(`#item-${S.itemSel}`); if (el) el.scrollIntoView({ behavior:'smooth', block:'start' }); return; }
-    if (e.target.closest('[data-delitem]')) { if (S.d.items.length > 1) { S.d.items.pop(); S.itemSel = S.d.items.length - 1; render(); } return; }
-    if (e.target.closest('[data-add]')) { S.d.items.push(blankItem()); S.itemSel = S.d.items.length - 1; render(); const el = $(`#item-${S.itemSel}`); if (el) el.scrollIntoView({ behavior:'smooth', block:'start' }); return; }
+    const ip = e.target.closest('[data-ipill]'); if (ip) { S.itemSel = +ip.dataset.ipill; render(); return; }
+    if (e.target.closest('[data-delitem]')) { if (S.d.items.length > 1) { S.d.items.splice(S.itemSel, 1); S.itemSel = Math.max(0, S.itemSel - 1); render(); } return; }
+    if (e.target.closest('[data-add]')) { S.d.items.push(blankItem()); S.itemSel = S.d.items.length - 1; render(); const f = $('#f_name_' + S.itemSel); if (f) f.focus({ preventScroll:true }); return; }
     const rm = e.target.closest('[data-rm]'); if (rm) { S.d.items.splice(+rm.dataset.rm, 1); render(); return; }
     const rf = e.target.closest('[data-rmf]'); if (rf) { const [k, j] = rf.dataset.rmf.split('|'); S.d.files[k].splice(+j, 1); render(); }
   });
