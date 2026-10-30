@@ -35,6 +35,7 @@ h1,h2,h3{font-family:var(--f-disp);text-wrap:balance;color:var(--ink);margin:0}
 .top .bar{display:flex;align-items:center;gap:28px;padding-block:0;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));min-height:68px;flex-wrap:nowrap}
 .logo{display:inline-flex;align-items:center;border:0;background:none;padding:0;cursor:pointer}
 .logo-svg{height:46px;width:auto;display:block}
+@media (max-width:640px){.top .bar{flex-wrap:wrap;padding-block:8px}.top .bar .spacer{flex-basis:100%;order:1;height:0}.top .bar .stbtn,.top .bar .lang{order:2}}
 @media (max-width:480px){.logo-svg{height:36px}.top .bar{gap:8px}.lang button{padding:5px 8px;font-size:12px}.stbtn span{padding:5px 9px;font-size:12px}}
 .spacer{flex:1}
 .lang{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface2)}
@@ -100,6 +101,18 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .stbtn span{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:999px;font-size:13px;font-weight:700;color:var(--navy);line-height:1.6;background:var(--surface)}
 .stbtn:hover span,.stbtn[aria-pressed="true"] span{background:var(--navy);color:#fff}
 .stwrap{max-width:480px}
+.wish-back{position:fixed;inset:0;z-index:50;background:rgba(13,27,61,.38);display:flex;align-items:flex-start;justify-content:center;padding:72px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));overflow:auto}
+.wish{width:min(760px,100%);background:var(--surface);border-radius:16px;padding:20px 22px;box-shadow:0 24px 60px rgba(13,27,61,.25)}
+.wish-h{display:flex;align-items:center}.wish-h h2{font-size:20px}.wish-x{margin-left:auto;border:0;background:none;font-size:26px;line-height:1;color:var(--mute);cursor:pointer}
+.wish-d{margin:4px 0 14px;color:var(--mute);font-size:13.5px}
+.wish-bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}.wish-bar input{flex:1 1 220px;height:40px;border:1px solid var(--line2);border-radius:10px;padding:0 12px;font-size:14px;background:var(--surface);color:var(--ink)}
+.wish-bar .ipills button{height:30px;padding:0 14px;font-family:var(--f-body);font-size:13px}.wish-bar .ipills small{opacity:.75;margin-left:2px}
+.wish-list{max-height:min(60vh,520px);overflow:auto;border-top:1px solid var(--line)}
+.wish-list ul{list-style:none;margin:0;padding:0}.wish-list li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:10px 4px;border-bottom:1px solid var(--line)}
+.wish-list li b{display:block}.wish-list li small{display:block;color:var(--mute);font-size:12.5px}
+.wish-g{padding:2px 10px;border-radius:999px;background:var(--navy-soft);color:var(--navy);font-size:12px;font-weight:700;white-space:nowrap}
+.wish-m{padding:24px 4px;color:var(--mute);text-align:center;margin:0}
+@media (max-width:560px){.wish-list li{grid-template-columns:minmax(0,1fr)}}
 .lookup{display:grid;gap:10px;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
 .lookup h3{font-size:16px}.stwrap .lookup{padding:20px 22px;gap:12px}.stwrap .lookup .f input{height:44px}.stwrap .lookup .btn{min-height:44px}.lookup .d{margin:-6px 0 0;color:var(--mute);font-size:12.5px}
 .lookup .f input{height:38px;font-size:14px}
@@ -178,6 +191,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 <header class="top"><div class="bar">
   <button type="button" class="logo" data-home aria-label="(주)천보"><svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="2 4 210 68" role="img" aria-label="(주)천보 Your True Partner"><defs><clipPath id="cbIn"><ellipse cx="45" cy="37" rx="38" ry="30"/></clipPath></defs><g clip-path="url(#cbIn)" fill="#2b2d8f"><rect x="0" y="25.6" width="34" height="3.4"/><rect x="0" y="33.6" width="34" height="3.4"/><rect x="0" y="41.6" width="34" height="3.4"/><rect x="56" y="25.6" width="34" height="3.4"/><rect x="56" y="33.6" width="34" height="3.4"/><rect x="56" y="41.6" width="34" height="3.4"/></g><path d="M15.5 56.5 L30.5 13 L44.5 56.5 Z M44.5 56.5 L58.5 13 L73.5 56.5 Z" fill="#1f6b2c" stroke="#fff" stroke-width="1.4" stroke-linejoin="round" paint-order="stroke"/><ellipse cx="45" cy="37" rx="40" ry="32" fill="none" stroke="#2b2d8f" stroke-width="4"/><g fill="#eef6ec" font-family="Arial, Helvetica, sans-serif" font-size="18.5" text-anchor="middle"><text x="30.5" y="53.2">C</text><text x="58.8" y="53.2">B</text></g><text x="96.5" y="23.4" font-family="'Roboto Condensed','Arial Narrow',Arial,sans-serif" font-weight="700" font-size="13.2" fill="#28297e" textLength="108" lengthAdjust="spacingAndGlyphs">Your True Partner</text><text x="95" y="62.5" font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-weight="700" font-size="35" fill="#454545" textLength="113" lengthAdjust="spacingAndGlyphs">(주)천보</text></svg></button>
   <span class="spacer"></span>
+  <button type="button" class="stbtn" data-wish id="wishBtn"><span></span></button>
   <button type="button" class="stbtn" data-go="status" id="stBtn"><span></span></button>
   <div class="lang" role="group" aria-label="Language" id="langBox"></div>
 </div></header>
@@ -208,7 +222,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     agree_t:'개인정보 수집 · 이용 동의', agree_body:'수집 항목: 담당자 이름, 부서 · 직책, 이메일, 전화번호\n이용 목적: 공급 제안 접수 · 검토 및 결과 회신\n보유 기간: 접수일부터 3년(또는 회사 정책에 따름) — 기간이 지나면 지체 없이 파기합니다.\n동의를 거부하실 수 있으나, 거부 시 제안을 접수할 수 없습니다.',
     agree:'개인정보 수집 · 이용에 동의합니다. (필수)', agree_req:'개인정보 수집 · 이용에 동의해야 제출할 수 있습니다.',
     prev:'이전', next:'다음', submit:'제출', sending:'제출 중…', miss:'「{step}」의 {fields} 항목을 입력하세요.', miss_att:'「{step}」의 {fields} 파일을 첨부하세요.', miss_go:'바로가기', item_n:'품목 {n}', email_fmt:'이메일 형식', required:'필수 항목을 입력해 주십시오.', email_bad:'이메일 형식을 확인해 주십시오.',
-    done:'접수가 완료되었습니다.', refno:'접수번호', refno_d:'진행현황 확인을 위해서 접수번호를 기억해주세요.', lk_lead:'공급 제안 접수번호와 제출하신 이메일로 진행현황을 확인할 수 있습니다.', lk_t:'진행현황 확인', lk_d:'접수번호와 제출하신 이메일을 입력하십시오.', lk_no:'접수번호', lk_email:'이메일', lk_btn:'조회', lk_busy:'조회 중…', lk_nf:'접수번호 또는 이메일이 맞지 않습니다.', lk_wait:'잠시 후 다시 조회해 주십시오.', lk_fail:'조회하지 못했습니다. 잠시 후 다시 시도해 주십시오.', lk_none:'접수되었습니다. 구매팀이 검토를 준비하고 있습니다.', lk_at:'접수', lk_upd:'갱신', lk_items:'제안 품목', fail:'제출하지 못했습니다. 잠시 후 다시 「제출」 을 눌러 주십시오.', not_ready:'접수 주소가 아직 설정되지 않았습니다.',
+    wish_t:'공급 희망 품목', wish_d:'천보가 공급 제안을 받고 있는 품목입니다.', wish_raw:'원료', wish_sub:'부자재', wish_q:'품목명 · 사양 검색', wish_none:'검색 결과가 없습니다.', wish_load:'불러오는 중…', wish_fail:'목록을 불러오지 못했습니다. 잠시 후 다시 열어 주십시오.', wish_empty:'현재 공개된 품목이 없습니다.', wish_go:'이 품목으로 제안하기', wish_close:'닫기', done:'접수가 완료되었습니다.', refno:'접수번호', refno_d:'진행현황 확인을 위해서 접수번호를 기억해주세요.', lk_lead:'공급 제안 접수번호와 제출하신 이메일로 진행현황을 확인할 수 있습니다.', lk_t:'진행현황 확인', lk_d:'접수번호와 제출하신 이메일을 입력하십시오.', lk_no:'접수번호', lk_email:'이메일', lk_btn:'조회', lk_busy:'조회 중…', lk_nf:'접수번호 또는 이메일이 맞지 않습니다.', lk_wait:'잠시 후 다시 조회해 주십시오.', lk_fail:'조회하지 못했습니다. 잠시 후 다시 시도해 주십시오.', lk_none:'접수되었습니다. 구매팀이 검토를 준비하고 있습니다.', lk_at:'접수', lk_upd:'갱신', lk_items:'제안 품목', fail:'제출하지 못했습니다. 잠시 후 다시 「제출」 을 눌러 주십시오.', not_ready:'접수 주소가 아직 설정되지 않았습니다.',
     foot:'천보 구매팀 · 원부자재 공급 제안' },
   en:{ inq:'1:1 Inquiry', inq_title:'Contact', inq_desc:'Please select the type of inquiry.', go:'Go', soon:'Coming soon',
     c1:'Product Purchase', c1s:'Products of Chunbo · Chunbo Advanced Materials · Chunbo BLS', c2:'Supply Proposal', c2s:'Submit a raw material supply proposal', c3:'Business Partnership', c3s:'Joint development · alliances',
@@ -227,7 +241,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     agree_t:'Consent to Collection and Use of Personal Information', agree_body:'Items: name, department · title, e-mail, phone\nPurpose: receiving, reviewing and replying to supply proposals\nRetention: 3 years from receipt (or per company policy), then destroyed without delay.\nYou may refuse consent, but the proposal cannot be submitted without it.',
     agree:'I agree to the collection and use of personal information. (Required)', agree_req:'You must agree to the personal information terms to submit.',
     prev:'Back', next:'Next', submit:'Submit', sending:'Submitting…', miss:'Please fill in {fields} in “{step}”.', miss_att:'Please attach {fields} in “{step}”.', miss_go:'Go', item_n:'Item {n}', email_fmt:'e-mail format', required:'Please fill in the required fields.', email_bad:'Please check the e-mail format.',
-    done:'Your proposal has been received.', refno:'Reference No.', refno_d:'Please keep this reference number to check the progress.', lk_lead:'Check the progress of your supply proposal with the reference number and your e-mail.', lk_t:'Check progress', lk_d:'Enter your reference number and the e-mail you submitted.', lk_no:'Reference No.', lk_email:'E-mail', lk_btn:'Check', lk_busy:'Checking…', lk_nf:'The reference number or e-mail does not match.', lk_wait:'Please try again in a moment.', lk_fail:'Could not check the progress. Please try again later.', lk_none:'Received. Our purchasing team is preparing the review.', lk_at:'Submitted', lk_upd:'Updated', lk_items:'Items', fail:'Submission failed. Please press “Submit” again in a moment.', not_ready:'The submission address is not set yet.',
+    wish_t:'Items we seek', wish_d:'Items for which Chunbo is accepting supply proposals.', wish_raw:'Raw materials', wish_sub:'Sub-materials', wish_q:'Search item name · spec', wish_none:'No results.', wish_load:'Loading…', wish_fail:'Could not load the list. Please try again later.', wish_empty:'No items are published at the moment.', wish_go:'Propose this item', wish_close:'Close', done:'Your proposal has been received.', refno:'Reference No.', refno_d:'Please keep this reference number to check the progress.', lk_lead:'Check the progress of your supply proposal with the reference number and your e-mail.', lk_t:'Check progress', lk_d:'Enter your reference number and the e-mail you submitted.', lk_no:'Reference No.', lk_email:'E-mail', lk_btn:'Check', lk_busy:'Checking…', lk_nf:'The reference number or e-mail does not match.', lk_wait:'Please try again in a moment.', lk_fail:'Could not check the progress. Please try again later.', lk_none:'Received. Our purchasing team is preparing the review.', lk_at:'Submitted', lk_upd:'Updated', lk_items:'Items', fail:'Submission failed. Please press “Submit” again in a moment.', not_ready:'The submission address is not set yet.',
     foot:'Chunbo Purchasing Team · Raw Material Supply Proposal' },
   zh:{ inq:'一对一咨询', inq_title:'联系我们', inq_desc:'请选择咨询类型。', go:'前往', soon:'准备中',
     c1:'产品采购咨询', c1s:'Chunbo · Chunbo Advanced Materials · Chunbo BLS 产品采购', c2:'供应提案', c2s:'提交原辅材料供应提案', c3:'业务合作咨询', c3s:'共同开发 · 业务合作',
@@ -246,7 +260,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     agree_t:'个人信息收集及使用同意', agree_body:'收集项目：姓名、部门 · 职位、邮箱、电话\n使用目的：供应提案的受理、审核及结果回复\n保存期限：自受理之日起3年（或按公司政策），期满后立即销毁。\n您可以拒绝同意，但拒绝后将无法提交提案。',
     agree:'同意收集及使用个人信息。（必选）', agree_req:'须同意个人信息条款后方可提交。',
     prev:'上一步', next:'下一步', submit:'提交', sending:'提交中…', miss:'请填写「{step}」中的{fields}。', miss_att:'请在「{step}」中上传{fields}。', miss_go:'前往', item_n:'品目 {n}', email_fmt:'邮箱格式', required:'请填写必填项。', email_bad:'请确认邮箱格式。',
-    done:'受理已完成。', refno:'受理编号', refno_d:'请记住受理编号，以便查询进度。', lk_lead:'可使用受理编号和提交时的邮箱查询供应提案进度。', lk_t:'进度查询', lk_d:'请输入受理编号和提交时的邮箱。', lk_no:'受理编号', lk_email:'邮箱', lk_btn:'查询', lk_busy:'查询中…', lk_nf:'受理编号或邮箱不正确。', lk_wait:'请稍后再试。', lk_fail:'查询失败，请稍后再试。', lk_none:'已受理，采购部正在准备审核。', lk_at:'受理', lk_upd:'更新', lk_items:'提案品目', fail:'提交失败，请稍后再点击“提交”。', not_ready:'尚未设置受理地址。',
+    wish_t:'征集品目', wish_d:'Chunbo 正在征集供应提案的品目。', wish_raw:'原料', wish_sub:'辅料', wish_q:'搜索品名 · 规格', wish_none:'没有搜索结果。', wish_load:'加载中…', wish_fail:'无法加载列表，请稍后再试。', wish_empty:'目前没有公开的品目。', wish_go:'提案此品目', wish_close:'关闭', done:'受理已完成。', refno:'受理编号', refno_d:'请记住受理编号，以便查询进度。', lk_lead:'可使用受理编号和提交时的邮箱查询供应提案进度。', lk_t:'进度查询', lk_d:'请输入受理编号和提交时的邮箱。', lk_no:'受理编号', lk_email:'邮箱', lk_btn:'查询', lk_busy:'查询中…', lk_nf:'受理编号或邮箱不正确。', lk_wait:'请稍后再试。', lk_fail:'查询失败，请稍后再试。', lk_none:'已受理，采购部正在准备审核。', lk_at:'受理', lk_upd:'更新', lk_items:'提案品目', fail:'提交失败，请稍后再点击“提交”。', not_ready:'尚未设置受理地址。',
     foot:'Chunbo 采购部 · 原辅材料供应提案' }
   };
   const $ = (s, el = document) => el.querySelector(s);
@@ -415,10 +429,49 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   }
 
   /* ── 그리기 · 이벤트 ── */
+  /* ── 공급 희망 품목(팝업) — 구매팀 프로그램에서 공개한 품목군의 품목만 ── */
+  const W = { open:false, kind:'원료', q:'', items:null, busy:false, err:'' };
+  async function loadWish(){
+    if (W.items || W.busy) return; W.busy = true; W.err = ''; renderWish();
+    try { if (!/^https:\/\/script\.google(usercontent)?\.com\//.test(ENDPOINT)) throw new Error('x'); const r = await fetch(ENDPOINT, { method:'POST', body: JSON.stringify({ action:'items' }) }); const j = await r.json(); if (!j || !j.ok) throw new Error('x'); W.items = j.items || []; }
+    catch { W.err = t('wish_fail'); }
+    W.busy = false; renderWish();
+  }
+  function renderWish(){
+    let box = document.getElementById('wishPop');
+    if (!W.open) { if (box) box.remove(); return; }
+    if (!box) { box = document.createElement('div'); box.id = 'wishPop'; box.className = 'wish-back'; document.body.appendChild(box); }
+    const q = W.q.trim().toLowerCase(); const all = W.items || [];
+    const list = all.filter((x) => x.kind === W.kind && (!q || `${x.name} ${x.spec} ${x.group}`.toLowerCase().includes(q)));
+    const nOf = (k) => all.filter((x) => x.kind === k).length;
+    const had = box.querySelector('#wishQ'); const pos = had && document.activeElement === had ? had.selectionStart : null;
+    box.innerHTML = `<div class="wish" role="dialog" aria-modal="true" aria-labelledby="wishT"><div class="wish-h"><h2 id="wishT">${esc(t('wish_t'))}</h2><button type="button" class="wish-x" data-wishx aria-label="${esc(t('wish_close'))}">×</button></div>
+      <p class="wish-d">${esc(t('wish_d'))}</p>
+      <div class="wish-bar"><span class="ipills" role="group">${[['원료', t('wish_raw')], ['부자재', t('wish_sub')]].map(([k, l]) => `<button type="button" class="${W.kind === k ? 'on' : ''}" data-wishk="${k}">${esc(l)} <small>${W.items ? nOf(k) : ''}</small></button>`).join('')}</span>
+        <input id="wishQ" type="search" placeholder="${esc(t('wish_q'))}" value="${esc(W.q)}" autocomplete="off"></div>
+      <div class="wish-list">${W.busy ? `<p class="wish-m">${esc(t('wish_load'))}</p>` : W.err ? `<p class="wish-m">${esc(W.err)}</p>` : !all.length ? `<p class="wish-m">${esc(t('wish_empty'))}</p>` : !list.length ? `<p class="wish-m">${esc(t('wish_none'))}</p>`
+        : `<ul>${list.slice(0, 300).map((x) => `<li><div><b>${esc(x.name)}</b>${x.spec ? `<small>${esc(x.spec)}</small>` : ''}</div>${x.group ? `<span class="wish-g">${esc(x.group)}</span>` : ''}<button type="button" class="btn sm" data-wishpick="${esc(x.name)}" data-wishspec="${esc(x.spec)}">${esc(t('wish_go'))}</button></li>`).join('')}</ul>`}</div></div>`;
+    if (pos !== null) { const q2 = box.querySelector('#wishQ'); q2.focus(); try { q2.setSelectionRange(pos, pos); } catch { /* 무시 */ } }
+  }
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('[data-wish]')) { W.open = true; renderWish(); loadWish(); setTimeout(() => document.getElementById('wishQ')?.focus(), 30); return; }
+    if (!W.open) return;
+    if (e.target.closest('[data-wishx]') || e.target.id === 'wishPop') { W.open = false; renderWish(); return; }
+    const k = e.target.closest('[data-wishk]'); if (k) { W.kind = k.dataset.wishk; renderWish(); return; }
+    const pk = e.target.closest('[data-wishpick]'); if (pk) {
+      const it = S.d.items[S.itemSel ?? 0] || S.d.items[0];
+      if (it && !it.name.trim()) { it.name = pk.dataset.wishpick; if (!it.grade.trim() && pk.dataset.wishspec) it.grade = pk.dataset.wishspec; }
+      else { S.d.items.push({ ...blankItem(), name: pk.dataset.wishpick, grade: pk.dataset.wishspec || '' }); S.itemSel = S.d.items.length - 1; }
+      W.open = false; renderWish(); goView('supply'); return;
+    }
+  });
+  document.addEventListener('input', (e) => { if (e.target.id === 'wishQ') { W.q = e.target.value; renderWish(); } });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && W.open) { W.open = false; renderWish(); } });
   function render(){
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
     $('#langBox').innerHTML = [['ko','한국어'],['en','English'],['zh','中文']].map(([k, l]) => `<button type="button" data-lang="${k}" aria-pressed="${lang === k}">${l}</button>`).join('');
-    $('#stBtn span').textContent = t('lk_t'); $('#stBtn').setAttribute('aria-pressed', String(S.view === 'status'));
+    $('#stBtn span').textContent = t('lk_t'); $('#wishBtn span').textContent = t('wish_t');
+    renderWish(); $('#stBtn').setAttribute('aria-pressed', String(S.view === 'status'));
     $('#view').innerHTML = S.view === 'supply' ? viewSupply() : (S.view === 'status' ? viewStatus() : viewHome());
   }
   const goView = (v) => { S.view = v; if (v === 'supply' && S.step === 4) { S.step = 1; } try { history.replaceState(null, '', v === 'home' ? location.pathname : `#${v}`); } catch { location.hash = v === 'home' ? '' : v; } render(); window.scrollTo(0, 0); };
