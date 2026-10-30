@@ -66,13 +66,18 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 .intro p{max-width:66ch;color:var(--ink2);margin:0}
 .layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;align-items:start}
 .formgrid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(340px,1fr);gap:0 20px;align-items:start}
-.formgrid > .formhead,.formgrid > .done{grid-column:1/-1}
+.formgrid > .done{grid-column:1/-1}
+.layout > .fh{grid-column:2;grid-row:1;margin:0}.layout > .side{grid-column:1;grid-row:2}.layout > #form{grid-column:2;grid-row:2}
+.layout{row-gap:16px}
 .col-main,.col-side{min-width:0;display:grid;gap:14px}
 .col-side .up{grid-template-columns:minmax(0,1fr) auto;row-gap:8px}.col-side .up > b{grid-column:1;grid-row:1}.col-side .up > .btn{grid-column:2;grid-row:1;justify-self:end}.col-side .up .files{grid-column:1/-1;grid-row:2}
 .col-side .alert.miss{margin:0}.col-side .foot{margin-top:0}
 .col-side .btn.pri{min-width:160px}
 .sec-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .sec-head h3{display:flex;align-items:center;gap:8px;font-size:17px}
+.ipills{display:inline-flex;flex-wrap:wrap;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface2)}
+.ipills button{min-width:28px;height:26px;padding:0 9px;border:0;border-radius:999px;background:transparent;color:var(--ink2);font-family:var(--f-mono);font-size:12.5px;font-weight:600;cursor:pointer}
+.ipills button:hover{background:#e2e7f0}.ipills button.on{background:#22a35a;color:#fff;box-shadow:0 2px 6px rgba(34,163,90,.28)}
 .sec-head .cnt{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 7px;border-radius:999px;background:var(--navy);color:#fff;font-family:var(--f-mono);font-size:12.5px}
 .side{display:grid;gap:14px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);min-width:0}
 .flow{list-style:none;margin:0;padding:18px 18px 6px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
@@ -151,7 +156,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
 @media (max-width:1180px){.formgrid{grid-template-columns:minmax(0,1fr)}.col-side{margin-top:14px}}
 @media (max-width:760px){
   .cards{grid-template-columns:1fr;gap:16px}.card3{min-height:200px}
-  .layout{grid-template-columns:1fr;gap:16px}.side{position:static}.flow{position:static;display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;padding:14px 14px 0}.flow li::before{display:none}.flow li{padding-bottom:14px}
+  .layout{grid-template-columns:1fr;gap:16px}.layout > .fh,.layout > .side,.layout > #form{grid-column:1;grid-row:auto}.side{position:static}.flow{position:static;display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;padding:14px 14px 0}.flow li::before{display:none}.flow li{padding-bottom:14px}
   .grid{grid-template-columns:1fr}
   .up{grid-template-columns:1fr}
   .card{padding:18px 16px}
@@ -178,7 +183,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   ko:{ inq:'1:1 문의', inq_title:'문의하기', inq_desc:'문의 종류를 선택해 주십시오.', go:'바로가기', soon:'준비 중',
     c1:'제품 구매 문의', c1s:'천보 · 천보신소재 · 천보비엘에스 제품 구매', c2:'공급 제안 문의', c2s:'원부자재 공급 제안서 제출', c3:'사업 협력 문의', c3s:'공동 개발 · 사업 제휴',
     crumb_home:'문의하기', crumb:'공급 제안 문의', title:'원부자재 공급 제안',
-    lead:'천보 계열사는 품질과 공급 안정성을 갖춘 원부자재 협력사를 찾고 있습니다.',
+    lead:'품질과 공급 안정성을 갖춘 원부자재 협력사를 찾고 있습니다.',
     flow:[['제안서 작성','제안 품목 입력'],['자료 첨부 · 제출','MSDS · CoA · 기본정보 제출'],['구매팀 검토 · 회신','2주 내 결과 회신'],['샘플 평가 안내','적합 건에 한해 안내 예정']],
     n1:'제출 자료', n1l:['필수 첨부: MSDS, CoA(시험성적서)','선택 첨부: 회사소개서, 제품 카탈로그, 기타 자료','첨부 파일은 합계 20MB 이하 · PDF, Word, Excel, 이미지, ZIP'],
     f_title:'공급 제안서', steps:['담당자 · 회사','제안 품목','첨부 자료','확인'],
@@ -197,7 +202,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   en:{ inq:'1:1 Inquiry', inq_title:'Contact', inq_desc:'Please select the type of inquiry.', go:'Go', soon:'Coming soon',
     c1:'Product Purchase', c1s:'Products of Chunbo · Chunbo Advanced Materials · Chunbo BLS', c2:'Supply Proposal', c2s:'Submit a raw material supply proposal', c3:'Business Partnership', c3s:'Joint development · alliances',
     crumb_home:'Contact', crumb:'Supply Proposal', title:'Raw Material Supply Proposal',
-    lead:'Chunbo Group companies are looking for raw material partners who offer reliable quality and stable supply.',
+    lead:'We are looking for raw material partners who offer reliable quality and stable supply.',
     flow:[['Fill in','Enter the proposed items'],['Attach · submit','Submit MSDS · CoA · basic information'],['Review · reply','Result within 2 weeks'],['Sample evaluation','Guidance for accepted proposals only']],
     n1:'Documents', n1l:['Required: MSDS, CoA (Certificate of Analysis)','Optional: company profile, product catalog, others','Attachments up to 20MB in total · PDF, Word, Excel, images, ZIP'],
     f_title:'Supply Proposal', steps:['Contact · Company','Proposed Items','Attachments','Done'],
@@ -216,7 +221,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   zh:{ inq:'一对一咨询', inq_title:'联系我们', inq_desc:'请选择咨询类型。', go:'前往', soon:'准备中',
     c1:'产品采购咨询', c1s:'Chunbo · Chunbo Advanced Materials · Chunbo BLS 产品采购', c2:'供应提案', c2s:'提交原辅材料供应提案', c3:'业务合作咨询', c3s:'共同开发 · 业务合作',
     crumb_home:'联系我们', crumb:'供应提案', title:'原辅材料供应提案',
-    lead:'Chunbo 集团各公司正在寻找品质可靠、供应稳定的原辅材料合作伙伴。',
+    lead:'我们正在寻找品质可靠、供应稳定的原辅材料合作伙伴。',
     flow:[['填写提案','填写提案品目'],['附件 · 提交','提交 MSDS · CoA · 基本信息'],['审核 · 回复','2周内回复结果'],['样品评估通知','仅限合格提案另行通知']],
     n1:'提交资料', n1l:['必须：MSDS、CoA（检验报告）','可选：公司介绍、产品目录、其他资料','附件合计20MB以内 · PDF、Word、Excel、图片、ZIP'],
     f_title:'供应提案', steps:['负责人 · 公司','提案品目','附件','完成'],
@@ -278,14 +283,12 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     if (S.showErrs) { S.miss = missingAll(); validateAll(); }
     const sec = (id, title, desc, inner, head) => `<section class="card" id="sec-${id}">${head || `<h3>${esc(title)}</h3>`}<p class="d">${esc(desc || '')}</p>${inner}</section>`;
     const contact = sec('contact', t('s_contact'), t('s_contact_d'), `<div class="grid">
+        ${fld('company', t('company'), { req:1, ac:'organization' })}
+        ${fld('country', t('country'), { req:1, type:'select', options:[['', t('select')], ...t('countries').map((x) => [x, x])] })}
         ${fld('contact', t('contact'), { req:1, ac:'name' })}${fld('title', t('title_'), { req:1, ac:'organization-title' })}
         ${fld('email', t('email'), { req:1, type:'email', ph:'name@company.com', ac:'email' })}${fld('phone', t('phone'), { req:1, type:'tel', ph:'+82 10-0000-0000', ac:'tel' })}
       </div>`);
-    const company = sec('company', t('s_company'), '', `<div class="grid">
-        ${fld('company', t('company'), { req:1, ac:'organization' })}
-        ${fld('country', t('country'), { req:1, type:'select', options:[['', t('select')], ...t('countries').map((x) => [x, x])] })}
-      </div>`);
-    const items = sec('items', t('s_items'), t('s_items_d'), `${d.items.map((it, i) => `<div class="item"><header><b>${esc(t('item'))} ${i + 1}</b><span class="spacer"></span></header><div class="grid">
+    const items = sec('items', t('s_items'), t('s_items_d'), `${d.items.map((it, i) => `<div class="item" id="item-${i}"><header><b>${esc(t('item'))} ${i + 1}</b><span class="spacer"></span></header><div class="grid">
         ${fld('', t('name'), { req:1, dk:'name', idx:i, ek:`name${i}`, val:it.name })}${fld('', t('cas'), { dk:'cas', idx:i, val:it.cas, ph:'616-38-6' })}
         ${fld('', t('grade'), { req:1, dk:'grade', idx:i, ek:`grade${i}`, val:it.grade })}${fld('', t('maker'), { req:1, dk:'maker', idx:i, ek:`maker${i}`, val:it.maker })}
         ${fld('', t('origin'), { req:1, dk:'origin', idx:i, ek:`origin${i}`, val:it.origin })}${fld('', t('capacity'), { req:1, dk:'capacity', idx:i, ek:`capacity${i}`, val:it.capacity, ph:'50 MT' })}
@@ -293,7 +296,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
         ${fld('', t('price'), { dk:'price', idx:i, val:it.price, hint:t('price_h') })}${fld('', t('sample'), { dk:'sample', idx:i, val:it.sample, type:'select', options:[['y', t('sample_y')], ['n', t('sample_n')]] })}
         ${fld('', t('strength'), { req:1, dk:'strength', idx:i, ek:`strength${i}`, val:it.strength, type:'area', full:1, ph:t('strength_h') })}
       </div></div>`).join('')}
-`, `<div class="sec-head"><h3>${esc(t('s_items'))} <span class="cnt" aria-label="${esc(t('item'))}">${d.items.length}</span></h3><span class="spacer"></span><button type="button" class="btn sm" data-add>${esc(t('add'))}</button><button type="button" class="btn sm" data-delitem ${d.items.length > 1 ? '' : 'disabled'}>${esc(t('del_item'))}</button></div>`);
+`, `<div class="sec-head"><h3>${esc(t('s_items'))} </h3><span class="ipills" role="group" aria-label="${esc(t('item'))}">${d.items.map((_, i) => `<button type="button" class="${i === Math.min(S.itemSel ?? d.items.length - 1, d.items.length - 1) ? 'on' : ''}" data-ipill="${i}" aria-label="${esc(t('item'))} ${i + 1}">${i + 1}</button>`).join('')}</span><span class="spacer"></span><button type="button" class="btn sm" data-add>${esc(t('add'))}</button><button type="button" class="btn sm" data-delitem ${d.items.length > 1 ? '' : 'disabled'}>${esc(t('del_item'))}</button></div>`);
     const att = sec('att', t('s_att'), t('s_att_d'), `${ATT.map((k) => { const [a, b] = t('att')[k]; const list = d.files[k] || []; const err = S.errs && S.errs[`att_${k}`];
         return `<div class="up${err ? ' err' : ''}" data-drop="${k}"><b>${esc(a)}<span class="tag ${ATT_REQ[k] ? 'req' : 'opt'}">${esc(ATT_REQ[k] ? t('req') : t('opt'))}</span>${b ? `<small>${esc(b)}</small>` : ''}</b>
           <div class="files">${list.map((f, j) => `<span>📎 ${esc(f.name)} <small>${sizeText(f.size)}</small><button type="button" data-rmf="${k}|${j}" aria-label="${esc(t('remove'))}">×</button></span>`).join('') || `<span style="background:none;padding:0" class="${err ? 'msg' : ''}">${esc(err || t('drop'))}</span>`}</div>
@@ -303,8 +306,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
       <label class="ck ${d.agree ? 'on' : ''}" for="agree"><input type="checkbox" id="agree" data-agree ${d.agree ? 'checked' : ''}>${esc(t('agree'))}</label>
       ${S.errs && S.errs.agree ? `<p class="msg">${esc(S.errs.agree)}</p>` : ''}`);
     const missBox = S.miss && S.miss.length ? `<div class="alert miss" id="missBox" role="alert">${S.miss.map((m) => `<div class="mrow"><span>${esc(missText(m))}</span><button type="button" class="btn sm" data-jump="${m.sec}">${esc(t('miss_go'))} →</button></div>`).join('')}</div>` : '';
-    return `<div class="formhead"><h2>${esc(t('f_title'))}</h2></div>
-      <div class="col-main">${contact}${company}${items}</div>
+    return `      <div class="col-main">${contact}${items}</div>
       <div class="col-side">${att}${missBox}${S.failMsg ? `<div class="alert" role="alert">${esc(S.failMsg)}</div>` : ''}
       <div class="foot"><span class="spacer"></span><button type="button" class="btn pri" data-submit ${S.busy ? 'disabled' : ''}>${esc(S.busy ? t('sending') : t('submit'))}</button></div></div>`;
   }
@@ -336,7 +338,7 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
       <div class="crumb"><button type="button" data-home>${esc(t('crumb_home'))}</button> › ${esc(t('crumb'))}</div>
       <h1 id="pTitle">${esc(t('title'))}</h1><p>${esc(t('lead'))}</p>
     </section>
-    <main class="wrap wide main"><div class="layout">
+    <main class="wrap wide main"><div class="layout"><div class="formhead fh"><h2>${esc(t('f_title'))}</h2></div>
       <aside class="side"><ol class="flow" aria-label="${esc(t('crumb'))}">${t('flow').map(([h, p], i) => `<li class="${i + 1 === cur ? 'on' : (i + 1 < cur ? 'past' : '')}"><span class="dot">${i + 1 < cur ? '✓' : i + 1}</span><span class="n">STEP ${i + 1}</span><b>${esc(h)}</b><small>${esc(p)}</small></li>`).join('')}</ol>${viewLookup()}</aside>
       <div id="form" class="formgrid">${viewForm()}</div>
     </div></main>`;
@@ -356,11 +358,9 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
   const SEC_NAME = { contact:'s_contact', company:'s_company', items:'s_items', att:'s_att' };
   function missingAll(){
     const d = S.d, out = []; const blank = (v) => !String(v ?? '').trim();
-    const f1 = ['contact','title','email','phone'].filter((k) => blank(d[k])).map((k) => t(k === 'title' ? 'title_' : k));
+    const f1 = ['company','country','contact','title','email','phone'].filter((k) => blank(d[k])).map((k) => t(k === 'title' ? 'title_' : k));
     if (!blank(d.email) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email.trim())) f1.push(t('email_fmt'));
     if (f1.length) out.push({ sec:'contact', fields:f1 });
-    const f2 = ['company','country'].filter((k) => blank(d[k])).map((k) => t(k));
-    if (f2.length) out.push({ sec:'company', fields:f2 });
     d.items.forEach((it, i) => { const ks = ['name','grade','maker','origin','capacity','strength'].filter((k) => blank(it[k])).map((k) => t(k)); if (ks.length) out.push({ sec:'items', sub: d.items.length > 1 ? t('item_n').replace('{n}', i + 1) : '', fields:ks }); });
     const fa = ATT.filter((k) => ATT_REQ[k] && !(d.files[k] || []).length).map((k) => t('att')[k][0]);
     if (fa.length) out.push({ sec:'att', fields:fa, attach:true });
@@ -406,8 +406,9 @@ button.card3:hover{box-shadow:0 10px 30px rgba(13,27,61,.08);border-color:#b5bcc
     if (e.target.closest('[data-go="supply"]')) { goView('supply'); return; }
     const jp = e.target.closest('[data-jump]'); if (jp) { const sc = $(`#sec-${jp.dataset.jump}`); if (sc) { sc.scrollIntoView({ behavior:'smooth', block:'start' }); const f = sc.querySelector('.f.err input, .f.err select, .f.err textarea'); if (f) setTimeout(() => f.focus({ preventScroll:true }), 400); } return; }
     if (e.target.closest('[data-submit]')) { submit(); return; }
-    if (e.target.closest('[data-delitem]')) { if (S.d.items.length > 1) { S.d.items.pop(); render(); } return; }
-    if (e.target.closest('[data-add]')) { S.d.items.push(blankItem()); render(); return; }
+    const ip = e.target.closest('[data-ipill]'); if (ip) { S.itemSel = +ip.dataset.ipill; render(); const el = $(`#item-${S.itemSel}`); if (el) el.scrollIntoView({ behavior:'smooth', block:'start' }); return; }
+    if (e.target.closest('[data-delitem]')) { if (S.d.items.length > 1) { S.d.items.pop(); S.itemSel = S.d.items.length - 1; render(); } return; }
+    if (e.target.closest('[data-add]')) { S.d.items.push(blankItem()); S.itemSel = S.d.items.length - 1; render(); const el = $(`#item-${S.itemSel}`); if (el) el.scrollIntoView({ behavior:'smooth', block:'start' }); return; }
     const rm = e.target.closest('[data-rm]'); if (rm) { S.d.items.splice(+rm.dataset.rm, 1); render(); return; }
     const rf = e.target.closest('[data-rmf]'); if (rf) { const [k, j] = rf.dataset.rmf.split('|'); S.d.files[k].splice(+j, 1); render(); }
   });
