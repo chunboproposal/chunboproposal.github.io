@@ -358,6 +358,10 @@ button.card3:hover{border:0;background:#123963}
 .card3 h3{font-size:20px;color:#2d2d2d}
 .card3.dim{opacity:1}.card3.dim h3{color:#666}
 .card3 .soon{background:#fff;border:0;color:#888;border-radius:0}
+/* 공급 제안 문의 카드 — 오른쪽 위 「공급제안 희망품목」 버튼(2026-11-04) · 카드는 div(버튼 안 버튼 불가) */
+.card3.is-btn{cursor:pointer}.card3.is-btn:hover{background:#123963}.card3.is-btn:focus-visible{outline:2px solid #fff;outline-offset:-6px}
+.card3 .wishbtn{position:absolute;top:18px;right:20px;z-index:1;height:34px;padding:0 16px;border:1px solid rgba(255,255,255,.75);background:transparent;color:#fff;font:inherit;font-size:13.5px;font-weight:700;cursor:pointer;transition:background .15s,color .15s}
+.card3 .wishbtn:hover,.card3 .wishbtn:focus-visible{background:#fff;color:#1f4a7a;outline:none}
 .intro{padding-block:0 6px}
 .intro-row{align-items:stretch;background:#e5f3fc;padding:26px 30px;gap:24px 40px}
 .intro-txt{display:flex;align-items:center}.intro-txt p{color:#333;font-size:15px;line-height:1.75;margin:0}
@@ -412,7 +416,7 @@ button.card3:hover{border:0;background:#123963}
   const ATT_REQ = { msds:true, coa:true };
   const T = {
   ko:{ inq:'1:1 문의', inq_title:'제안하기', inq_desc:'문의 종류를 선택해 주십시오.', co:'천보 · 천보신소재 · 천보비엘에스 · 천보정밀', biz:[['이차전지','특수전해질','전해액 첨가제'],['디스플레이','LCD 식각액 첨가제','OLED · QD 소재'],['반도체','반도체 미세공정 소재','반도체 식각 소재'],['의약품','의약품 중간체','(결핵 · 당뇨 치료제)']], go:'바로가기', soon:'준비 중',
-    c1:'제품 구매 문의', c1s:'천보, 천보신소재, 천보비엘에스 제품 구매', c2:'공급 제안 문의', c2s:'원부자재 공급 제안서 제출', c3:'사업 협력 문의', c3s:'공동 개발, 사업 제휴',
+    c1:'제품 구매 문의', c1s:'천보, 천보신소재, 천보비엘에스 제품 구매', c2wish:'공급제안 희망품목', c2:'공급 제안 문의', c2s:'원부자재 공급 제안서 제출', c3:'사업 협력 문의', c3s:'공동 개발, 사업 제휴',
     crumb_home:'제안하기', crumb:'공급 제안 문의', title:'원부자재 공급 제안',
     lead:'품질과 공급 안정성을 갖춘 원부자재 협력사를 찾고 있습니다.',
     flow:[['공급 제안 품목','제안 희망 품목'],['제안서 작성','제안 품목 입력 및 자료 첨부'],['구매팀 검토 및 회신','2주 내 평가결과 회신'],['평가 및 등록프로세스 진행','적합 건에 한해 안내 예정']],
@@ -432,7 +436,7 @@ button.card3:hover{border:0;background:#123963}
     wish_t:'공급 제안 품목', wish_d:'천보가 공급 제안을 받고 있는 품목입니다.', wish_raw:'원자재', wish_sub:'부자재', wish_q:'품목명 또는 사양 검색', wish_none:'검색 결과가 없습니다.', wish_load:'불러오는 중…', wish_fail:'목록을 불러오지 못했습니다. 잠시 후 다시 열어 주십시오.', wish_empty:'현재 공개된 품목이 없습니다.', wish_go:'이 품목으로 제안하기', wish_close:'닫기', wish_etc:'기타', done:'접수가 완료되었습니다.', refno:'접수번호', refno_d:'진행현황 확인을 위해서 접수번호를 기억해주세요.', lk_lead:'공급 제안 접수번호와 제출하신 이메일로 진행현황을 확인할 수 있습니다.', lk_t:'진행현황 확인', lk_d:'접수번호와 제출하신 이메일을 입력하십시오.', lk_no:'접수번호', lk_email:'이메일', lk_btn:'조회', lk_busy:'조회 중…', lk_nf:'접수번호 또는 이메일이 맞지 않습니다.', lk_wait:'잠시 후 다시 조회해 주십시오.', lk_fail:'조회하지 못했습니다. 잠시 후 다시 시도해 주십시오.', lk_none:'접수되었습니다. 구매팀이 검토를 준비하고 있습니다.', lk_at:'접수', lk_upd:'갱신', lk_items:'제안 품목', fail:'제출하지 못했습니다. 잠시 후 다시 ‘제출’을 눌러 주십시오.', not_ready:'접수 주소가 아직 설정되지 않았습니다.',
     foot:'천보 구매팀 | 원부자재 공급 제안' },
   en:{ inq:'1:1 Inquiry', inq_title:'Proposals', inq_desc:'Please select the type of inquiry.', co:'Chunbo · Chunbo Advanced Materials · Chunbo BLS · Chunbo Precision', biz:[['Secondary Battery','Specialty electrolytes','Electrolyte additives'],['Display','LCD etchant additives','OLED · QD materials'],['Semiconductor','Fine-process materials','Etching materials'],['Pharmaceuticals','Pharmaceutical intermediates','(TB · diabetes treatments)']], go:'Go', soon:'Coming soon',
-    c1:'Product Purchase', c1s:'Products of Chunbo, Chunbo Advanced Materials, Chunbo BLS', c2:'Supply Proposal', c2s:'Submit a raw material supply proposal', c3:'Business Partnership', c3s:'Joint development / alliances',
+    c1:'Product Purchase', c1s:'Products of Chunbo, Chunbo Advanced Materials, Chunbo BLS', c2wish:'Items we seek', c2:'Supply Proposal', c2s:'Submit a raw material supply proposal', c3:'Business Partnership', c3s:'Joint development / alliances',
     crumb_home:'Proposals', crumb:'Supply Proposal', title:'Raw Material Supply Proposal',
     lead:'We are looking for raw material partners who offer reliable quality and stable supply.',
     flow:[['Proposal items','Items open for proposal'],['Write proposal','Enter items / attach documents'],['Review / reply','Evaluation result within 2 weeks'],['Evaluation & registration','Guidance for accepted proposals only']],
@@ -452,7 +456,7 @@ button.card3:hover{border:0;background:#123963}
     wish_t:'Proposal items', wish_etc:'Others', wish_d:'Items for which Chunbo is accepting supply proposals.', wish_raw:'Raw materials', wish_sub:'Sub-materials', wish_q:'Search item name / spec', wish_none:'No results.', wish_load:'Loading…', wish_fail:'Could not load the list. Please try again later.', wish_empty:'No items are published at the moment.', wish_go:'Propose this item', wish_close:'Close', done:'Your proposal has been received.', refno:'Reference No.', refno_d:'Please keep this reference number to check the progress.', lk_lead:'Check the progress of your supply proposal with the reference number and your e-mail.', lk_t:'Check progress', lk_d:'Enter your reference number and the e-mail you submitted.', lk_no:'Reference No.', lk_email:'E-mail', lk_btn:'Check', lk_busy:'Checking…', lk_nf:'The reference number or e-mail does not match.', lk_wait:'Please try again in a moment.', lk_fail:'Could not check the progress. Please try again later.', lk_none:'Received. Our purchasing team is preparing the review.', lk_at:'Submitted', lk_upd:'Updated', lk_items:'Items', fail:'Submission failed. Please press “Submit” again in a moment.', not_ready:'The submission address is not set yet.',
     foot:'Chunbo Purchasing Team, Raw Material Supply Proposal' },
   zh:{ inq:'一对一咨询', inq_title:'提案', inq_desc:'请选择咨询类型。', co:'Chunbo · Chunbo Advanced Materials · Chunbo BLS · Chunbo Precision', biz:[['二次电池','特种电解质','电解液添加剂'],['显示屏','LCD蚀刻液添加剂','OLED · QD材料'],['半导体','半导体微细工艺材料','半导体蚀刻材料'],['医药','医药中间体','（结核 · 糖尿病治疗药）']], go:'前往', soon:'准备中',
-    c1:'产品采购咨询', c1s:'Chunbo、Chunbo Advanced Materials、Chunbo BLS 产品采购', c2:'供应提案', c2s:'提交原辅材料供应提案', c3:'业务合作咨询', c3s:'共同开发/业务合作',
+    c1:'产品采购咨询', c1s:'Chunbo、Chunbo Advanced Materials、Chunbo BLS 产品采购', c2wish:'征集品目', c2:'供应提案', c2s:'提交原辅材料供应提案', c3:'业务合作咨询', c3s:'共同开发/业务合作',
     crumb_home:'提案', crumb:'供应提案', title:'原辅材料供应提案',
     lead:'我们正在寻找品质可靠、供应稳定的原辅材料合作伙伴。',
     flow:[['提案品目','征集提案品目'],['填写提案','填写品目/上传资料'],['审核/回复','2周内回复评估结果'],['评估及注册流程','仅限合格提案另行通知']],
@@ -525,7 +529,7 @@ button.card3:hover{border:0;background:#123963}
       <div class="biz" role="list">${(t('biz') || []).map((b, i) => `<div class="biz-i biz-${i + 1}" role="listitem"><div class="biz-bg" aria-hidden="true">${BIZ_ART[i] || ''}</div><div class="biz-tx"><b>${esc(b[0])}</b><span>${esc(b[1])}</span><span>${esc(b[2])}</span></div></div>`).join('')}</div>
       <div class="cards">
         <div class="card3 dim"><span class="soon">${esc(t('soon'))}</span>${ICON.flask}<h3>${esc(t('c1'))}</h3></div>
-        <button type="button" class="card3" data-go="supply">${ICON.supply}<h3>${esc(t('c2'))}</h3><span class="go">${esc(t('go'))} <i></i></span></button>
+        <div class="card3 is-btn" data-go="supply" role="button" tabindex="0"><button type="button" class="wishbtn" data-wish>${esc(t('c2wish'))}</button>${ICON.supply}<h3>${esc(t('c2'))}</h3><span class="go">${esc(t('go'))} <i></i></span></div>
       </div></div></section>`;
   }
 
@@ -743,6 +747,7 @@ button.card3:hover{border:0;background:#123963}
   });
   /* 검색칸 — 한글 · 중국어 조합 중에는 다시 그리지 않음(낱자로 갈라지던 것, 2026-11-04) */
   let wishComp = false; let wishT = 0;
+  document.addEventListener('keydown', (e) => { const c = e.target.closest && e.target.closest('div[data-go]'); if (c && e.target === c && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); c.click(); } });
   document.addEventListener('compositionstart', (e) => { if (e.target.id === 'wishQ') wishComp = true; });
   document.addEventListener('compositionend', (e) => { if (e.target.id === 'wishQ') { wishComp = false; W.q = e.target.value; clearTimeout(wishT); wishT = setTimeout(renderWish, 150); } });
   document.addEventListener('input', (e) => { if (e.target.id === 'wishQ') { W.q = e.target.value; if (e.isComposing || wishComp) return; clearTimeout(wishT); wishT = setTimeout(() => { if (!wishComp) renderWish(); }, 150); } });
@@ -759,6 +764,7 @@ button.card3:hover{border:0;background:#123963}
   document.addEventListener('click', (e) => {
     const lb = e.target.closest('[data-lang]'); if (lb) { lang = lb.dataset.lang; try { localStorage.setItem('cbp-lang', lang); } catch { /* 무시 */ } render(); return; }
     if (e.target.closest('[data-home]')) { goView('home'); return; }
+    if (e.target.closest('[data-wish]')) return;   /* 카드 오른쪽 위 「공급제안 희망품목」 — 목록 팝업만 */
     if (e.target.closest('[data-go="supply"]')) { goView('supply'); return; }
     if (e.target.closest('[data-go="status"]')) { goView('status'); return; }
     const jp = e.target.closest('[data-jump]'); if (jp) { const [sec, idx] = jp.dataset.jump.split('|'); if (idx !== undefined) { S.itemSel = +idx; render(); } const sc = $(`#sec-${sec}`); if (sc) { sc.scrollIntoView({ behavior:'smooth', block:'start' }); const f = sc.querySelector('.f.err input, .f.err select, .f.err textarea'); if (f) setTimeout(() => f.focus({ preventScroll:true }), 400); } return; }
