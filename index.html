@@ -320,6 +320,28 @@ body{background:#fff;color:var(--ink);font-size:15px}
 .loc-home{width:44px;height:44px;margin-left:0;border:0;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
 .loc-in button:not(.loc-home){border:0;background:none;color:rgba(255,255,255,.8);font-size:14px;cursor:pointer;padding:0}.loc-in button:not(.loc-home):hover{color:#fff;text-decoration:underline}
 .loc-in i{font-style:normal;color:#fff;font-size:18px;line-height:1}.loc-in b{font-weight:700}
+
+/* 첫 화면 — 사업 분야 4칸(빗금 칸 · 너비 · 글자 위치 같게 · 마우스 올리면 살짝 커짐, 2026-11-04) */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.biz{position:relative;display:flex;height:300px;margin:44px 0 0;overflow:hidden;background:#fff}
+.biz-i{--s:56px;position:relative;flex:1 1 0;min-width:0;margin:0 calc(var(--s) / -2);overflow:hidden;clip-path:polygon(calc(var(--s) + 2px) 0,100% 0,calc(100% - var(--s) - 2px) 100%,0 100%);cursor:default}
+.biz-i:first-child{margin-left:0;clip-path:polygon(0 0,100% 0,calc(100% - var(--s) - 2px) 100%,0 100%)}
+.biz-i:last-child{margin-right:0;clip-path:polygon(calc(var(--s) + 2px) 0,100% 0,100% 100%,0 100%)}
+.biz-bg{position:absolute;inset:0;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.biz-bg svg{display:block;width:100%;height:100%}
+.biz-tx{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0 calc(var(--s) + 10px);text-align:center;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.35);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.biz-tx::before{content:"";position:absolute;left:50%;top:50%;width:min(320px,90%);height:190px;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(6,20,42,.62),rgba(6,20,42,0));z-index:-1}.biz-tx{z-index:1}
+.biz-tx b{font-size:25px;font-weight:700;letter-spacing:.02em;margin-bottom:8px}
+.biz-tx b::after{content:"";display:block;width:28px;height:2px;margin:10px auto 0;background:rgba(255,255,255,.8)}
+.biz-tx span{font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.9)}
+.biz-i:hover .biz-bg{transform:scale(1.07)}
+.biz-i:hover .biz-tx{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.biz-bg,.biz-tx{transition:none}}
+@media (max-width:900px){.biz{height:260px}.biz-tx b{font-size:20px}.biz-tx span{font-size:12.5px}.biz-i{--s:36px}}
+@media (max-width:640px){.biz{flex-wrap:wrap;height:auto;gap:2px}.biz-i,.biz-i:first-child,.biz-i:last-child{flex:1 1 calc(50% - 1px);height:170px;margin:0;clip-path:none}.biz-tx{padding:0 12px}}
+.subtop-t{position:relative}
+.subtop-co{position:absolute;left:100%;top:100%;margin:-2px 0 0 14px;font-size:13px;font-weight:500;color:rgba(255,255,255,.75);letter-spacing:.01em;white-space:nowrap}
+@media (max-width:900px){.subtop{height:auto;padding:46px 16px}.subtop-in{width:100%;text-align:center}.subtop-co{position:static;display:block;margin:10px 0 0;text-align:center;white-space:normal;font-size:12px}}
 .ptitle{text-align:center;font-size:34px;font-weight:700;color:#333;margin:0 0 26px;padding:52px 0 24px;border-bottom:1px solid #e1e1e1}
 .wrap,.wrap.wide{max-width:1280px;padding-left:24px;padding-right:24px}
 .wrap.wide{max-width:1720px;padding-left:max(24px,2vw);padding-right:max(24px,2vw)}   /* 공급 제안서 — 좌우를 넓게(2026-10-30) */
@@ -372,7 +394,7 @@ button.card3:hover{border:0;background:#123963}
   const ATT_SIDE = ['intro','catalog','msds','coa','etc'];   /* 첨부 자료 칸: 회사소개서 · 제품 카탈로그 · MSDS · CoA · 기타 */
   const ATT_REQ = { msds:true, coa:true };
   const T = {
-  ko:{ inq:'1:1 문의', inq_title:'제안하기', inq_desc:'문의 종류를 선택해 주십시오.', go:'바로가기', soon:'준비 중',
+  ko:{ inq:'1:1 문의', inq_title:'제안하기', inq_desc:'문의 종류를 선택해 주십시오.', co:'천보 · 천보신소재 · 천보비엘에스 · 천보정밀', biz:[['이차전지','특수전해질','전해액 첨가제'],['디스플레이','LCD 식각액 첨가제','OLED · QD 소재'],['반도체','반도체 미세공정 소재','반도체 식각 소재'],['의약품','의약품 중간체','(결핵 · 당뇨 치료제)']], go:'바로가기', soon:'준비 중',
     c1:'제품 구매 문의', c1s:'천보, 천보신소재, 천보비엘에스 제품 구매', c2:'공급 제안 문의', c2s:'원부자재 공급 제안서 제출', c3:'사업 협력 문의', c3s:'공동 개발, 사업 제휴',
     crumb_home:'제안하기', crumb:'공급 제안 문의', title:'원부자재 공급 제안',
     lead:'품질과 공급 안정성을 갖춘 원부자재 협력사를 찾고 있습니다.',
@@ -390,9 +412,9 @@ button.card3:hover{border:0;background:#123963}
     agree_t:'개인정보 수집 및 이용 동의', agree_body:'수집 항목: 담당자 이름, 부서/직책, 이메일, 전화번호\n이용 목적: 공급 제안 접수, 검토 및 결과 회신\n보유 기간: 접수일부터 3년(또는 회사 정책에 따름), 기간이 지나면 지체 없이 파기합니다.\n동의를 거부하실 수 있으나, 거부 시 제안을 접수할 수 없습니다.',
     agree:'개인정보 수집 및 이용에 동의합니다. (필수)', agree_req:'개인정보 수집 및 이용에 동의해야 제출할 수 있습니다.',
     prev:'이전', next:'다음', submit:'제출', sending:'제출 중…', miss:'‘{step}’의 {fields} 항목을 입력하세요.', miss_att:'‘{step}’의 {fields} 파일을 첨부하세요.', miss_go:'바로가기', item_n:'품목 {n}', email_fmt:'이메일 형식', required:'필수 항목을 입력해 주십시오.', email_bad:'이메일 형식을 확인해 주십시오.',
-    wish_t:'공급 희망 품목', wish_d:'천보가 공급 제안을 받고 있는 품목입니다.', wish_raw:'원료', wish_sub:'부자재', wish_q:'품목명 또는 사양 검색', wish_none:'검색 결과가 없습니다.', wish_load:'불러오는 중…', wish_fail:'목록을 불러오지 못했습니다. 잠시 후 다시 열어 주십시오.', wish_empty:'현재 공개된 품목이 없습니다.', wish_go:'이 품목으로 제안하기', wish_close:'닫기', wish_etc:'기타', done:'접수가 완료되었습니다.', refno:'접수번호', refno_d:'진행현황 확인을 위해서 접수번호를 기억해주세요.', lk_lead:'공급 제안 접수번호와 제출하신 이메일로 진행현황을 확인할 수 있습니다.', lk_t:'진행현황 확인', lk_d:'접수번호와 제출하신 이메일을 입력하십시오.', lk_no:'접수번호', lk_email:'이메일', lk_btn:'조회', lk_busy:'조회 중…', lk_nf:'접수번호 또는 이메일이 맞지 않습니다.', lk_wait:'잠시 후 다시 조회해 주십시오.', lk_fail:'조회하지 못했습니다. 잠시 후 다시 시도해 주십시오.', lk_none:'접수되었습니다. 구매팀이 검토를 준비하고 있습니다.', lk_at:'접수', lk_upd:'갱신', lk_items:'제안 품목', fail:'제출하지 못했습니다. 잠시 후 다시 ‘제출’을 눌러 주십시오.', not_ready:'접수 주소가 아직 설정되지 않았습니다.',
+    wish_t:'공급 희망 품목', wish_d:'천보가 공급 제안을 받고 있는 품목입니다.', wish_raw:'원자재', wish_sub:'부자재', wish_q:'품목명 또는 사양 검색', wish_none:'검색 결과가 없습니다.', wish_load:'불러오는 중…', wish_fail:'목록을 불러오지 못했습니다. 잠시 후 다시 열어 주십시오.', wish_empty:'현재 공개된 품목이 없습니다.', wish_go:'이 품목으로 제안하기', wish_close:'닫기', wish_etc:'기타', done:'접수가 완료되었습니다.', refno:'접수번호', refno_d:'진행현황 확인을 위해서 접수번호를 기억해주세요.', lk_lead:'공급 제안 접수번호와 제출하신 이메일로 진행현황을 확인할 수 있습니다.', lk_t:'진행현황 확인', lk_d:'접수번호와 제출하신 이메일을 입력하십시오.', lk_no:'접수번호', lk_email:'이메일', lk_btn:'조회', lk_busy:'조회 중…', lk_nf:'접수번호 또는 이메일이 맞지 않습니다.', lk_wait:'잠시 후 다시 조회해 주십시오.', lk_fail:'조회하지 못했습니다. 잠시 후 다시 시도해 주십시오.', lk_none:'접수되었습니다. 구매팀이 검토를 준비하고 있습니다.', lk_at:'접수', lk_upd:'갱신', lk_items:'제안 품목', fail:'제출하지 못했습니다. 잠시 후 다시 ‘제출’을 눌러 주십시오.', not_ready:'접수 주소가 아직 설정되지 않았습니다.',
     foot:'천보 구매팀 | 원부자재 공급 제안' },
-  en:{ inq:'1:1 Inquiry', inq_title:'Proposals', inq_desc:'Please select the type of inquiry.', go:'Go', soon:'Coming soon',
+  en:{ inq:'1:1 Inquiry', inq_title:'Proposals', inq_desc:'Please select the type of inquiry.', co:'Chunbo · Chunbo Advanced Materials · Chunbo BLS · Chunbo Precision', biz:[['Secondary Battery','Specialty electrolytes','Electrolyte additives'],['Display','LCD etchant additives','OLED · QD materials'],['Semiconductor','Fine-process materials','Etching materials'],['Pharmaceuticals','Pharmaceutical intermediates','(TB · diabetes treatments)']], go:'Go', soon:'Coming soon',
     c1:'Product Purchase', c1s:'Products of Chunbo, Chunbo Advanced Materials, Chunbo BLS', c2:'Supply Proposal', c2s:'Submit a raw material supply proposal', c3:'Business Partnership', c3s:'Joint development / alliances',
     crumb_home:'Proposals', crumb:'Supply Proposal', title:'Raw Material Supply Proposal',
     lead:'We are looking for raw material partners who offer reliable quality and stable supply.',
@@ -412,7 +434,7 @@ button.card3:hover{border:0;background:#123963}
     prev:'Back', next:'Next', submit:'Submit', sending:'Submitting…', miss:'Please fill in {fields} in “{step}”.', miss_att:'Please attach {fields} in “{step}”.', miss_go:'Go', item_n:'Item {n}', email_fmt:'e-mail format', required:'Please fill in the required fields.', email_bad:'Please check the e-mail format.',
     wish_t:'Items we seek', wish_etc:'Others', wish_d:'Items for which Chunbo is accepting supply proposals.', wish_raw:'Raw materials', wish_sub:'Sub-materials', wish_q:'Search item name / spec', wish_none:'No results.', wish_load:'Loading…', wish_fail:'Could not load the list. Please try again later.', wish_empty:'No items are published at the moment.', wish_go:'Propose this item', wish_close:'Close', done:'Your proposal has been received.', refno:'Reference No.', refno_d:'Please keep this reference number to check the progress.', lk_lead:'Check the progress of your supply proposal with the reference number and your e-mail.', lk_t:'Check progress', lk_d:'Enter your reference number and the e-mail you submitted.', lk_no:'Reference No.', lk_email:'E-mail', lk_btn:'Check', lk_busy:'Checking…', lk_nf:'The reference number or e-mail does not match.', lk_wait:'Please try again in a moment.', lk_fail:'Could not check the progress. Please try again later.', lk_none:'Received. Our purchasing team is preparing the review.', lk_at:'Submitted', lk_upd:'Updated', lk_items:'Items', fail:'Submission failed. Please press “Submit” again in a moment.', not_ready:'The submission address is not set yet.',
     foot:'Chunbo Purchasing Team, Raw Material Supply Proposal' },
-  zh:{ inq:'一对一咨询', inq_title:'提案', inq_desc:'请选择咨询类型。', go:'前往', soon:'准备中',
+  zh:{ inq:'一对一咨询', inq_title:'提案', inq_desc:'请选择咨询类型。', co:'Chunbo · Chunbo Advanced Materials · Chunbo BLS · Chunbo Precision', biz:[['二次电池','特种电解质','电解液添加剂'],['显示屏','LCD蚀刻液添加剂','OLED · QD材料'],['半导体','半导体微细工艺材料','半导体蚀刻材料'],['医药','医药中间体','（结核 · 糖尿病治疗药）']], go:'前往', soon:'准备中',
     c1:'产品采购咨询', c1s:'Chunbo、Chunbo Advanced Materials、Chunbo BLS 产品采购', c2:'供应提案', c2s:'提交原辅材料供应提案', c3:'业务合作咨询', c3s:'共同开发/业务合作',
     crumb_home:'提案', crumb:'供应提案', title:'原辅材料供应提案',
     lead:'我们正在寻找品质可靠、供应稳定的原辅材料合作伙伴。',
@@ -430,7 +452,7 @@ button.card3:hover{border:0;background:#123963}
     agree_t:'个人信息收集及使用同意', agree_body:'收集项目：姓名、部门、职位、邮箱、电话\n使用目的：供应提案的受理、审核及结果回复\n保存期限：自受理之日起3年（或按公司政策），期满后立即销毁。\n您可以拒绝同意，但拒绝后将无法提交提案。',
     agree:'同意收集及使用个人信息。（必选）', agree_req:'须同意个人信息条款后方可提交。',
     prev:'上一步', next:'下一步', submit:'提交', sending:'提交中…', miss:'请填写「{step}」中的{fields}。', miss_att:'请在「{step}」中上传{fields}。', miss_go:'前往', item_n:'品目 {n}', email_fmt:'邮箱格式', required:'请填写必填项。', email_bad:'请确认邮箱格式。',
-    wish_t:'征集品目', wish_etc:'其他', wish_d:'Chunbo 正在征集供应提案的品目。', wish_raw:'原料', wish_sub:'辅料', wish_q:'搜索品名/规格', wish_none:'没有搜索结果。', wish_load:'加载中…', wish_fail:'无法加载列表，请稍后再试。', wish_empty:'目前没有公开的品目。', wish_go:'提案此品目', wish_close:'关闭', done:'受理已完成。', refno:'受理编号', refno_d:'请记住受理编号，以便查询进度。', lk_lead:'可使用受理编号和提交时的邮箱查询供应提案进度。', lk_t:'进度查询', lk_d:'请输入受理编号和提交时的邮箱。', lk_no:'受理编号', lk_email:'邮箱', lk_btn:'查询', lk_busy:'查询中…', lk_nf:'受理编号或邮箱不正确。', lk_wait:'请稍后再试。', lk_fail:'查询失败，请稍后再试。', lk_none:'已受理，采购部正在准备审核。', lk_at:'受理', lk_upd:'更新', lk_items:'提案品目', fail:'提交失败，请稍后再点击“提交”。', not_ready:'尚未设置受理地址。',
+    wish_t:'征集品目', wish_etc:'其他', wish_d:'Chunbo 正在征集供应提案的品目。', wish_raw:'原材料', wish_sub:'辅料', wish_q:'搜索品名/规格', wish_none:'没有搜索结果。', wish_load:'加载中…', wish_fail:'无法加载列表，请稍后再试。', wish_empty:'目前没有公开的品目。', wish_go:'提案此品目', wish_close:'关闭', done:'受理已完成。', refno:'受理编号', refno_d:'请记住受理编号，以便查询进度。', lk_lead:'可使用受理编号和提交时的邮箱查询供应提案进度。', lk_t:'进度查询', lk_d:'请输入受理编号和提交时的邮箱。', lk_no:'受理编号', lk_email:'邮箱', lk_btn:'查询', lk_busy:'查询中…', lk_nf:'受理编号或邮箱不正确。', lk_wait:'请稍后再试。', lk_fail:'查询失败，请稍后再试。', lk_none:'已受理，采购部正在准备审核。', lk_at:'受理', lk_upd:'更新', lk_items:'提案品目', fail:'提交失败，请稍后再点击“提交”。', not_ready:'尚未设置受理地址。',
     foot:'Chunbo 采购部/原辅材料供应提案' }
   };
   const $ = (s, el = document) => el.querySelector(s);
@@ -451,13 +473,39 @@ button.card3:hover{border:0;background:#123963}
   };
 
   /* ── 문의 종류 ── */
+
+  /* ── 첫 화면 사업 분야 4칸 그림(직접 그린 그림 · 2026-11-04) — 이차전지 · 디스플레이 · 반도체 · 의약품 ── */
+  const BIZ_SVG = (id, c1, c2, body) => `<svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" width="100%" height="100%"><defs><linearGradient id="bg${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient><radialGradient id="gl${id}" cx=".62" cy=".38" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs><rect width="600" height="400" fill="url(#bg${id})"/><rect width="600" height="400" fill="url(#gl${id})"/><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">${body}</g><rect width="600" height="400" fill="#06172e" opacity=".28"/></svg>`;
+  const BIZ_ART = [
+    /* 이차전지 — 원통형 셀 · 이온 흐름 · 번개 */
+    BIZ_SVG(1, '#0b5563', '#0b2547', [0, 1, 2, 3, 4].map((i) => { const x = 150 + i * 70, y = 120 + (i % 2) * 18; return `<g opacity="${.35 + (i % 3) * .12}" stroke-width="2"><ellipse cx="${x}" cy="${y}" rx="26" ry="8"/><path d="M${x - 26} ${y}v150a26 8 0 0 0 52 0V${y}"/><path d="M${x - 8} ${y - 8}v-8h16v8"/><path d="M${x - 26} ${y + 40}a26 8 0 0 0 52 0" opacity=".6"/></g>`; }).join('')
+      + '<path d="M80 330 C 200 280, 330 380, 520 300" stroke-width="1.4" opacity=".35" stroke-dasharray="2 9"/><path d="M60 360 C 220 320, 360 410, 560 340" stroke-width="1.2" opacity=".25" stroke-dasharray="2 9"/>'
+      + [[110, 90], [470, 70], [520, 200], [90, 230], [430, 330]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="#7fe3d5" stroke="none" opacity=".75"/><circle cx="${x}" cy="${y}" r="12" stroke-width="1" opacity=".35"/>`).join('')
+      + '<path d="M300 40 l-22 52 h22 l-14 46 l42 -62 h-24 l16 -36z" fill="#8ff0e0" stroke="none" opacity=".55"/>'),
+    /* 디스플레이 — 기울어진 패널 · RGB 화소 */
+    BIZ_SVG(2, '#2b2f7a', '#0b1f45', '<g transform="translate(300 205) skewY(-8) translate(-190 -120)"><rect x="0" y="0" width="380" height="240" rx="6" stroke-width="2.4" opacity=".7"/><rect x="14" y="14" width="352" height="212" stroke-width="1" opacity=".35"/>'
+      + Array.from({ length: 11 }, (_, c) => Array.from({ length: 7 }, (_, r) => { const x = 24 + c * 31, y = 24 + r * 29, on = (c * 7 + r * 3) % 5; return `<rect x="${x}" y="${y}" width="7" height="20" fill="#ff6b8a" stroke="none" opacity="${on ? .22 : .7}"/><rect x="${x + 9}" y="${y}" width="7" height="20" fill="#5ef0a0" stroke="none" opacity="${on === 1 ? .7 : .22}"/><rect x="${x + 18}" y="${y}" width="7" height="20" fill="#6aa8ff" stroke="none" opacity="${on === 2 ? .75 : .25}"/>`; }).join('')).join('') + '</g><path d="M60 360 H540" stroke-width="1" opacity=".25"/>'),
+    /* 반도체 — 웨이퍼 · 다이 격자 · 회로 */
+    BIZ_SVG(3, '#0b3f73', '#06213f', '<clipPath id="wcut"><circle cx="300" cy="200" r="146"/></clipPath><circle cx="300" cy="200" r="150" stroke-width="2.4" opacity=".75"/><path d="M285 352 h30" stroke-width="5" opacity=".7"/><g clip-path="url(#wcut)" opacity=".45" stroke-width="1">'
+      + Array.from({ length: 12 }, (_, i) => { const v = 138 + i * 27; return `<path d="M${v} 40V360"/><path d="M140 ${v - 98}H460"/>`; }).join('') + '</g>'
+      + [[273, 173], [327, 200], [246, 227], [300, 146]].map(([x, y]) => `<rect x="${x}" y="${y}" width="27" height="27" fill="#5fd0ff" stroke="none" opacity=".45"/>`).join('')
+      + '<g stroke-width="1.6" opacity=".5"><path d="M40 90 H120 L150 120 H170"/><path d="M40 300 H110 L140 270 H165"/><path d="M560 110 H480 L455 135 H430"/><path d="M560 290 H490 L462 262 H436"/></g>'
+      + [[40, 90], [40, 300], [560, 110], [560, 290]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="#9fe2ff" stroke="none" opacity=".8"/>`).join('')),
+    /* 의약품 — 분자 구조 · 캡슐 */
+    BIZ_SVG(4, '#0f5a5a', '#0a2a45', (() => { const hex = (cx, cy, r) => Array.from({ length: 6 }, (_, k) => { const a = Math.PI / 3 * k + Math.PI / 6; return `${(cx + r * Math.cos(a)).toFixed(1)},${(cy + r * Math.sin(a)).toFixed(1)}`; }).join(' ');
+      return `<g stroke-width="2.2" opacity=".6"><polygon points="${hex(230, 170, 42)}"/><polygon points="${hex(303, 212, 42)}"/><polygon points="${hex(376, 170, 42)}"/></g><g stroke-width="1.6" opacity=".45"><path d="M230 128 V80"/><path d="M376 128 V84 L410 64"/><path d="M303 254 V300 L340 322"/><path d="M194 191 L150 214"/></g>`
+        + [[230, 80], [410, 64], [340, 322], [150, 214], [303, 300]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="8" fill="#8af0d6" stroke="none" opacity=".7"/>`).join('')
+        + '<g transform="translate(470 300) rotate(-35)" opacity=".75"><rect x="-58" y="-20" width="116" height="40" rx="20" stroke-width="2.2"/><path d="M0 -20 V20" stroke-width="2"/><path d="M-58 0 a20 20 0 0 1 20 -20 H0 V20 H-38 a20 20 0 0 1 -20 -20z" fill="#fff" stroke="none" opacity=".35"/></g>'
+        + '<g transform="translate(110 320) rotate(25)" opacity=".4"><rect x="-38" y="-13" width="76" height="26" rx="13" stroke-width="1.6"/><path d="M0 -13 V13" stroke-width="1.4"/></g>'; })())
+  ];
   /* ── 천보 홈페이지(chunbochem.com) 하위 페이지와 같은 머리 — 큰 제목 띠 · 남색 위치 줄 · 가운데 제목(2026-10-30) ── */
   const HOME_SVG = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/></svg>';
-  const subTop = (crumbs) => `<div class="subtop"><div class="subtop-in"><p class="subtop-t">${esc(t('inq_title'))}</p></div></div>
+  const subTop = (crumbs) => `<div class="subtop"><div class="subtop-in"><p class="subtop-t">${esc(t('inq_title'))}<span class="subtop-co">${esc(t('co'))}</span></p></div></div>
     <nav class="loc" aria-label="location"><div class="loc-in"><button type="button" class="loc-home" data-home aria-label="${esc(t('inq_title'))}">${HOME_SVG}</button>${crumbs.map((c, i) => `${i ? '<i aria-hidden="true">›</i>' : ''}${i < crumbs.length - 1 ? `<button type="button" data-home>${esc(c)}</button>` : `<b>${esc(c)}</b>`}`).join('')}</div></nav>`;
   function viewHome(){
     return `${subTop([t('inq_title')])}<section class="home"><div class="wrap">
-      <h1 class="ptitle">${esc(t('inq_title'))}</h1>
+      <h1 class="sr-only">${esc(t('inq_title'))}</h1>
+      <div class="biz" role="list">${(t('biz') || []).map((b, i) => `<div class="biz-i biz-${i + 1}" role="listitem"><div class="biz-bg" aria-hidden="true">${BIZ_ART[i] || ''}</div><div class="biz-tx"><b>${esc(b[0])}</b><span>${esc(b[1])}</span><span>${esc(b[2])}</span></div></div>`).join('')}</div>
       <div class="cards">
         <div class="card3 dim"><span class="soon">${esc(t('soon'))}</span>${ICON.flask}<h3>${esc(t('c1'))}</h3></div>
         <button type="button" class="card3" data-go="supply">${ICON.supply}<h3>${esc(t('c2'))}</h3><span class="go">${esc(t('go'))} <i></i></span></button>
@@ -655,7 +703,7 @@ button.card3:hover{border:0;background:#123963}
     const had = box.querySelector('#wishQ'); const pos = had && document.activeElement === had ? had.selectionStart : null;
     /* 위: 공급 제안 프로세스 · 아래: 공급 희망 품목(품목군별) — STEP 0 (lh152) */
     const groups = []; list.slice(0, 400).forEach((x) => { const g = x.group || ''; let gg = groups.find((y) => y.g === g); if (!gg) { gg = { g, items:[] }; groups.push(gg); } gg.items.push(x); });
-    groups.sort((a, b) => (a.g ? 0 : 1) - (b.g ? 0 : 1) || a.g.localeCompare(b.g, 'ko'));
+    groups.sort((a, b) => (a.g ? 0 : 1) - (b.g ? 0 : 1));   /* 품목군 순서 = 구매팀 프로그램 「구매 품목」 순서 그대로(받은 순서 · 2026-11-04) */
     box.innerHTML = `<div class="wish wish-wide" role="dialog" aria-modal="true" aria-labelledby="wishT"><div class="wish-h"><h2 id="wishT">${esc(t('wish_t'))}</h2><button type="button" class="wish-x" data-wishx aria-label="${esc(t('wish_close'))}">×</button></div>
       <p class="wish-d">${esc(t('wish_d'))}</p>
       <div class="wish-bar"><span class="ipills" role="group">${[['원료', t('wish_raw')], ['부자재', t('wish_sub')]].map(([k, l]) => `<button type="button" class="${W.kind === k ? 'on' : ''}" data-wishk="${k}">${esc(l)} <small>${W.items ? nOf(k) : ''}</small></button>`).join('')}</span>
@@ -676,7 +724,11 @@ button.card3:hover{border:0;background:#123963}
       W.open = false; renderWish(); goView('supply'); return;
     }
   });
-  document.addEventListener('input', (e) => { if (e.target.id === 'wishQ') { W.q = e.target.value; renderWish(); } });
+  /* 검색칸 — 한글 · 중국어 조합 중에는 다시 그리지 않음(낱자로 갈라지던 것, 2026-11-04) */
+  let wishComp = false; let wishT = 0;
+  document.addEventListener('compositionstart', (e) => { if (e.target.id === 'wishQ') wishComp = true; });
+  document.addEventListener('compositionend', (e) => { if (e.target.id === 'wishQ') { wishComp = false; W.q = e.target.value; clearTimeout(wishT); wishT = setTimeout(renderWish, 150); } });
+  document.addEventListener('input', (e) => { if (e.target.id === 'wishQ') { W.q = e.target.value; if (e.isComposing || wishComp) return; clearTimeout(wishT); wishT = setTimeout(() => { if (!wishComp) renderWish(); }, 150); } });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && W.open) { W.open = false; renderWish(); } });
   function render(){
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
