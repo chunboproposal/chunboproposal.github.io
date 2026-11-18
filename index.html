@@ -398,6 +398,39 @@ button.card3:hover{border:0;background:#123963}
 .wish-wide .wgp li b{font-size:15.5px}.wish-wide .wgp li small{font-size:13.5px}
 @media (max-width:720px){.wish.wish-wide{width:100%;height:94vh;padding:18px 16px}.wish-wide .wgp{grid-template-columns:1fr;gap:6px}.wish-wide .wgp ul{grid-template-columns:1fr}.wish-wide .wish-h h2{font-size:21px}}
 @media (max-width:640px){.subtop{height:130px}.subtop-t{font-size:28px}.ptitle{font-size:26px;padding:34px 0 18px}.loc-in{padding:0 12px 0 0}.intro-row{padding:18px}}
+/* ══ 제품 구매 문의(2026-11-18) — chunbochem.com 문의 화면처럼 「무엇이 궁금하신가요?」 · 문의자 정보 / 문의 내용 두 묶음 · 칸 이름 왼쪽 + 입력칸 ══ */
+.card3.is-btn:hover h3,.card3.is-btn:hover .go{color:#fff}.card3.is-btn:hover .go i,.card3.is-btn:hover .go i::after{background:#fff}
+.qmain{max-width:1040px;padding-top:10px}
+.qsec{margin:0 0 54px}
+.qhead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px solid #2d2d2d}
+.qhead h2{margin:0;font-size:18px;font-weight:700;color:#2d2d2d;letter-spacing:-.01em}
+.qnote{margin:0;font-size:12.5px;color:#777}.qnote .req{color:var(--bad)}
+.qgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 56px;padding:28px 20px 30px;border-bottom:1px solid #cfcfcf}
+.qrows{display:grid;gap:18px;padding:28px 20px 30px;border-bottom:1px solid #cfcfcf}
+.qf{display:grid;grid-template-columns:92px minmax(0,1fr);align-items:start;gap:6px 12px;min-width:0}
+.qrows .qf{grid-template-columns:120px minmax(0,1fr);align-items:start}
+.qlab{font-size:14px;font-weight:700;color:#333;line-height:1.4;word-break:keep-all}.qlab .req{color:var(--bad);margin-left:3px}
+.qlab{padding-top:11px}
+.qf.err .qetc input{border-color:#cccccc}
+.qctl{min-width:0;display:grid;gap:6px}
+.qctl input[type=text],.qctl input[type=email],.qctl input[type=tel],.qctl select,.qctl textarea{width:100%;height:42px;border:1px solid #cccccc;border-radius:0;padding:0 12px;background:#fff;color:var(--ink);font:inherit;font-size:14.5px;box-sizing:border-box;min-width:0}
+.qctl select:invalid{color:#999}
+.qctl textarea{height:auto;min-height:260px;padding:12px;line-height:1.6;resize:vertical}
+.qctl input:focus,.qctl select:focus,.qctl textarea:focus{outline:none;border-color:var(--navy)}
+.qf.err input,.qf.err select,.qf.err textarea{border-color:var(--bad)}
+.qsrc{display:grid;gap:10px;padding-top:9px}
+.qsrc-r{display:flex;flex-wrap:wrap;gap:8px 26px}
+.qck{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#555;cursor:pointer;line-height:1.4}
+.qck input{width:16px;height:16px;margin:0;accent-color:#123963;flex:none}
+.qetc{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:16px}
+.qetc input[type=text]{height:42px}
+.qagree{margin:-24px 0 0}
+.qagree .agree{margin:0 0 12px}
+.qbtns{display:flex;justify-content:center;margin:34px 0 0}
+.qsend{min-width:220px;height:52px;font-size:16px}
+.qdone{max-width:640px;margin:20px auto 0;border:1px solid #dcdcdc}
+.qdone .btn{margin-top:22px}
+@media (max-width:720px){.qgrid,.qrows{grid-template-columns:1fr;padding:20px 0 24px;gap:16px}.qf,.qrows .qf{grid-template-columns:1fr;gap:6px}.qlab{padding-top:0}.qsrc{padding-top:0}.qetc{grid-template-columns:1fr;gap:8px}.qhead{flex-wrap:wrap}.qctl textarea{min-height:200px}.qsend{width:100%}}
 </style>
 </head>
 <body>
@@ -481,6 +514,22 @@ button.card3:hover{border:0;background:#123963}
   };
   const $ = (s, el = document) => el.querySelector(s);
   const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+  /* ── 제품 구매 문의 문구(2026-11-18) ── */
+  Object.assign(T.ko, { q_title:'무엇이 궁금하신가요?', q_info:'문의자 정보', q_req:'는 필수 입력 항목입니다.', q_company:'회사', q_name:'이름', q_email:'이메일', q_phone:'연락처', q_body_t:'문의 내용', q_src:'홈페이지 유입경로',
+    q_src_l:[['search','검색엔진(네이버, 다음, 구글 등)'],['material','제품 자료'],['etc','기타']], q_etc_ph:'유입경로를 적어 주십시오.', q_subject:'제목', q_subject_ph:'○○ 제품 구매 문의', q_body:'내용', q_body_ph:'문의 제품명, 희망 납기, 포장 단위, 납품 장소 등', q_qty:'필요 수량', q_qty_ph:'월 2톤 / 연 20톤', q_usage:'사용 용도', q_usage_ph:'이차전지 전해액 첨가제', q_end:'엔드유저', q_end_ph:'최종 사용 기업(고객사)명',
+    q_agree_body:'수집 항목: 회사, 이름, 이메일, 연락처, 국가\n이용 목적: 제품 구매 문의 접수 및 회신\n보유 기간: 접수일부터 3년(또는 회사 정책에 따름), 기간이 지나면 지체 없이 파기합니다.\n동의를 거부하실 수 있으나, 거부 시 문의를 접수할 수 없습니다.',
+    q_agree_req:'개인정보 수집 및 이용에 동의해야 문의할 수 있습니다.', q_src_req:'유입경로를 하나 이상 선택해 주십시오.', q_submit:'문의하기', q_sending:'접수 중…', q_done:'문의가 접수되었습니다.', q_done_d:'담당자가 확인 후 입력하신 이메일로 회신드리겠습니다.', q_home:'처음으로',
+    q_fail:'접수하지 못했습니다. 잠시 후 다시 ‘문의하기’를 눌러 주십시오.', q_busy:'짧은 시간에 문의가 많습니다. 잠시 후 다시 시도해 주십시오.' });
+  Object.assign(T.en, { q_title:'How can we help you?', q_info:'Your Information', q_req:' indicates a required field.', q_company:'Company', q_name:'Name', q_email:'E-mail', q_phone:'Phone', q_body_t:'Inquiry', q_src:'How did you find us?',
+    q_src_l:[['search','Search engine (Google, Naver, etc.)'],['material','Product materials'],['etc','Other']], q_etc_ph:'Please specify.', q_subject:'Subject', q_subject_ph:'Purchase inquiry for ○○', q_body:'Message', q_body_ph:'product name, desired delivery date, packaging, delivery location, etc.', q_qty:'Required quantity', q_qty_ph:'2 MT/month, 20 MT/year', q_usage:'Application', q_usage_ph:'additive for battery electrolyte', q_end:'End user', q_end_ph:'name of the end-user company',
+    q_agree_body:'Items: company, name, e-mail, phone, country\nPurpose: receiving and replying to product purchase inquiries\nRetention: 3 years from receipt (or per company policy), then destroyed without delay.\nYou may refuse consent, but the inquiry cannot be submitted without it.',
+    q_agree_req:'You must agree to the personal information terms to send an inquiry.', q_src_req:'Please select at least one option.', q_submit:'Send Inquiry', q_sending:'Sending…', q_done:'Your inquiry has been received.', q_done_d:'Our team will review it and reply to the e-mail address you entered.', q_home:'Home',
+    q_fail:'Your inquiry could not be sent. Please press “Send Inquiry” again in a moment.', q_busy:'Too many inquiries in a short time. Please try again later.' });
+  Object.assign(T.zh, { q_title:'请问您想咨询什么？', q_info:'咨询人信息', q_req:'为必填项。', q_company:'公司', q_name:'姓名', q_email:'邮箱', q_phone:'联系电话', q_body_t:'咨询内容', q_src:'获知途径',
+    q_src_l:[['search','搜索引擎（百度、谷歌等）'],['material','产品资料'],['etc','其他']], q_etc_ph:'请填写获知途径。', q_subject:'标题', q_subject_ph:'关于○○产品的采购咨询', q_body:'内容', q_body_ph:'咨询产品名称、期望交期、包装规格、交货地点等', q_qty:'需求数量', q_qty_ph:'每月2吨 / 每年20吨', q_usage:'用途', q_usage_ph:'锂电池电解液添加剂', q_end:'终端用户', q_end_ph:'最终使用企业（客户）名称',
+    q_agree_body:'收集项目：公司、姓名、邮箱、联系电话、国家\n使用目的：产品采购咨询的受理及回复\n保存期限：自受理之日起3年（或按公司政策），期满后立即销毁。\n您可以拒绝同意，但拒绝后将无法提交咨询。',
+    q_agree_req:'须同意个人信息条款后方可提交咨询。', q_src_req:'请至少选择一项。', q_submit:'提交咨询', q_sending:'提交中…', q_done:'您的咨询已受理。', q_done_d:'负责人确认后将通过您填写的邮箱回复。', q_home:'返回首页',
+    q_fail:'提交失败，请稍后再点击“提交咨询”。', q_busy:'短时间内咨询过多，请稍后再试。' });
   let lang = 'ko'; try { const l = localStorage.getItem('cbp-lang'); if (T[l]) lang = l; else if (/^zh/i.test(navigator.language)) lang = 'zh'; else if (!/^ko/i.test(navigator.language)) lang = 'en'; } catch { /* 기본 */ }
   const t = (k) => T[lang][k] ?? T.ko[k] ?? k;
   const blankItem = () => ({ name:'', cas:'', grade:'', maker:'', origin:'', factory:'', capa:'', capacity:'', pack:'', lead:'', price:'', sample:'y', sales:'', customers:'', saleType:'', curItem:'', improve:'', strength:'' });
@@ -488,8 +537,9 @@ button.card3:hover{border:0;background:#123963}
   const itemReq = () => (S.d.kind === 'existing' ? ['name','saleType','improve', ...ITEM_REQ0.slice(2)] : ITEM_REQ0);   /* 기존 거래업체 개선 제안이면 「기존 대비 개선점」 필수 */
   const ITEM_LABEL = { saleType:'sale' };
   const fresh = () => ({ kind:'new', mains:[{ item:'', cat:'' }], contact:'', title:'', email:'', phone:'', company:'', role:'', website:'', country:'', items:[blankItem()], files:{}, agree:false });
-  const viewOfHash = () => (location.hash === '#supply' ? 'supply' : (location.hash === '#status' ? 'status' : 'home'));
-  const S = { view: viewOfHash(), step:1, errs:null, busy:false, failMsg:'', d:fresh() };
+  const viewOfHash = () => (location.hash === '#supply' ? 'supply' : (location.hash === '#status' ? 'status' : (location.hash === '#buy' ? 'buy' : 'home')));
+  const freshQ = () => ({ company:'', name:'', email:'', phone:'', country:'', src:[], srcEtc:'', subject:'', qty:'', usage:'', endUser:'', body:'', agree:false });
+  const S = { view: viewOfHash(), step:1, errs:null, busy:false, failMsg:'', d:fresh(), q:freshQ(), qerr:null, qbusy:false, qfail:'', qno:'', qdone:false };
   const ICON = {
     flask:'<svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#11295a" stroke-width="2" aria-hidden="true"><path d="M25 8h14M27 8v16L13 50a5 5 0 0 0 4 7h30a5 5 0 0 0 4-7L37 24V8"/><path d="M18 40c6-3 10 3 16 0s10 2 13 0" stroke="#11295a"/><circle cx="26" cy="47" r="3" stroke="#11295a"/><circle cx="38" cy="49" r="3" stroke="#11295a"/></svg>',
     supply:'<svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#11295a" stroke-width="2" aria-hidden="true"><path d="M10 26l22-12 22 12v22L32 60 10 48z"/><path d="M10 26l22 12 22-12M32 38v22" stroke="#11295a"/><path d="M40 8h14v14" stroke="#11295a"/><path d="M54 8L42 20" stroke="#11295a"/></svg>',
@@ -531,7 +581,7 @@ button.card3:hover{border:0;background:#123963}
       <h1 class="sr-only">${esc(t('inq_title'))}</h1>
       <h2 class="biz-h">${esc(t('biz_t'))}</h2><div class="biz" role="list">${(t('biz') || []).map((b, i) => `<div class="biz-i biz-${i + 1}" role="listitem"><div class="biz-bg" aria-hidden="true">${BIZ_ART[i] || ''}</div><div class="biz-tx"><b>${esc(b[0])}</b><span>${esc(b[1])}</span><span>${esc(b[2])}</span></div></div>`).join('')}</div>
       <div class="cards">
-        <div class="card3 dim"><span class="soon">${esc(t('soon'))}</span>${ICON.flask}<h3>${esc(t('c1'))}</h3></div>
+        <div class="card3 is-btn" data-go="buy" role="button" tabindex="0">${ICON.flask}<h3>${esc(t('c1'))}</h3><span class="go">${esc(t('go'))} <i></i></span></div>
         <div class="card3 is-btn" data-go="supply" role="button" tabindex="0"><button type="button" class="wishbtn" data-wish>${esc(t('c2wish'))}</button>${ICON.supply}<h3>${esc(t('c2'))}</h3><span class="go">${esc(t('go'))} <i></i></span></div>
       </div></div></section>`;
   }
@@ -690,6 +740,62 @@ button.card3:hover{border:0;background:#123963}
     S.busy = false; render(); $('#form') && $('#form').scrollIntoView({ block:'start' });
   }
 
+  /* ── 제품 구매 문의(2026-11-18) — 문의자 정보(회사 · 이름 · 이메일 · 연락처 · 국가) / 문의 내용(유입경로 · 제목 · 내용) ── */
+  const qf = (k, label, o = {}) => { const q = S.q, err = S.qerr && S.qerr[k]; const id = `q_${k}`;
+    const ctl = o.type === 'select' ? `<select id="${id}" data-q="${k}" required>${o.options.map(([a, b]) => `<option value="${esc(a)}"${q[k] === a ? ' selected' : ''}>${esc(b)}</option>`).join('')}</select>`
+      : (o.type === 'area' ? `<textarea id="${id}" data-q="${k}" placeholder="${esc(eg(o.ph || ''))}">${esc(q[k])}</textarea>`
+      : `<input id="${id}" data-q="${k}" type="${o.type || 'text'}" value="${esc(q[k])}"${o.ph ? ` placeholder="${esc(eg(o.ph))}"` : ''}${o.ac ? ` autocomplete="${o.ac}"` : ''}>`);
+    return `<div class="qf${err ? ' err' : ''}"><label class="qlab" for="${id}">${esc(label)}${o.opt ? '' : '<span class="req">*</span>'}</label><div class="qctl">${ctl}${err ? `<span class="msg">${esc(err)}</span>` : ''}</div></div>`; };
+  function viewBuy(){
+    const q = S.q, er = S.qerr || {};
+    const head = (h) => `<div class="qhead"><h2>${esc(h)}</h2><p class="qnote"><span class="req">*</span>${esc(t('q_req'))}</p></div>`;
+    const body = S.qdone ? `<div class="card done qdone"><div class="mark">✓</div><h2>${esc(t('q_done'))}</h2>${S.qno ? `<p class="refno">${esc(t('refno'))} <b>${esc(S.qno)}</b></p>` : ''}<p class="refno-d">${esc(t('q_done_d'))}</p><button type="button" class="btn" data-home>${esc(t('q_home'))}</button></div>`
+      : `<section class="qsec" id="qs-info">${head(t('q_info'))}<div class="qgrid">
+          ${qf('company', t('q_company'), { ac:'organization' })}${qf('name', t('q_name'), { ac:'name' })}
+          ${qf('email', t('q_email'), { type:'email', ac:'email' })}${qf('phone', t('q_phone'), { type:'tel', ac:'tel' })}
+          ${qf('country', t('country'), { type:'select', options:[['', t('select')], ...t('countries').map((x) => [x, x])] })}
+        </div></section>
+        <section class="qsec" id="qs-body">${head(t('q_body_t'))}<div class="qrows">
+          <div class="qf${er.src ? ' err' : ''}"><span class="qlab">${esc(t('q_src'))}<span class="req">*</span></span><div class="qctl"><div class="qsrc">
+            <div class="qsrc-r">${t('q_src_l').filter(([k]) => k !== 'etc').map(([k, l]) => `<label class="qck"><input type="checkbox" data-qsrc="${k}"${q.src.includes(k) ? ' checked' : ''}>${esc(l)}</label>`).join('')}</div>
+            <div class="qetc">${t('q_src_l').filter(([k]) => k === 'etc').map(([k, l]) => `<label class="qck"><input type="checkbox" data-qsrc="${k}"${q.src.includes(k) ? ' checked' : ''}>${esc(l)}</label>`).join('')}<input type="text" id="q_srcEtc" data-q="srcEtc" value="${esc(q.srcEtc)}" placeholder="${esc(t('q_etc_ph'))}" aria-label="${esc(t('q_etc_ph'))}"></div>
+          </div>${er.src ? `<span class="msg">${esc(er.src)}</span>` : ''}</div></div>
+          ${qf('subject', t('q_subject'), { ph:t('q_subject_ph') })}
+          ${qf('qty', t('q_qty'), { ph:t('q_qty_ph'), opt:1 })}
+          ${qf('usage', t('q_usage'), { ph:t('q_usage_ph'), opt:1 })}
+          ${qf('endUser', t('q_end'), { ph:t('q_end_ph'), opt:1 })}
+          ${qf('body', t('q_body'), { type:'area', ph:t('q_body_ph') })}
+        </div></section>
+        <div class="qagree"><div class="agree">${esc(t('q_agree_body'))}</div>
+          <label class="ck ${q.agree ? 'on' : ''}" for="qAgree"><input type="checkbox" id="qAgree" data-qagree ${q.agree ? 'checked' : ''}>${esc(t('agree'))}</label>
+          ${er.agree ? `<p class="msg">${esc(er.agree)}</p>` : ''}</div>
+        ${S.qfail ? `<div class="alert" role="alert" style="margin:18px 0 0">${esc(S.qfail)}</div>` : ''}
+        <div class="qbtns"><button type="button" class="btn pri qsend" data-qsubmit ${S.qbusy ? 'disabled' : ''}>${esc(S.qbusy ? t('q_sending') : t('q_submit'))}</button></div>`;
+    return `${subTop([t('inq_title'), t('c1')])}<section class="wrap intro"><h1 class="ptitle">${esc(t('q_title'))}</h1></section><main class="wrap main qmain" id="qForm">${body}</main>`;
+  }
+  function qcheck(){
+    const q = S.q, e = {}; ['company','name','email','phone','country','subject','body'].forEach((k) => { if (!String(q[k] || '').trim()) e[k] = t('required'); });
+    if (!e.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(q.email.trim())) e.email = t('email_bad');
+    if (!q.src.length) e.src = t('q_src_req');
+    if (!q.agree) e.agree = t('q_agree_req');
+    S.qerr = e; return !Object.keys(e).length;
+  }
+  async function qsubmit(){
+    if (S.qbusy) return;
+    S.qfail = '';
+    if (!qcheck()) { render(); const f = $('.qf.err input, .qf.err select, .qf.err textarea') || $('.qagree .msg'); if (f) { f.scrollIntoView({ block:'center' }); if (f.focus) f.focus({ preventScroll:true }); } return; }
+    if (!/^https:\/\/script\.google(usercontent)?\.com\//.test(ENDPOINT)) { S.qfail = t('not_ready'); render(); return; }
+    S.qbusy = true; render();
+    try {
+      const q = S.q;
+      const payload = { action:'inquiry', lang, company:q.company.trim(), name:q.name.trim(), email:q.email.trim(), phone:q.phone.trim(), country:q.country, source:q.src.slice(), sourceEtc:q.src.includes('etc') ? q.srcEtc.trim() : '', subject:q.subject.trim(), qty:q.qty.trim(), usage:q.usage.trim(), endUser:q.endUser.trim(), body:q.body.trim(), agree:true, hp:'' };
+      const r = await fetch(ENDPOINT, { method:'POST', body: JSON.stringify(payload) }); const j = await r.json();
+      if (!j || !j.ok) throw new Error((j && j.error) || 'fail');
+      S.qno = j.no || ''; S.qdone = true; S.q = freshQ(); S.qerr = null;
+    } catch (err) { S.qfail = String(err && err.message) === 'busy' ? t('q_busy') : t('q_fail'); }
+    S.qbusy = false; render(); window.scrollTo(0, 0);
+  }
+
   /* ── 그리기 · 이벤트 ── */
   /* ── STEP 0 공급 제안 프로세스 소개(팝업) ── */
   function openIntro(){
@@ -759,10 +865,10 @@ button.card3:hover{border:0;background:#123963}
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
     $('#langBox').innerHTML = [['ko','KOR'],['en','ENG'],['zh','中文']].map(([k, l]) => `<button type="button" data-lang="${k}" aria-pressed="${lang === k}">${l}</button>`).join('');
     $('#stBtn span').textContent = t('lk_t'); 
-    renderWish(); $('#stBtn').setAttribute('aria-pressed', String(S.view === 'status')); $('.hbtns').hidden = S.view === 'home';   /* 공급 희망 품목 · 진행현황 확인 = 공급 제안 문의 화면 안에서만 */
-    $('#view').innerHTML = S.view === 'supply' ? viewSupply() : (S.view === 'status' ? viewStatus() : viewHome());
+    renderWish(); $('#stBtn').setAttribute('aria-pressed', String(S.view === 'status')); $('.hbtns').hidden = S.view === 'home' || S.view === 'buy';   /* 공급 희망 품목 · 진행현황 확인 = 공급 제안 문의 화면 안에서만 */
+    $('#view').innerHTML = S.view === 'supply' ? viewSupply() : (S.view === 'status' ? viewStatus() : (S.view === 'buy' ? viewBuy() : viewHome()));
   }
-  const goView = (v) => { S.view = v; if (v === 'supply') loadWish(); if (v === 'supply' && S.step === 4) { S.step = 1; } try { history.replaceState(null, '', v === 'home' ? location.pathname : `#${v}`); } catch { location.hash = v === 'home' ? '' : v; } render(); window.scrollTo(0, 0); };
+  const goView = (v) => { S.view = v; if (v === 'buy' && S.qdone) { S.qdone = false; S.qno = ''; } if (v === 'supply') loadWish(); if (v === 'supply' && S.step === 4) { S.step = 1; } try { history.replaceState(null, '', v === 'home' ? location.pathname : `#${v}`); } catch { location.hash = v === 'home' ? '' : v; } render(); window.scrollTo(0, 0); };
   const addFiles = (k, list) => { const arr = S.d.files[k] || (S.d.files[k] = []); [...list].forEach((f) => arr.push({ name:f.name, size:f.size, type:f.type, file:f })); if (S.errs) { delete S.errs[`att_${k}`]; delete S.errs.size; } render(); };
   document.addEventListener('click', (e) => {
     const lb = e.target.closest('[data-lang]'); if (lb) { lang = lb.dataset.lang; try { localStorage.setItem('cbp-lang', lang); } catch { /* 무시 */ } render(); return; }
@@ -770,6 +876,8 @@ button.card3:hover{border:0;background:#123963}
     if (e.target.closest('[data-wish]')) return;   /* 카드 오른쪽 위 「공급제안 희망품목」 — 목록 팝업만 */
     if (e.target.closest('[data-go="supply"]')) { goView('supply'); return; }
     if (e.target.closest('[data-go="status"]')) { goView('status'); return; }
+    if (e.target.closest('[data-go="buy"]')) { goView('buy'); return; }
+    if (e.target.closest('[data-qsubmit]')) { qsubmit(); return; }
     const jp = e.target.closest('[data-jump]'); if (jp) { const [sec, idx] = jp.dataset.jump.split('|'); if (idx !== undefined) { S.itemSel = +idx; render(); } const sc = $(`#sec-${sec}`); if (sc) { sc.scrollIntoView({ behavior:'smooth', block:'start' }); const f = sc.querySelector('.f.err input, .f.err select, .f.err textarea'); if (f) setTimeout(() => f.focus({ preventScroll:true }), 400); } return; }
     if (e.target.closest('[data-submit]')) { submit(); return; }
     if (e.target.closest('[data-miadd]')) { if (S.d.mains.length < 10) { S.d.mains.push({ item:'', cat:'' }); render(); $('#f_mi_' + (S.d.mains.length - 1))?.focus({ preventScroll:true }); } return; }
@@ -782,9 +890,14 @@ button.card3:hover{border:0;background:#123963}
     const rf = e.target.closest('[data-rmf]'); if (rf) { const [k, j] = rf.dataset.rmf.split('|'); S.d.files[k].splice(+j, 1); render(); }
   });
   document.addEventListener('submit', (e) => { if (e.target.id === 'lkForm') { e.preventDefault(); lookup(); } });
-  document.addEventListener('input', (e) => { const el = e.target; if (el.dataset && el.dataset.lk) { S.lk[el.dataset.lk] = el.value; return; } if (el.dataset && el.dataset.mi) { const [i, k] = el.dataset.mi.split('|'); S.d.mains[+i][k] = el.value; return; } if (!el.dataset || !el.dataset.k) return; if (el.dataset.i !== undefined) S.d.items[+el.dataset.i][el.dataset.k] = el.value; else S.d[el.dataset.k] = el.value; });
+  /* 입력하면 그 칸 빨간 표시만 지움(글 줄은 자리 그대로 숨김 — 화면이 밀려 옆 칸 클릭이 빗나가지 않게) */
+  const qok = (el) => { const k = el.dataset.q; if (!S.qerr || !S.qerr[k] || !String(el.value).trim()) return; delete S.qerr[k]; const f = el.closest('.qf'); if (f) { f.classList.remove('err'); const m = f.querySelector('.msg'); if (m) m.style.visibility = 'hidden'; } };
+  document.addEventListener('input', (e) => { const el = e.target; if (el.dataset && el.dataset.q) { S.q[el.dataset.q] = el.value; qok(el); return; } if (el.dataset && el.dataset.lk) { S.lk[el.dataset.lk] = el.value; return; } if (el.dataset && el.dataset.mi) { const [i, k] = el.dataset.mi.split('|'); S.d.mains[+i][k] = el.value; return; } if (!el.dataset || !el.dataset.k) return; if (el.dataset.i !== undefined) S.d.items[+el.dataset.i][el.dataset.k] = el.value; else S.d[el.dataset.k] = el.value; });
   document.addEventListener('change', (e) => {
     const el = e.target;
+    if (el.dataset.q) { S.q[el.dataset.q] = el.value; qok(el); return; }
+    if (el.dataset.qsrc) { const k = el.dataset.qsrc, a = S.q.src; if (el.checked) { if (!a.includes(k)) a.push(k); } else S.q.src = a.filter((x) => x !== k); if (S.qerr) delete S.qerr.src; render(); if (k === 'etc' && el.checked) $('#q_srcEtc')?.focus(); return; }
+    if (el.hasAttribute('data-qagree')) { S.q.agree = el.checked; if (S.qerr) delete S.qerr.agree; render(); return; }
     if (el.dataset.mi) { const [i, k] = el.dataset.mi.split('|'); S.d.mains[+i][k] = el.value; return; }
     if (el.dataset.k && el.tagName === 'SELECT') { if (el.dataset.i !== undefined) S.d.items[+el.dataset.i][el.dataset.k] = el.value; else S.d[el.dataset.k] = el.value; return; }
     if (el.dataset.file) { addFiles(el.dataset.file, el.files); return; }
